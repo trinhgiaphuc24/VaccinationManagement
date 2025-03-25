@@ -37,7 +37,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'vaccine.apps.VaccineConfig',
+    'ckeditor',
+    'ckeditor_uploader',
+    'rest_framework',
+    'drf_yasg',
+    'oauth2_provider'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('oauth2_provider.contrib.rest_framework.OAuth2Authentication',)
+}
+
+AUTH_USER_MODEL = 'vaccine.User'
+
+CKEDITOR_UPLOAD_PATH = "ckeditors/lessons/"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -75,11 +89,26 @@ WSGI_APPLICATION = 'vaccineapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'vaccine_db',
+        'USER': 'root',
+        'PASSWORD': '040204',
+        'HOST': ''
     }
 }
 
+import pymysql
+
+pymysql.install_as_MySQLdb()
+
+import cloudinary.uploader
+
+cloudinary.config(
+    cloud_name="duk7gxwvc",
+    api_key="653944787632934",
+    api_secret="GY20iNSIGW6CdrY1s1cDGwMKrqY",
+    secure=True
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -121,3 +150,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#CLIENT_ID = 'h3BhTLsG4Xusrg9SUVopfFdthFE9JRw8GHVxS6d4'
+#CLIENT_SECRET = 'T3yFfvh6j3xFBGpadIAQAdOoLJamnYJmDmu53x09k66LvbUXzsD3d191xiRF82f7JPvxLUhQBMz3NzAFfDxqOJTzwYwUvMgERQQfZy34ypQ6yYtd8BMXQau9XsvZKtB7'

@@ -20,7 +20,7 @@ class BaseModel(models.Model):
 class User(AbstractUser):
     email = models.EmailField(unique=True)
     phone_number = models.CharField(max_length=15, blank=True, null=True)
-    sex = models.BooleanField(null=True)  # Thêm sex
+    sex = models.BooleanField(null=True)
     dateOfBirth = models.DateField(null=True)
     is_active = models.BooleanField(default=True)
     createdAt = models.DateTimeField(auto_now_add=True, null=True)
@@ -76,6 +76,7 @@ class CountryProduce(BaseModel):
 class Vaccine(BaseModel):
     description = models.TextField()
     price = models.FloatField()
+    imgUrl = CloudinaryField('imgvaccine', null=True)
     vaccine_type = models.ForeignKey(VaccineType, on_delete=models.CASCADE,null=True,
     blank=True, related_name="vaccinetype")
     country_produce = models.ForeignKey(CountryProduce, on_delete=models.SET_NULL,
@@ -121,6 +122,14 @@ class CommunicationVaccination(BaseModel):
     date = models.DateField()
     time = models.DateTimeField()
     address = models.TextField()
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+class New(BaseModel):
+    imgNew = CloudinaryField('imgnew', null=True)
+    createdAt = models.DateField(null=True)
     description = models.TextField()
 
     def __str__(self):

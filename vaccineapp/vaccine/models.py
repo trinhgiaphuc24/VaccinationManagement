@@ -10,8 +10,8 @@ class RoleEnum(models.TextChoices):
 
 
 class BaseModel(models.Model):
+    active = models.BooleanField(default=True)
     name = models.CharField(max_length=100, null=False, unique=True)
-    # active = models.BooleanField(default=True)
 
     class Meta:
         abstract = True
@@ -85,6 +85,9 @@ class Vaccine(BaseModel):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ['id']
 
 
 class Time(models.Model):

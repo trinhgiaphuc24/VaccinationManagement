@@ -3,7 +3,8 @@ from . import views
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
-router.register('vaccine',views.VaccineViewSet, basename='vaccine')
+router.register('vaccines',views.VaccineViewSet, basename='vaccine')
+router.register('vaccine-types', views.VaccineTypeViewSet, basename='vaccine-type')
 # router.register('courses',views.CourseViewSet, basename='course')
 # router.register('lessons',views.LessonViewSet, basename='lesson')
 # router.register('users', views.UserViewSet, basename='user')

@@ -6,31 +6,44 @@ from django import forms
 from django.db.models import Count
 from django.template.response import TemplateResponse
 
-from vaccine.models import User, Account, Information, Vaccine, HealthCentre, Time, Appointment
+from vaccine.models import User, Information, Vaccine, HealthCentre, Time, Appointment, VaccineType, AppointmentDetail
+
+
+class MyVaccineAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'active', 'createdAt', 'vaccine_type']
+    search_fields = ['name']
+    list_filter = ['id', 'createdAt']
+    list_editable = ['name']
+    readonly_fields = ['image_view']
+    list_per_page = 10
+
+    def image_view(self, course):
+        return mark_safe(f"<img src='/static/{course.image.name}' width='200' />")
+
 
 
 class MyCourseAdminSite(admin.AdminSite):
     site_header = 'Vaccine Management Admin'
 
 
-    # def get_urls(self):
-    #     return [path('cate-stats/', self.cate_stats_view)] + super().get_urls()
+    def get_urls(self):
+        return [path('cate-stats/', self.cate_stats_view)] + super().get_urls()
 
 
-    # def cate_stats_view(self, request):
-    #     stats = Category.objects.annotate(course_count=Count('course__id')).values('id', 'name', 'course_count')
-    #
-    #     return TemplateResponse(request, 'admin/stats.html', {
-    #         'stats': stats
-    #     })
+    def cate_stats_view(self, request):
+        stats = VaccineType.objects.annotate(vaccine_count=Count('vaccinetype')).values('id', 'name', 'vaccine_count')
+
+        return TemplateResponse(request, 'admin/stats.html', {
+            'stats': stats
+        })
 
 
 admin_site = MyCourseAdminSite(name='vaccine')
 
-admin_site.register(Vaccine)
+admin_site.register(Vaccine, MyVaccineAdmin)
 admin_site.register(Information)
 admin_site.register(Appointment)
-admin_site.register(Account)
+admin_site.register(AppointmentDetail)
 admin_site.register(User)
 admin_site.register(HealthCentre)
 admin_site.register(Time)

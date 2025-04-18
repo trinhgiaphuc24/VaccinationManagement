@@ -23,6 +23,8 @@ class User(AbstractUser):
     sex = models.BooleanField(null=True)
     dateOfBirth = models.DateField(null=True)
     is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)  # Cho phép truy cập admin
+    is_superuser = models.BooleanField(default=False)  # Super quyền
     createdAt = models.DateTimeField(auto_now_add=True, null=True)
     avatarUrl = CloudinaryField('avatar', null=True)
     userRole = models.CharField(max_length=20, choices=RoleEnum.choices,
@@ -32,13 +34,13 @@ class User(AbstractUser):
         return self.username
 
 
-class Account(models.Model):
-    username = models.CharField(max_length=150, unique=True)
-    password = models.CharField(max_length=128)
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="account")
-
-    def __str__(self):
-        return self.username
+# class Account(models.Model):
+#     username = models.CharField(max_length=150, unique=True)
+#     password = models.CharField(max_length=128)
+#     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="account")
+#
+#     def __str__(self):
+#         return self.username
 
 
 class Information(models.Model):
@@ -79,6 +81,7 @@ class Vaccine(BaseModel):
     imgUrl = CloudinaryField('imgvaccine', null=True)
     vaccine_type = models.ForeignKey(VaccineType, on_delete=models.CASCADE,null=True,
     blank=True, related_name="vaccinetype")
+    createdAt = models.DateTimeField(auto_now_add=True, null=True)
     country_produce = models.ForeignKey(CountryProduce, on_delete=models.SET_NULL,
         null=True,
         blank=True, related_name="countryproduce")
@@ -115,7 +118,7 @@ class Appointment(models.Model):
 class AppointmentDetail(models.Model):
     appointment = models.ForeignKey(Appointment, on_delete=models.CASCADE, related_name="appointment_details")
     vaccine = models.ForeignKey(Vaccine, on_delete=models.CASCADE, related_name="appointment_details")
-    quantity = models.IntegerField()
+    # quantity = models.IntegerField()
 
     def __str__(self):
         return f"Detail for {self.appointment} - Vaccine: {self.vaccine.name}"

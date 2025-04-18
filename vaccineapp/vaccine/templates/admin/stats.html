@@ -1,10 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'admin/base_site.html' %}
 
-</body>
-</html>
+{% block content %}
+<h1>THỐNG KÊ SỐ LƯỢNG VACCINE THEO LOAI</h1>
+
+<ul>
+    {% for s in stats %}
+    <li>{{ s.id }} - {{ s.name }}: {{ s.vaccine_count }}</li>
+    {% endfor %}
+</ul>
+
+<div style="width: 50%;">
+  <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+
+    let data = [];
+    let labels = [];
+    {% for s in stats %}
+    data.push({{ s.vaccine_count }})
+    labels.push('{{ s.name }}')
+    {% endfor %}
+
+window.onload = function() {
+      const ctx = document.getElementById('myChart');
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: '# Số lượng',
+            data: data,
+            borderWidth: 1,
+            backgroundColor: ['red', 'green', 'blue']
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+}
+</script>
+
+{% endblock %}

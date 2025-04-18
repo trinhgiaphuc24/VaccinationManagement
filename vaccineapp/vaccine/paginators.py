@@ -5,5 +5,8 @@ from rest_framework import pagination
 class VaccinePagination(PageNumberPagination):
     page_size = 10
 
-# class CommentPaginator(pagination.PageNumberPagination):
-#     page_size = 3
+class HealthCenterPagination(PageNumberPagination):
+    page_size = 10
+
+class TimePagination(PageNumberPagination):
+    page_size = 10

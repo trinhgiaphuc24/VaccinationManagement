@@ -1,6 +1,8 @@
+from threading import activeCount
+
 from rest_framework import viewsets, generics, permissions, parsers, status
 from rest_framework.filters import OrderingFilter
-from vaccine.models import Vaccine, VaccineType, CommunicationVaccination, User, RoleEnum, CountryProduce, HealthCentre, AppointmentDetail, Information, Appointment, New, Time
+from vaccine.models import Vaccine, VaccineType, CommunicationVaccination, User, RoleEnum, CountryProduce, HealthCenter, AppointmentDetail, Information, Appointment, New, Time
 from vaccine import serializers, paginators, perms
 from rest_framework.response import Response
 from rest_framework.decorators import action
@@ -37,3 +39,15 @@ class VaccineViewSet(viewsets.ModelViewSet):
 class VaccineTypeViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = VaccineType.objects.filter(active=True)
     serializer_class = VaccineTypeSerializer
+
+
+class HealthCenterViewSet(viewsets.ModelViewSet):
+    queryset = HealthCenter.objects.filter(active=True)
+    serializer_class = serializers.HealthCenterSerializer
+    pagination_class = paginators.HealthCenterPagination
+
+
+class TimeViewSet(viewsets.ModelViewSet):
+    queryset = Time.objects.filter(active=True)
+    serializer_class = serializers.TimeSerializer
+    pagination_class = paginators.TimePagination

@@ -57,7 +57,7 @@ class Information(models.Model):
         return f"{self.first_name} {self.last_name}"
 
 
-class HealthCentre(BaseModel):
+class HealthCenter(BaseModel):
     address = models.TextField()
 
     def __str__(self):
@@ -94,8 +94,9 @@ class Vaccine(BaseModel):
 
 
 class Time(models.Model):
-    time_start = models.DateTimeField()
-    time_end = models.DateTimeField()
+    time_start = models.CharField(max_length=255)
+    time_end = models.CharField(max_length=255)
+    active = models.BooleanField(default=True)
 
     def __str__(self):
         return f"{self.time_start} - {self.time_end}"
@@ -107,7 +108,7 @@ class Appointment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     note = models.TextField(blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="appointments")
-    health_centre = models.ForeignKey(HealthCentre, on_delete=models.CASCADE, related_name="appointments")
+    health_centre = models.ForeignKey(HealthCenter, on_delete=models.CASCADE, related_name="appointments")
     # vaccines = models.ManyToManyField(Vaccine, related_name="appointments")
     time = models.ForeignKey(Time, on_delete=models.CASCADE, related_name="appointments")
 

@@ -6,7 +6,7 @@ from django import forms
 from django.db.models import Count
 from django.template.response import TemplateResponse
 
-from vaccine.models import User, Information, Vaccine, HealthCentre, Time, Appointment, VaccineType, AppointmentDetail
+from vaccine.models import User, Information, Vaccine, HealthCenter, Time, Appointment, VaccineType, AppointmentDetail
 
 
 class MyVaccineAdmin(admin.ModelAdmin):
@@ -45,5 +45,5 @@ admin_site.register(Information)
 admin_site.register(Appointment)
 admin_site.register(AppointmentDetail)
 admin_site.register(User)
-admin_site.register(HealthCentre)
+admin_site.register(HealthCenter)
 admin_site.register(Time)

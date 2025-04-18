@@ -1,4 +1,4 @@
-from vaccine.models import Vaccine, VaccineType, CommunicationVaccination, User, RoleEnum, CountryProduce, HealthCentre, AppointmentDetail, Information, Appointment, New, Time
+from vaccine.models import Vaccine, VaccineType, CommunicationVaccination, User, RoleEnum, CountryProduce, HealthCenter, AppointmentDetail, Information, Appointment, New, Time
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer, SerializerMethodField
 
@@ -19,3 +19,14 @@ class VaccineSerializer(ModelSerializer):
     class Meta:
         model = Vaccine
         fields = ['id', 'name', 'price', 'country_produce', 'vaccine_type', 'imgUrl']
+
+class HealthCenterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HealthCenter
+        fields = ['id', 'name', 'address']
+
+
+class TimeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Time
+        fields = ['id', 'time_start', 'time_end']

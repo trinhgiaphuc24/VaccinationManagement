@@ -8,6 +8,16 @@ class RoleEnum(models.TextChoices):
     STAFF = "staff", "Staff"
     PATIENT = "patient", "Patient"
 
+class StatusEnum(models.TextChoices):
+    CHO_XAC_NHAN = "waited", "Waited"
+    DA_XAC_NHAN = "confirmed", "Confirmed"
+    DA_HOAN_THANH = "completed", "Completed"
+    DA_HUY = "canceled", "Canceled"
+
+class SexEnum(models.TextChoices):
+    NAM = "male", "Male"
+    NU = "female", "Female"
+
 
 class BaseModel(models.Model):
     active = models.BooleanField(default=True)
@@ -20,7 +30,7 @@ class BaseModel(models.Model):
 class User(AbstractUser):
     email = models.EmailField(unique=True)
     phone_number = models.CharField(max_length=15, blank=True, null=True)
-    sex = models.BooleanField(null=True)
+    sex = models.CharField(max_length=20, choices=SexEnum.choices, null=True)
     dateOfBirth = models.DateField(null=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)  # Cho phép truy cập admin
@@ -104,7 +114,7 @@ class Time(models.Model):
 
 class Appointment(models.Model):
     date = models.DateField()
-    status = models.CharField(max_length=50)
+    status = models.CharField(max_length=20, choices=StatusEnum.choices,default=StatusEnum.CHO_XAC_NHAN)
     created_at = models.DateTimeField(auto_now_add=True)
     note = models.TextField(blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="appointments")

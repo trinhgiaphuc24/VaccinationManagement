@@ -42,18 +42,27 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'rest_framework',
     'drf_yasg',
-    'oauth2_provider'
+    'oauth2_provider',
+    'corsheaders'
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('oauth2_provider.contrib.rest_framework.OAuth2Authentication',)
 }
 
+
+
+# OAUTH2_PROVIDER = {
+#     'SCOPES': {'read': 'Read scope', 'write': 'Write scope'},
+#     'ACCESS_TOKEN_EXPIRE_SECONDS': 36000,
+# }
+
 AUTH_USER_MODEL = 'vaccine.User'
 
 CKEDITOR_UPLOAD_PATH = "ckeditors/lessons/"
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -62,6 +71,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'vaccineapp.urls'
 
@@ -151,5 +162,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#CLIENT_ID = 'h3BhTLsG4Xusrg9SUVopfFdthFE9JRw8GHVxS6d4'
-#CLIENT_SECRET = 'T3yFfvh6j3xFBGpadIAQAdOoLJamnYJmDmu53x09k66LvbUXzsD3d191xiRF82f7JPvxLUhQBMz3NzAFfDxqOJTzwYwUvMgERQQfZy34ypQ6yYtd8BMXQau9XsvZKtB7'
+CLIENT_ID = 'sNae37tnrfYXItESVHv1F3vfenOWoS4xvgdibYec'
+CLIENT_SECRET = 'I9Q6iYwXmtnEHu27JZjPdebX34KzDncNyi3DkOb3o1OMwdx8dx8TUCaBjYuplE27yYWp6AZUGhHGOb6Y3Q3HwRy5ssxzCfKBwZYf1u6AATcJI6INUGyI0fFcXgt03wgY'

@@ -28,9 +28,11 @@ class BaseModel(models.Model):
 
 
 class User(AbstractUser):
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
     phone_number = models.CharField(max_length=15, blank=True, null=True)
-    sex = models.CharField(max_length=20, choices=SexEnum.choices, null=True)
+    sex = models.CharField(max_length=20, choices=SexEnum.choices, null=True, default=SexEnum.NAM)
     dateOfBirth = models.DateField(null=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)  # Cho phép truy cập admin
@@ -42,15 +44,6 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username
-
-
-# class Account(models.Model):
-#     username = models.CharField(max_length=150, unique=True)
-#     password = models.CharField(max_length=128)
-#     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="account")
-#
-#     def __str__(self):
-#         return self.username
 
 
 class Information(models.Model):

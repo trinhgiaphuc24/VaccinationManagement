@@ -75,3 +75,72 @@ class TimeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Time
         fields = ['id', 'time_start', 'time_end']
+
+
+class InformationSerializer(serializers.ModelSerializer):
+    # Tùy chỉnh trường date_of_birth để nhận dữ liệu dạng chuỗi "DD/MM/YYYY"
+    date_of_birth = serializers.DateField(format="%d/%m/%Y", input_formats=["%d/%m/%Y"])
+
+    class Meta:
+        model = Information
+        fields = [
+            "id", "first_name", "last_name", "phone_number", "date_of_birth", "sex", "address", "email", "user",
+        ]
+
+    # def validate_phone_number(self, value):
+    #     # Kiểm tra định dạng số điện thoại (ví dụ: 10-15 chữ số)
+    #     if not value.isdigit() or len(value) < 10 or len(value) > 11:
+    #         raise serializers.ValidationError("Số điện thoại phải chứa từ 10 đến 11 chữ số.")
+    #     return value
+    #
+    # def validate_email(self, value):
+    #     # Kiểm tra email duy nhất (nếu có)
+    #     if value and Information.objects.filter(email=value).exists():
+    #         raise serializers.ValidationError("Email này đã được sử dụng.")
+    #     return value
+
+    def create(self, validated_data):
+        # Tạo mới một Information object
+        return Information.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        # Cập nhật Information object
+        instance.first_name = validated_data.get("first_name", instance.first_name)
+        instance.last_name = validated_data.get("last_name", instance.last_name)
+        instance.phone_number = validated_data.get("phone_number", instance.phone_number)
+        instance.date_of_birth = validated_data.get("date_of_birth", instance.date_of_birth)
+        instance.sex = validated_data.get("sex", instance.sex)
+        instance.address = validated_data.get("address", instance.address)
+        instance.email = validated_data.get("email", instance.email)
+        instance.user = validated_data.get("user", instance.user)
+        instance.save()
+        return instance
+
+
+class AppointmentDetailSerializer(serializers.ModelSerializer):
+    vaccine = serializers.PrimaryKeyRelatedField(queryset=Vaccine.objects.all())
+
+    class Meta:
+        model = AppointmentDetail
+        fields = ['id', 'vaccine']  # Không cần quantity vì đã bị comment trong model
+
+class AppointmentSerializer(serializers.ModelSerializer):
+    appointment_details = AppointmentDetailSerializer(many=True, write_only=True)
+    information = serializers.PrimaryKeyRelatedField(queryset=Information.objects.all())
+    health_centre = serializers.PrimaryKeyRelatedField(queryset=HealthCenter.objects.all())
+    time = serializers.PrimaryKeyRelatedField(queryset=Time.objects.all())
+
+    class Meta:
+        model = Appointment
+        fields = ['id', 'date', 'status', 'created_at', 'note', 'information', 'health_centre', 'time', 'appointment_details']
+        read_only_fields = ['id', 'created_at']
+
+    def create(self, validated_data):
+        # Lấy danh sách appointment_details (các vaccine được chọn)
+        appointment_details_data = validated_data.pop('appointment_details')
+        # Tạo Appointment
+        appointment = Appointment.objects.create(**validated_data)
+        # Tạo các AppointmentDetail tương ứng với mỗi vaccine
+        for detail_data in appointment_details_data:
+            AppointmentDetail.objects.create(appointment=appointment, **detail_data)
+        return appointment

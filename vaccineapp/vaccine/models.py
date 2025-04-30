@@ -110,7 +110,7 @@ class Appointment(models.Model):
     status = models.CharField(max_length=20, choices=StatusEnum.choices,default=StatusEnum.CHO_XAC_NHAN)
     created_at = models.DateTimeField(auto_now_add=True)
     note = models.TextField(blank=True, null=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="appointments")
+    information = models.ForeignKey(Information, on_delete=models.CASCADE, related_name="appointments", null=True)
     health_centre = models.ForeignKey(HealthCenter, on_delete=models.CASCADE, related_name="appointments")
     # vaccines = models.ManyToManyField(Vaccine, related_name="appointments")
     time = models.ForeignKey(Time, on_delete=models.CASCADE, related_name="appointments")

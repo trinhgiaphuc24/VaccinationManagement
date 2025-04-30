@@ -11,7 +11,8 @@ router.register('times', views.TimeViewSet, basename='time')
 router.register('users',views.UserViewSet, basename='user')
 router.register('registers',views.RegisterViewSet, basename='register')
 router.register('profiles',views.UserProfileViewSet, basename='profile')
-
+router.register('informations',views.InformationViewSet, basename='information')
+router.register('appointments',views.AppointmentViewSet, basename='appointment')
 
 urlpatterns = [
     path('', include(router.urls)),

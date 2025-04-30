@@ -7,7 +7,8 @@ from vaccine import serializers, paginators, perms
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from django.db.models import Q
-from vaccine.serializers import VaccineTypeSerializer, UserRegisterSerializer
+from vaccine.serializers import VaccineTypeSerializer, UserRegisterSerializer, InformationSerializer, \
+    AppointmentSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
 
@@ -106,3 +107,49 @@ class TimeViewSet(viewsets.ModelViewSet):
     queryset = Time.objects.filter(active=True)
     serializer_class = serializers.TimeSerializer
     pagination_class = paginators.TimePagination
+
+
+class InformationViewSet(viewsets.ModelViewSet):
+    serializer_class = InformationSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        # Chỉ trả về các bản ghi Information của user hiện tại
+        return Information.objects.filter(user=self.request.user)
+
+    def perform_create(self, serializer):
+        # Gán user hiện tại cho bản ghi mới
+        serializer.save(user=self.request.user)
+
+    def perform_update(self, serializer):
+        # Đảm bảo user hiện tại chỉ có thể cập nhật bản ghi của chính họ
+        serializer.save(user=self.request.user)
+
+    def destroy(self, request, *args, **kwargs):
+        # Xóa bản ghi
+        instance = self.get_object()
+        self.perform_destroy(instance)
+        return Response({"message": "Thông tin đã được xóa thành công"}, status=status.HTTP_204_NO_CONTENT)
+
+    def perform_destroy(self, instance):
+        instance.delete()
+
+
+class AppointmentViewSet(viewsets.ModelViewSet):
+    queryset = Appointment.objects.all()
+    serializer_class = AppointmentSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        # Chỉ cho phép user xem các appointment của chính họ
+        return self.queryset.filter(information__user=self.request.user)
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+    def perform_create(self, serializer):
+        serializer.save()

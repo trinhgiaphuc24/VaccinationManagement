@@ -63,7 +63,7 @@ class VaccineSerializer(ModelSerializer):
     country_produce = CountrySerializer(read_only=True)  # Sử dụng nested serializer
     class Meta:
         model = Vaccine
-        fields = ['id', 'name', 'price', 'country_produce', 'vaccine_type', 'imgUrl']
+        fields = ['id', 'name', 'price', 'country_produce', 'vaccine_type', 'imgUrl', 'description']
 
 class HealthCenterSerializer(serializers.ModelSerializer):
     class Meta:
@@ -92,7 +92,7 @@ class InformationSerializer(serializers.ModelSerializer):
     #     if not value.isdigit() or len(value) < 10 or len(value) > 11:
     #         raise serializers.ValidationError("Số điện thoại phải chứa từ 10 đến 11 chữ số.")
     #     return value
-    #
+
     # def validate_email(self, value):
     #     # Kiểm tra email duy nhất (nếu có)
     #     if value and Information.objects.filter(email=value).exists():
@@ -126,7 +126,7 @@ class AppointmentDetailSerializer(serializers.ModelSerializer):
 
 class AppointmentSerializer(serializers.ModelSerializer):
     appointment_details = AppointmentDetailSerializer(many=True, write_only=True)
-    information = serializers.PrimaryKeyRelatedField(queryset=Information.objects.all())
+    information = serializers.PrimaryKeyRelatedField(queryset=Information.objects.all())  # Nhận ID của Information
     health_centre = serializers.PrimaryKeyRelatedField(queryset=HealthCenter.objects.all())
     time = serializers.PrimaryKeyRelatedField(queryset=Time.objects.all())
 
@@ -144,3 +144,23 @@ class AppointmentSerializer(serializers.ModelSerializer):
         for detail_data in appointment_details_data:
             AppointmentDetail.objects.create(appointment=appointment, **detail_data)
         return appointment
+
+
+class AppointmentDetailReadSerializer(serializers.ModelSerializer):
+    vaccine = VaccineSerializer(read_only=True)  # Trả về thông tin chi tiết của vaccine
+
+    class Meta:
+        model = AppointmentDetail
+        fields = ['id', 'vaccine']
+
+# Serializer dùng để hiển thị thông tin chi tiết của Appointment (đọc dữ liệu)
+class AppointmentReadSerializer(serializers.ModelSerializer):
+    appointment_details = AppointmentDetailReadSerializer(many=True, read_only=True)
+    information = InformationSerializer(read_only=True)
+    health_centre = HealthCenterSerializer(read_only=True)  # Trả về thông tin chi tiết của health_centre
+    time = TimeSerializer(read_only=True)  # Trả về thông tin chi tiết của time
+
+    class Meta:
+        model = Appointment
+        fields = ['id', 'date', 'status', 'created_at', 'note', 'information', 'health_centre', 'time', 'appointment_details']
+        read_only_fields = ['id', 'created_at']

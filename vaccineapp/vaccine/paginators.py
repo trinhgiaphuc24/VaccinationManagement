@@ -10,3 +10,6 @@ class HealthCenterPagination(PageNumberPagination):
 
 class TimePagination(PageNumberPagination):
     page_size = 10
+
+class AppointmentPagination(PageNumberPagination):
+    page_size = 10

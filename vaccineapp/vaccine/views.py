@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from django.db.models import Q
 from vaccine.serializers import VaccineTypeSerializer, UserRegisterSerializer, InformationSerializer, \
-    AppointmentSerializer
+    AppointmentSerializer, AppointmentReadSerializer, AppointmentDetailReadSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
 
@@ -110,6 +110,7 @@ class TimeViewSet(viewsets.ModelViewSet):
 
 
 class InformationViewSet(viewsets.ModelViewSet):
+    # queryset = Information.objects.all()
     serializer_class = InformationSerializer
     permission_classes = [IsAuthenticated]
 
@@ -125,23 +126,29 @@ class InformationViewSet(viewsets.ModelViewSet):
         # Đảm bảo user hiện tại chỉ có thể cập nhật bản ghi của chính họ
         serializer.save(user=self.request.user)
 
-    def destroy(self, request, *args, **kwargs):
-        # Xóa bản ghi
-        instance = self.get_object()
-        self.perform_destroy(instance)
-        return Response({"message": "Thông tin đã được xóa thành công"}, status=status.HTTP_204_NO_CONTENT)
+    # def destroy(self, request, *args, **kwargs):
+    #     # Xóa bản ghi
+    #     instance = self.get_object()
+    #     self.perform_destroy(instance)
+    #     return Response({"message": "Thông tin đã được xóa thành công"}, status=status.HTTP_204_NO_CONTENT)
 
     def perform_destroy(self, instance):
         instance.delete()
 
 
 class AppointmentViewSet(viewsets.ModelViewSet):
-    queryset = Appointment.objects.all()
-    serializer_class = AppointmentSerializer
+    queryset = Appointment.objects.select_related('information', 'health_centre', 'time').prefetch_related('appointment_details__vaccine')
     permission_classes = [permissions.IsAuthenticated]
 
+    def get_serializer_class(self):
+        # Sử dụng AppointmentReadSerializer cho các hành động đọc
+        if self.action in ['list', 'retrieve', 'get_appointment_details']:
+            return AppointmentReadSerializer
+        # Sử dụng AppointmentSerializer cho các hành động ghi (như create, update)
+        return AppointmentSerializer
+
     def get_queryset(self):
-        # Chỉ cho phép user xem các appointment của chính họ
+        print("Current user:", self.request.user.id)
         return self.queryset.filter(information__user=self.request.user)
 
     def create(self, request, *args, **kwargs):
@@ -149,7 +156,18 @@ class AppointmentViewSet(viewsets.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+        # Sử dụng AppointmentReadSerializer để trả về dữ liệu chi tiết sau khi tạo
+        response_serializer = AppointmentReadSerializer(serializer.instance)
+        return Response(response_serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
     def perform_create(self, serializer):
         serializer.save()
+
+    @action(detail=True, methods=['get'], url_path='details')
+    def get_appointment_details(self, request, pk=None):
+        appointment = self.get_object()
+        print("Appointment found:", appointment.id)
+        details = AppointmentDetail.objects.filter(appointment=appointment).select_related('vaccine')
+        print("Details found:", list(details.values()))
+        serializer = AppointmentDetailReadSerializer(details, many=True)
+        return Response(serializer.data)

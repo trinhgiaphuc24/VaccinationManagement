@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-kl+talp@ayb%kw+#o_*nff^1x05g!i_!oonerjs&c2k8d)3%)-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.6', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['192.168.1.12', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -103,7 +103,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'vaccine_db',
         'USER': 'root',
-        'PASSWORD': '040204',
+        'PASSWORD': 'Nhat#1908',
         'HOST': ''
     }
 }

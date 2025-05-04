@@ -11,7 +11,6 @@ from vaccine.serializers import VaccineTypeSerializer, UserRegisterSerializer, I
     AppointmentSerializer, AppointmentReadSerializer, AppointmentDetailReadSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
-
 class UserViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.UpdateAPIView):
     queryset = User.objects.filter(is_active=True)
     serializer_class = serializers.UserSerializer
@@ -51,7 +50,6 @@ class RegisterViewSet(viewsets.ViewSet):
             return Response({"message": "Profile updated successfully"}, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
 class UserProfileViewSet(viewsets.ViewSet):
     permission_classes = [IsAuthenticated]
 
@@ -65,14 +63,13 @@ class UserProfileViewSet(viewsets.ViewSet):
         }
         return Response(data)
 
-
 class VaccineViewSet(viewsets.ModelViewSet):
     queryset = Vaccine.objects.filter(active=True).select_related('vaccine_type', 'country_produce')
     serializer_class = serializers.VaccineSerializer
     pagination_class = paginators.VaccinePagination
-    filter_backends = [OrderingFilter]  # Thêm OrderingFilter
-    ordering_fields = ['id', 'price', 'name', 'vaccine_type__name', 'country_produce__name']  # Các trường cho phép sắp xếp
-    ordering = ['id']  # Mặc định sắp xếp theo id
+    filter_backends = [OrderingFilter]
+    ordering_fields = ['id', 'price', 'name', 'vaccine_type__name', 'country_produce__name']
+    ordering = ['id']
 
     def get_queryset(self):
         queryset = self.queryset
@@ -91,64 +88,49 @@ class VaccineViewSet(viewsets.ModelViewSet):
 
         return queryset
 
-
 class VaccineTypeViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = VaccineType.objects.filter(active=True)
     serializer_class = VaccineTypeSerializer
-
 
 class HealthCenterViewSet(viewsets.ModelViewSet):
     queryset = HealthCenter.objects.filter(active=True)
     serializer_class = serializers.HealthCenterSerializer
     pagination_class = paginators.HealthCenterPagination
 
-
 class TimeViewSet(viewsets.ModelViewSet):
     queryset = Time.objects.filter(active=True)
     serializer_class = serializers.TimeSerializer
     pagination_class = paginators.TimePagination
 
-
 class InformationViewSet(viewsets.ModelViewSet):
-    # queryset = Information.objects.all()
     serializer_class = InformationSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        # Chỉ trả về các bản ghi Information của user hiện tại
         return Information.objects.filter(user=self.request.user)
 
     def perform_create(self, serializer):
-        # Gán user hiện tại cho bản ghi mới
         serializer.save(user=self.request.user)
 
     def perform_update(self, serializer):
-        # Đảm bảo user hiện tại chỉ có thể cập nhật bản ghi của chính họ
         serializer.save(user=self.request.user)
-
-    # def destroy(self, request, *args, **kwargs):
-    #     # Xóa bản ghi
-    #     instance = self.get_object()
-    #     self.perform_destroy(instance)
-    #     return Response({"message": "Thông tin đã được xóa thành công"}, status=status.HTTP_204_NO_CONTENT)
 
     def perform_destroy(self, instance):
         instance.delete()
-
 
 class AppointmentViewSet(viewsets.ModelViewSet):
     queryset = Appointment.objects.select_related('information', 'health_centre', 'time').prefetch_related('appointment_details__vaccine')
     permission_classes = [permissions.IsAuthenticated]
 
     def get_serializer_class(self):
-        # Sử dụng AppointmentReadSerializer cho các hành động đọc
         if self.action in ['list', 'retrieve', 'get_appointment_details']:
             return AppointmentReadSerializer
-        # Sử dụng AppointmentSerializer cho các hành động ghi (như create, update)
         return AppointmentSerializer
 
     def get_queryset(self):
-        print("Current user:", self.request.user.id)
+        print("Current user:", self.request.user.id, "Role:", self.request.user.userRole)
+        if self.request.user.userRole == "staff":
+            return self.queryset
         return self.queryset.filter(information__user=self.request.user)
 
     def create(self, request, *args, **kwargs):
@@ -156,7 +138,6 @@ class AppointmentViewSet(viewsets.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
-        # Sử dụng AppointmentReadSerializer để trả về dữ liệu chi tiết sau khi tạo
         response_serializer = AppointmentReadSerializer(serializer.instance)
         return Response(response_serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 

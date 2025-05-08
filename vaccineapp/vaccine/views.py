@@ -1,4 +1,23 @@
 from threading import activeCount
+from django.core.mail import send_mail
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+from reportlab.pdfgen import canvas
+from django.http import HttpResponse
+from reportlab.lib.pagesizes import A4
+from io import BytesIO
+import pdfplumber
+from django.http import JsonResponse
+from rest_framework.decorators import api_view
+import os
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from django.db.models import Count
+from .models import Appointment, AppointmentDetail, Vaccine
+from datetime import datetime
+import calendar
 from rest_framework import viewsets, generics, permissions, parsers, status
 from rest_framework.filters import OrderingFilter
 from rest_framework.views import APIView
@@ -171,3 +190,126 @@ class AppointmentViewSet(viewsets.ModelViewSet):
         print("Details found:", list(details.values()))
         serializer = AppointmentDetailReadSerializer(details, many=True)
         return Response(serializer.data)
+
+
+@csrf_exempt
+def send_email(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            to_email = data.get('to')
+            subject = data.get('subject')
+            body = data.get('body')
+
+            if not all([to_email, subject, body]):
+                return JsonResponse({'error': 'Missing required fields'}, status=400)
+
+            send_mail(
+                subject,
+                body,
+                'trinhgiaphuc24@gmail.com',
+                [to_email],
+                fail_silently=False,
+            )
+            return JsonResponse({'message': 'Email sent successfully'}, status=200)
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+    return JsonResponse({'error': 'Invalid method'}, status=405)
+
+
+class TotalVaccinatedView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        # Lấy tham số từ query
+        month = request.query_params.get('month')
+        quarter = request.query_params.get('quarter')
+        year = request.query_params.get('year')
+
+        # Bắt đầu với queryset cơ bản
+        appointments = Appointment.objects.filter(status='completed')
+
+        # Áp dụng bộ lọc
+        if year:
+            appointments = appointments.filter(date__year=year)
+        if month:
+            appointments = appointments.filter(date__month=month)
+        if quarter:
+            start_month = (int(quarter) - 1) * 3 + 1
+            end_month = start_month + 2
+            appointments = appointments.filter(date__month__gte=start_month, date__month__lte=end_month)
+
+        # Đếm tổng số người đã tiêm
+        total = appointments.count()
+
+        return Response({'total': total})
+
+
+class CompletionRateView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        month = request.query_params.get('month')
+        quarter = request.query_params.get('quarter')
+        year = request.query_params.get('year')
+
+        # Lấy tất cả lịch hẹn
+        total_appointments = Appointment.objects.all()
+        completed_appointments = Appointment.objects.filter(status='completed')
+
+        # Áp dụng bộ lọc
+        if year:
+            total_appointments = total_appointments.filter(date__year=year)
+            completed_appointments = completed_appointments.filter(date__year=year)
+        if month:
+            total_appointments = total_appointments.filter(date__month=month)
+            completed_appointments = completed_appointments.filter(date__month=month)
+        if quarter:
+            start_month = (int(quarter) - 1) * 3 + 1
+            end_month = start_month + 2
+            total_appointments = total_appointments.filter(date__month__gte=start_month, date__month__lte=end_month)
+            completed_appointments = completed_appointments.filter(date__month__gte=start_month,
+                                                                   date__month__lte=end_month)
+
+        # Tính tỷ lệ hoàn thành
+        total_count = total_appointments.count()
+        completed_count = completed_appointments.count()
+        rate = (completed_count / total_count * 100) if total_count > 0 else 0
+
+        return Response({'rate': rate})
+
+
+class PopularVaccinesView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        month = request.query_params.get('month')
+        quarter = request.query_params.get('quarter')
+        year = request.query_params.get('year')
+
+        # Lấy tất cả AppointmentDetail và liên kết với Appointment để lọc theo thời gian
+        appointments = Appointment.objects.all()
+
+        # Áp dụng bộ lọc thời gian
+        if year:
+            appointments = appointments.filter(date__year=year)
+        if month:
+            appointments = appointments.filter(date__month=month)
+        if quarter:
+            start_month = (int(quarter) - 1) * 3 + 1
+            end_month = start_month + 2
+            appointments = appointments.filter(date__month__gte=start_month, date__month__lte=end_month)
+
+        # Lấy danh sách vắc-xin từ các AppointmentDetail liên quan
+        appointment_ids = appointments.values_list('id', flat=True)
+        vaccines = (
+            AppointmentDetail.objects.filter(appointment__id__in=appointment_ids)
+            .values('vaccine__name')
+            .annotate(count=Count('vaccine'))
+            .order_by('-count')
+        )
+
+        return Response([
+            {'vaccine_name': item['vaccine__name'], 'count': item['count']}
+            for item in vaccines
+        ])

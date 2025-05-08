@@ -164,3 +164,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CLIENT_ID = 'sNae37tnrfYXItESVHv1F3vfenOWoS4xvgdibYec'
 CLIENT_SECRET = 'I9Q6iYwXmtnEHu27JZjPdebX34KzDncNyi3DkOb3o1OMwdx8dx8TUCaBjYuplE27yYWp6AZUGhHGOb6Y3Q3HwRy5ssxzCfKBwZYf1u6AATcJI6INUGyI0fFcXgt03wgY'
+
+
+# Email configuration for Gmail SMTP
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'trinhgiaphuc24@gmail.com'  # Gmail của bạn
+EMAIL_HOST_PASSWORD = 'gmld saql gnnw pbos'  # App Password (xem bên dưới)
+DEFAULT_FROM_EMAIL = 'trinhgiaphuc24@gmail.com'

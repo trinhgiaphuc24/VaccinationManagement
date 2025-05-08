@@ -1,0 +1,46 @@
+{
+    "Infanrix Hexa": {
+        "side_effects": "Sốt nhẹ, sưng đau tại chỗ tiêm, quấy khóc",
+        "age_range": "2-6 tháng"
+    },
+    "Hexaxim": {
+        "side_effects": "Sốt, mệt mỏi, sưng đỏ tại chỗ tiêm",
+        "age_range": "2-6 tháng"
+    },
+    "Rotateq": {
+        "side_effects": "Tiêu chảy nhẹ, quấy khóc",
+        "age_range": "6 tuần - 32 tuần"
+    },
+    "Rotarix": {
+        "side_effects": "Tiêu chảy nhẹ, quấy khóc",
+        "age_range": "6 tuần - 24 tuần"
+    },
+    "Synflorix": {
+        "side_effects": "Sốt nhẹ, sưng đau tại chỗ tiêm",
+        "age_range": "6 tuần - 5 tuổi"
+    },
+    "Prevenar 13": {
+        "side_effects": "Sốt nhẹ, sưng đỏ tại chỗ tiêm",
+        "age_range": "6 tuần - 17 tuổi"
+    },
+    "Pneumovax 23": {
+        "side_effects": "Đau tại chỗ tiêm, mệt mỏi",
+        "age_range": "Trên 2 tuổi"
+    },
+    "BCG": {
+        "side_effects": "Sưng tại chỗ tiêm, nổi hạch",
+        "age_range": "Sơ sinh - 1 tháng"
+    },
+    "Vaxigrip Tetra": {
+        "side_effects": "Sốt nhẹ, đau cơ, mệt mỏi",
+        "age_range": "Trên 6 tháng"
+    },
+    "Gardasil A": {
+        "side_effects": "Đau tại chỗ tiêm, nhức đầu",
+        "age_range": "9-45 tuổi"
+    },
+    "default": {
+        "side_effects": "Sốt nhẹ, sưng đau tại chỗ tiêm, mệt mỏi",
+        "age_range": "Tùy theo chỉ định của bác sĩ"
+    }
+}

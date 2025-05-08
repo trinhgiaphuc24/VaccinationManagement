@@ -1,9 +1,7 @@
 from django.contrib.auth.hashers import make_password
-
 from vaccine.models import Vaccine, VaccineType, CommunicationVaccination, User, RoleEnum, CountryProduce, HealthCenter, AppointmentDetail, Information, Appointment, New, Time
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer, SerializerMethodField
-
 
 class UserSerializer(ModelSerializer):
     class Meta:
@@ -25,7 +23,6 @@ class UserSerializer(ModelSerializer):
         u = User(**data)
         u.set_password(u.password)
         u.save()
-
         return u
 
 class UserRegisterSerializer(serializers.ModelSerializer):
@@ -59,8 +56,8 @@ class CountrySerializer(serializers.ModelSerializer):
         fields = ['id', 'name']
 
 class VaccineSerializer(ModelSerializer):
-    vaccine_type = VaccineTypeSerializer(read_only=True)  # Sử dụng nested serializer
-    country_produce = CountrySerializer(read_only=True)  # Sử dụng nested serializer
+    vaccine_type = VaccineTypeSerializer(read_only=True)
+    country_produce = CountrySerializer(read_only=True)
     class Meta:
         model = Vaccine
         fields = ['id', 'name', 'price', 'country_produce', 'vaccine_type', 'imgUrl', 'description']
@@ -70,15 +67,12 @@ class HealthCenterSerializer(serializers.ModelSerializer):
         model = HealthCenter
         fields = ['id', 'name', 'address']
 
-
 class TimeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Time
         fields = ['id', 'time_start', 'time_end']
 
-
 class InformationSerializer(serializers.ModelSerializer):
-    # Tùy chỉnh trường date_of_birth để nhận dữ liệu dạng chuỗi "DD/MM/YYYY"
     date_of_birth = serializers.DateField(format="%d/%m/%Y", input_formats=["%d/%m/%Y"])
 
     class Meta:
@@ -100,11 +94,9 @@ class InformationSerializer(serializers.ModelSerializer):
     #     return value
 
     def create(self, validated_data):
-        # Tạo mới một Information object
         return Information.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
-        # Cập nhật Information object
         instance.first_name = validated_data.get("first_name", instance.first_name)
         instance.last_name = validated_data.get("last_name", instance.last_name)
         instance.phone_number = validated_data.get("phone_number", instance.phone_number)
@@ -116,19 +108,19 @@ class InformationSerializer(serializers.ModelSerializer):
         instance.save()
         return instance
 
-
 class AppointmentDetailSerializer(serializers.ModelSerializer):
     vaccine = serializers.PrimaryKeyRelatedField(queryset=Vaccine.objects.all())
 
     class Meta:
         model = AppointmentDetail
-        fields = ['id', 'vaccine']  # Không cần quantity vì đã bị comment trong model
+        fields = ['id', 'vaccine']
 
 class AppointmentSerializer(serializers.ModelSerializer):
-    appointment_details = AppointmentDetailSerializer(many=True, write_only=True)
-    information = serializers.PrimaryKeyRelatedField(queryset=Information.objects.all())  # Nhận ID của Information
-    health_centre = serializers.PrimaryKeyRelatedField(queryset=HealthCenter.objects.all())
-    time = serializers.PrimaryKeyRelatedField(queryset=Time.objects.all())
+    appointment_details = AppointmentDetailSerializer(many=True, required=False)  # Thêm required=False
+    information = serializers.PrimaryKeyRelatedField(queryset=Information.objects.all(), required=False)  # Thêm required=False
+    health_centre = serializers.PrimaryKeyRelatedField(queryset=HealthCenter.objects.all(), required=False)  # Thêm required=False
+    time = serializers.PrimaryKeyRelatedField(queryset=Time.objects.all(), required=False)  # Thêm required=False
+    date = serializers.DateField(required=False)  # Thêm required=False
 
     class Meta:
         model = Appointment
@@ -136,29 +128,31 @@ class AppointmentSerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'created_at']
 
     def create(self, validated_data):
-        # Lấy danh sách appointment_details (các vaccine được chọn)
-        appointment_details_data = validated_data.pop('appointment_details')
-        # Tạo Appointment
+        appointment_details_data = validated_data.pop('appointment_details', [])
         appointment = Appointment.objects.create(**validated_data)
-        # Tạo các AppointmentDetail tương ứng với mỗi vaccine
         for detail_data in appointment_details_data:
             AppointmentDetail.objects.create(appointment=appointment, **detail_data)
         return appointment
 
+    def update(self, instance, validated_data):
+        # Chỉ cho phép cập nhật note và status
+        instance.note = validated_data.get('note', instance.note)
+        instance.status = validated_data.get('status', instance.status)
+        instance.save()
+        return instance
 
 class AppointmentDetailReadSerializer(serializers.ModelSerializer):
-    vaccine = VaccineSerializer(read_only=True)  # Trả về thông tin chi tiết của vaccine
+    vaccine = VaccineSerializer(read_only=True)
 
     class Meta:
         model = AppointmentDetail
         fields = ['id', 'vaccine']
 
-# Serializer dùng để hiển thị thông tin chi tiết của Appointment (đọc dữ liệu)
 class AppointmentReadSerializer(serializers.ModelSerializer):
     appointment_details = AppointmentDetailReadSerializer(many=True, read_only=True)
     information = InformationSerializer(read_only=True)
-    health_centre = HealthCenterSerializer(read_only=True)  # Trả về thông tin chi tiết của health_centre
-    time = TimeSerializer(read_only=True)  # Trả về thông tin chi tiết của time
+    health_centre = HealthCenterSerializer(read_only=True)
+    time = TimeSerializer(read_only=True)
 
     class Meta:
         model = Appointment

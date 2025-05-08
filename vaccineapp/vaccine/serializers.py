@@ -81,6 +81,18 @@ class InformationSerializer(serializers.ModelSerializer):
             "id", "first_name", "last_name", "phone_number", "date_of_birth", "sex", "address", "email", "user",
         ]
 
+    # def validate_phone_number(self, value):
+    #     # Kiểm tra định dạng số điện thoại (ví dụ: 10-15 chữ số)
+    #     if not value.isdigit() or len(value) < 10 or len(value) > 11:
+    #         raise serializers.ValidationError("Số điện thoại phải chứa từ 10 đến 11 chữ số.")
+    #     return value
+
+    # def validate_email(self, value):
+    #     # Kiểm tra email duy nhất (nếu có)
+    #     if value and Information.objects.filter(email=value).exists():
+    #         raise serializers.ValidationError("Email này đã được sử dụng.")
+    #     return value
+
     def create(self, validated_data):
         return Information.objects.create(**validated_data)
 

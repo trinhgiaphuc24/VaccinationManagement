@@ -1,5 +1,6 @@
 from django.contrib.auth.hashers import make_password
-from vaccine.models import Vaccine, VaccineType, CommunicationVaccination, User, RoleEnum, CountryProduce, HealthCenter, AppointmentDetail, Information, Appointment, New, Time
+from vaccine.models import Vaccine, VaccineType, CommunicationVaccination, User, RoleEnum, CountryProduce, HealthCenter, \
+    AppointmentDetail, Information, Appointment, New, Time, AttendantCommunication
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer, SerializerMethodField
 
@@ -158,3 +159,15 @@ class AppointmentReadSerializer(serializers.ModelSerializer):
         model = Appointment
         fields = ['id', 'date', 'status', 'created_at', 'note', 'information', 'health_centre', 'time', 'appointment_details']
         read_only_fields = ['id', 'created_at']
+
+
+class CommunicationVaccinationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CommunicationVaccination
+        fields = ['id', 'name', 'date', 'time','address', 'description', 'slotPatient', 'slotStaff', 'emptyStaff', 'emptyPatient', 'imgUrl']
+
+
+class AttendantCommunicationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AttendantCommunication
+        fields = ['id', 'user', 'communication', 'quantity', 'registration_type']

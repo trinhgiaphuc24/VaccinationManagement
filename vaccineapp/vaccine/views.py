@@ -16,7 +16,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from django.db.models import Count
-from .models import Appointment, AppointmentDetail, Vaccine
+from .models import Appointment, AppointmentDetail, Vaccine, AttendantCommunication
 from datetime import datetime
 import calendar
 from rest_framework import viewsets, generics, permissions, parsers, status
@@ -28,7 +28,8 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from django.db.models import Q
 from vaccine.serializers import VaccineTypeSerializer, UserRegisterSerializer, InformationSerializer, \
-    AppointmentSerializer, AppointmentReadSerializer, AppointmentDetailReadSerializer
+    AppointmentSerializer, AppointmentReadSerializer, AppointmentDetailReadSerializer, AttendantCommunicationSerializer, \
+    CommunicationVaccinationSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
 
@@ -346,3 +347,245 @@ class PopularVaccinesView(APIView):
             {'vaccine_name': item['vaccine__name'], 'count': item['count']}
             for item in vaccines
         ])
+
+
+# views.py
+class CommunicationVaccinationViewSet(viewsets.ModelViewSet):
+    queryset = CommunicationVaccination.objects.filter(active=True)
+    serializer_class = CommunicationVaccinationSerializer
+    filter_backends = [OrderingFilter]
+    ordering_fields = ['id', 'name']
+    ordering = ['id']
+
+    def get_queryset(self):
+        queryset = self.queryset
+        q = self.request.query_params.get('q')
+        if q:
+            queryset = queryset.filter(Q(name__icontains=q) | Q(description__icontains=q))
+        return queryset
+
+    @action(detail=True, methods=['patch'], permission_classes=[IsAuthenticated])
+    def update_empty_patient(self, request, pk=None):
+        try:
+            communication = self.get_object()  # Lấy chiến dịch theo pk (ID)
+            new_empty_patient = request.data.get('emptyPatient')
+
+            if new_empty_patient is None:
+                return Response(
+                    {"error": "emptyPatient is required."},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+
+            communication.emptyPatient = new_empty_patient
+            communication.save()
+            return Response(
+                CommunicationVaccinationSerializer(communication).data,
+                status=status.HTTP_200_OK
+            )
+        except Exception as e:
+            return Response(
+                {"error": str(e)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+    @action(detail=True, methods=['patch'], url_path='update-empty-staff')
+    def update_empty_staff(self, request, pk=None):
+        try:
+            communication = self.get_object()
+            empty_staff = request.data.get('emptyStaff')
+            if empty_staff is None:
+                return Response(
+                    {"error": "emptyStaff is required"},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            communication.emptyStaff = empty_staff
+            communication.save()
+            return Response({"message": "Updated emptyStaff successfully"}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class AttendantCommunicationViewSet(viewsets.ModelViewSet):
+    queryset = AttendantCommunication.objects.all()
+    serializer_class = AttendantCommunicationSerializer
+    permission_classes = [IsAuthenticated]
+
+    @action(detail=False, methods=['post'])
+    def register(self, request):
+        user = request.user
+        communication_id = request.data.get('communication')
+        quantity = request.data.get('quantity')
+        registration_type = request.data.get('registration_type', 'patient')  # Mặc định là patient
+
+        if not communication_id or not quantity:
+            return Response(
+                {"error": "Communication ID and quantity are required."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        if registration_type not in ['patient', 'staff']:
+            return Response(
+                {"error": "Invalid registration type. Must be 'patient' or 'staff'."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        try:
+            communication = CommunicationVaccination.objects.get(id=communication_id)
+        except CommunicationVaccination.DoesNotExist:
+            return Response(
+                {"error": "Communication not found."},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        # Kiểm tra xem user đã đăng ký với loại này chưa
+        if AttendantCommunication.objects.filter(
+                user=user,
+                communication=communication,
+                registration_type=registration_type
+        ).exists():
+            return Response(
+                {"error": f"Bạn đã đăng ký chiến dịch này với vai trò {registration_type} rồi."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        # Kiểm tra số lượng slot khả dụng
+        if registration_type == 'patient':
+            if communication.emptyPatient < int(quantity):
+                return Response(
+                    {"error": "Không đủ slot bệnh nhân để đăng ký."},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+        else:  # registration_type == 'staff'
+            if communication.emptyStaff < int(quantity):
+                return Response(
+                    {"error": "Không đủ slot nhân viên để đăng ký."},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+
+        # Tạo bản ghi đăng ký
+        attendant = AttendantCommunication.objects.create(
+            user=user,
+            communication=communication,
+            quantity=quantity,
+            registration_type=registration_type
+        )
+
+        # Cập nhật số lượng slot
+        if registration_type == 'patient':
+            communication.emptyPatient -= int(quantity)
+        else:  # registration_type == 'staff'
+            communication.emptyStaff -= int(quantity)
+        communication.save()
+
+        # Gửi email xác nhận
+        try:
+            role_text = "bệnh nhân" if registration_type == 'patient' else "nhân viên y tế"
+            email_subject = f"XÁC NHẬN ĐĂNG KÝ CHIẾN DỊCH TIÊM CHỦNG ({role_text})"
+            email_body = (
+                f"Chào {user.first_name} {user.last_name},\n\n"
+                f"Bạn đã đăng ký thành công chiến dịch tiêm chủng với vai trò {role_text}: {communication.name}\n"
+                f"Ngày diễn ra: {communication.date}\n"
+                f"Thời gian: {communication.time}\n"
+                f"Địa chỉ: {communication.address}\n"
+                f"Số lượng: {quantity}\n\n"
+                f"Thời gian đăng ký: {attendant.created_at.strftime('%Y-%m-%d %H:%M:%S')}\n"
+                f"Trân trọng,\nHệ thống tiêm chủng"
+            )
+            send_mail(
+                subject=email_subject,
+                message=email_body,
+                from_email="your-email@example.com",
+                recipient_list=[user.email],
+                fail_silently=False,
+            )
+        except Exception as e:
+            print(f"Error sending email: {str(e)}")
+
+        return Response(
+            AttendantCommunicationSerializer(attendant).data,
+            status=status.HTTP_201_CREATED
+        )
+
+    @action(detail=False, methods=['get'], url_path='check-registration/(?P<communication_id>\d+)')
+    def check_registration(self, request, communication_id=None):
+        user = request.user
+        registration_type = request.query_params.get('registration_type', 'patient')
+
+        if registration_type not in ['patient', 'staff']:
+            return Response(
+                {"error": "Invalid registration type. Must be 'patient' or 'staff'."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        try:
+            communication = CommunicationVaccination.objects.get(id=communication_id)
+            is_registered = AttendantCommunication.objects.filter(
+                user=user,
+                communication=communication,
+                registration_type=registration_type
+            ).exists()
+            return Response(
+                {"is_registered": is_registered},
+                status=status.HTTP_200_OK
+            )
+        except CommunicationVaccination.DoesNotExist:
+            return Response(
+                {"error": "Communication not found."},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+    @action(detail=False, methods=['post'], url_path='cancel-registration')
+    def cancel_registration(self, request):
+        user = request.user
+        communication_id = request.data.get('communication')
+        registration_type = request.data.get('registration_type', 'patient')
+
+        if not communication_id:
+            return Response(
+                {"error": "Communication ID is required."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        if registration_type not in ['patient', 'staff']:
+            return Response(
+                {"error": "Invalid registration type. Must be 'patient' or 'staff'."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        try:
+            communication = CommunicationVaccination.objects.get(id=communication_id)
+        except CommunicationVaccination.DoesNotExist:
+            return Response(
+                {"error": "Communication not found."},
+                status=status.HTTP_404_NOT_FOUND
+            )
+
+        with transaction.atomic():
+            try:
+                # Lấy bản ghi đăng ký của user
+                attendant = AttendantCommunication.objects.get(
+                    user=user,
+                    communication=communication,
+                    registration_type=registration_type
+                )
+                quantity = attendant.quantity
+
+                # Cộng lại quantity vào emptyPatient hoặc emptyStaff
+                if registration_type == 'patient':
+                    communication.emptyPatient += quantity
+                else:  # registration_type == 'staff'
+                    communication.emptyStaff += quantity
+                communication.save()
+
+                # Xóa bản ghi đăng ký
+                attendant.delete()
+
+                return Response(
+                    {"message": "Hủy đăng ký thành công."},
+                    status=status.HTTP_200_OK
+                )
+            except AttendantCommunication.DoesNotExist:
+                return Response(
+                    {"error": f"Bạn chưa đăng ký chiến dịch này với vai trò {registration_type}."},
+                    status=status.HTTP_400_BAD_REQUEST
+                )

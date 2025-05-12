@@ -3,7 +3,8 @@ from . import views
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from .views import send_email, TotalVaccinatedView, CompletionRateView, PopularVaccinesView
+from .views import send_email, TotalVaccinatedView, CompletionRateView, PopularVaccinesView, \
+    AttendantCommunicationViewSet
 
 # from .views import certificate_view
 
@@ -17,6 +18,8 @@ router.register('registers',views.RegisterViewSet, basename='register')
 router.register('profiles',views.UserProfileViewSet, basename='profile')
 router.register('informations',views.InformationViewSet, basename='information')
 router.register('appointments',views.AppointmentViewSet, basename='appointment')
+router.register('communications',views.CommunicationVaccinationViewSet, basename='communication')
+router.register(r'attendant-communications', AttendantCommunicationViewSet, basename='attendant-communication')
 
 urlpatterns = [
     path('', include(router.urls)),

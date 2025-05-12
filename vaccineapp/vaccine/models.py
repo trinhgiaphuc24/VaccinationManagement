@@ -130,12 +130,31 @@ class AppointmentDetail(models.Model):
 
 class CommunicationVaccination(BaseModel):
     date = models.DateField()
-    time = models.DateTimeField()
+    time = models.CharField(max_length=255)
     address = models.TextField()
     description = models.TextField()
+    slotPatient = models.IntegerField(null=True)
+    slotStaff = models.IntegerField(null=True)
+    emptyStaff = models.IntegerField(null=True)
+    emptyPatient = models.IntegerField(null=True)
+    imgUrl = CloudinaryField('imgvaccine', null=True)
 
     def __str__(self):
         return self.name
+
+
+class AttendantCommunication(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    communication = models.ForeignKey(CommunicationVaccination, on_delete=models.CASCADE)
+    quantity = models.IntegerField(null=True)
+    registration_type = models.CharField(
+        max_length=10,
+        choices=[("patient", "Patient"), ("staff", "Staff")],
+        default="patient"
+    )
+
+    class Meta:
+        unique_together = ('user', 'communication', 'registration_type')
 
 class New(BaseModel):
     imgNew = CloudinaryField('imgnew', null=True)

@@ -1,5 +1,6 @@
 from threading import activeCount
 from django.core.mail import send_mail
+from django.db import transaction
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
@@ -167,8 +168,13 @@ class AppointmentViewSet(viewsets.ModelViewSet):
         return AppointmentSerializer
 
     def get_queryset(self):
-        print("Current user:", self.request.user.id)
-        return self.queryset.filter(information__user=self.request.user)
+        # logger.debug(f"Current user: {self.request.user.id}, Role: {self.request.user.userRole}")
+        queryset = Appointment.objects.select_related('information', 'health_centre', 'time').prefetch_related('appointment_details__vaccine')
+        if self.request.user.userRole == "staff":
+            return queryset
+        return queryset.filter(information__user=self.request.user)
+        # print("Current user:", self.request.user.id)
+        # return self.queryset.filter(information__user=self.request.user)
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -181,6 +187,33 @@ class AppointmentViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save()
+
+    def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+
+        try:
+            with transaction.atomic():
+                serializer.save()
+                instance.refresh_from_db()
+
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+        response_serializer = AppointmentReadSerializer(instance)
+        return Response(response_serializer.data)
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        instance.refresh_from_db()
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
 
     @action(detail=True, methods=['get'], url_path='details')
     def get_appointment_details(self, request, pk=None):

@@ -8,7 +8,8 @@ from datetime import datetime, timedelta
 from django.utils import timezone
 import calendar
 
-from vaccine.models import User, Information, Vaccine, HealthCenter, Time, Appointment, VaccineType, AppointmentDetail
+from vaccine.models import User, Information, Vaccine, HealthCenter, Time, Appointment, VaccineType, AppointmentDetail, \
+    CommunicationVaccination
 
 
 class MyVaccineAdmin(admin.ModelAdmin):
@@ -21,6 +22,45 @@ class MyVaccineAdmin(admin.ModelAdmin):
 
     def image_view(self, course):
         return mark_safe(f"<img src='/static/{course.image.name}' width='200' />")
+
+class MyCommunicationAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'active', 'date', 'time']
+    search_fields = ['name']
+    list_filter = ['id']
+    list_editable = ['name']
+    list_per_page = 10
+
+
+class MyHealthCenterAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'active', 'address']
+    search_fields = ['name']
+    list_filter = ['id']
+    list_editable = ['name']
+    list_per_page = 10
+
+
+class MyInformationAdmin(admin.ModelAdmin):
+    list_display = ['id', 'first_name', 'last_name']
+    search_fields = ['first_name', 'last_name']
+    list_filter = ['id']
+    list_editable = ['first_name', 'last_name']
+    list_per_page = 10
+
+
+class MyTimeAdmin(admin.ModelAdmin):
+    list_display = ['id', 'time_start', 'time_end']
+    search_fields = ['time_start', 'time_end']
+    list_filter = ['id']
+    list_editable = ['time_start', 'time_end']
+    list_per_page = 10
+
+
+class MyUserAdmin(admin.ModelAdmin):
+    list_display = ['id', 'username', 'userRole']
+    search_fields = ['username']
+    list_filter = ['id']
+    list_editable = ['username']
+    list_per_page = 10
 
 
 class MyVaccineAdminSite(admin.AdminSite):
@@ -189,9 +229,10 @@ class MyVaccineAdminSite(admin.AdminSite):
 admin_site = MyVaccineAdminSite(name='vaccine')
 
 admin_site.register(Vaccine, MyVaccineAdmin)
-admin_site.register(Information)
-admin_site.register(Appointment)
-admin_site.register(AppointmentDetail)
-admin_site.register(User)
-admin_site.register(HealthCenter)
-admin_site.register(Time)
+admin_site.register(Information, MyInformationAdmin)
+# admin_site.register(Appointment)
+# admin_site.register(AppointmentDetail)
+admin_site.register(User, MyUserAdmin)
+admin_site.register(HealthCenter, MyHealthCenterAdmin)
+admin_site.register(Time, MyTimeAdmin)
+admin_site.register(CommunicationVaccination, MyCommunicationAdmin)

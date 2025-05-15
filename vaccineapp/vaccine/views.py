@@ -31,6 +31,7 @@ from vaccine.serializers import VaccineTypeSerializer, UserRegisterSerializer, I
     AppointmentSerializer, AppointmentReadSerializer, AppointmentDetailReadSerializer, AttendantCommunicationSerializer, \
     CommunicationVaccinationSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework import viewsets, generics, permissions, parsers, status
 
 
 class UserViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.UpdateAPIView):
@@ -87,7 +88,7 @@ class UserProfileViewSet(viewsets.ViewSet):
         return Response(data)
 
 
-class VaccineViewSet(viewsets.ModelViewSet):
+class VaccineViewSet(viewsets.ViewSet, generics.ListAPIView):
     queryset = Vaccine.objects.filter(active=True).select_related('vaccine_type', 'country_produce')
     serializer_class = serializers.VaccineSerializer
     pagination_class = paginators.VaccinePagination
@@ -113,24 +114,24 @@ class VaccineViewSet(viewsets.ModelViewSet):
         return queryset
 
 
-class VaccineTypeViewSet(viewsets.ReadOnlyModelViewSet):
+class VaccineTypeViewSet(viewsets.ViewSet, generics.ListAPIView):
     queryset = VaccineType.objects.filter(active=True)
     serializer_class = VaccineTypeSerializer
 
 
-class HealthCenterViewSet(viewsets.ModelViewSet):
+class HealthCenterViewSet(viewsets.ViewSet, generics.ListAPIView):
     queryset = HealthCenter.objects.filter(active=True)
     serializer_class = serializers.HealthCenterSerializer
     pagination_class = paginators.HealthCenterPagination
 
 
-class TimeViewSet(viewsets.ModelViewSet):
+class TimeViewSet(viewsets.ViewSet, generics.ListAPIView):
     queryset = Time.objects.filter(active=True)
     serializer_class = serializers.TimeSerializer
     pagination_class = paginators.TimePagination
 
 
-class InformationViewSet(viewsets.ModelViewSet):
+class InformationViewSet(viewsets.ViewSet, generics.ListAPIView,generics.RetrieveAPIView,generics.CreateAPIView,generics.UpdateAPIView):
     # queryset = Information.objects.all()
     serializer_class = InformationSerializer
     permission_classes = [IsAuthenticated]
@@ -157,7 +158,7 @@ class InformationViewSet(viewsets.ModelViewSet):
         instance.delete()
 
 
-class AppointmentViewSet(viewsets.ModelViewSet):
+class AppointmentViewSet(viewsets.ViewSet,generics.ListAPIView,generics.RetrieveAPIView,generics.CreateAPIView,generics.UpdateAPIView,generics.DestroyAPIView):
     queryset = Appointment.objects.select_related('information', 'health_centre', 'time').prefetch_related('appointment_details__vaccine')
     permission_classes = [permissions.IsAuthenticated]
 
@@ -349,8 +350,7 @@ class PopularVaccinesView(APIView):
         ])
 
 
-# views.py
-class CommunicationVaccinationViewSet(viewsets.ModelViewSet):
+class CommunicationVaccinationViewSet(viewsets.ViewSet,generics.ListAPIView,generics.RetrieveAPIView,generics.CreateAPIView,generics.UpdateAPIView):
     queryset = CommunicationVaccination.objects.filter(active=True)
     serializer_class = CommunicationVaccinationSerializer
     filter_backends = [OrderingFilter]
@@ -405,7 +405,7 @@ class CommunicationVaccinationViewSet(viewsets.ModelViewSet):
             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
 
-class AttendantCommunicationViewSet(viewsets.ModelViewSet):
+class AttendantCommunicationViewSet(viewsets.ViewSet, generics.ListAPIView, generics.CreateAPIView, generics.DestroyAPIView):
     queryset = AttendantCommunication.objects.all()
     serializer_class = AttendantCommunicationSerializer
     permission_classes = [IsAuthenticated]

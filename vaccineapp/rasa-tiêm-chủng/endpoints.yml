@@ -1,0 +1,9 @@
+action_endpoint:
+  url: "http://192.168.1.12:5055/webhook"  # Hoặc địa chỉ và cổng action server của bạn
+
+webhooks:
+  rest:
+    # Đường dẫn mặc định mà Rasa server lắng nghe tin nhắn REST là /webhooks/rest
+    # Bạn không cần cấu hình url ở đây trừ khi bạn muốn thay đổi nó (không khuyến khích)
+    # webhook:
+    #   url: "http://localhost:5005/webhooks/custom_rest" # Ví dụ nếu bạn muốn thay đổi

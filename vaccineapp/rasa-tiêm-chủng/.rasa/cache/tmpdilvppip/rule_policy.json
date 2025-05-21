@@ -1,0 +1,36 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_post_vaccination_monitoring\"}}]": "action_show_post_vaccination_monitoring",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_post_vaccination_monitoring\"}}, {\"prev_action\": {\"action_name\": \"action_show_post_vaccination_monitoring\"}, \"user\": {\"intent\": \"ask_post_vaccination_monitoring\"}}]": "utter_post_vaccination_monitoring",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_post_vaccination_monitoring\"}}, {\"prev_action\": {\"action_name\": \"action_show_post_vaccination_monitoring\"}, \"user\": {\"intent\": \"ask_post_vaccination_monitoring\"}}, {\"prev_action\": {\"action_name\": \"utter_post_vaccination_monitoring\"}, \"user\": {\"intent\": \"ask_post_vaccination_monitoring\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_vaccine_info\"}}]": "action_get_vaccine_info",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_vaccine_info\"}}, {\"prev_action\": {\"action_name\": \"action_get_vaccine_info\"}, \"slots\": {\"vaccine_name\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_vaccine_info\"}}]": "utter_request_vaccine_name",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_vaccine_info\"}}, {\"prev_action\": {\"action_name\": \"action_get_vaccine_info\"}, \"slots\": {\"vaccine_name\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_vaccine_info\"}}, {\"prev_action\": {\"action_name\": \"utter_request_vaccine_name\"}, \"slots\": {\"vaccine_name\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_vaccine_info\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"symptom\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_side_effects\"}}]": "action_get_side_effects",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"symptom\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_side_effects\"}}, {\"prev_action\": {\"action_name\": \"action_get_side_effects\"}, \"slots\": {\"symptom\": \"should_not_be_set\", \"vaccine_name\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_side_effects\"}}]": "utter_request_vaccine_name",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"symptom\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_side_effects\"}}, {\"prev_action\": {\"action_name\": \"action_get_side_effects\"}, \"slots\": {\"symptom\": \"should_not_be_set\", \"vaccine_name\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_side_effects\"}}, {\"prev_action\": {\"action_name\": \"utter_request_vaccine_name\"}, \"slots\": {\"symptom\": \"should_not_be_set\", \"vaccine_name\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_side_effects\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_vaccine_price\"}}]": "action_get_vaccine_price",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_vaccine_price\"}}, {\"prev_action\": {\"action_name\": \"action_get_vaccine_price\"}, \"slots\": {\"vaccine_name\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_vaccine_price\"}}]": "utter_request_vaccine_name",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_vaccine_price\"}}, {\"prev_action\": {\"action_name\": \"action_get_vaccine_price\"}, \"slots\": {\"vaccine_name\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_vaccine_price\"}}, {\"prev_action\": {\"action_name\": \"utter_request_vaccine_name\"}, \"slots\": {\"vaccine_name\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_vaccine_price\"}}]": "utter_request_location",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_vaccine_price\"}}, {\"prev_action\": {\"action_name\": \"action_get_vaccine_price\"}, \"slots\": {\"vaccine_name\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_vaccine_price\"}}, {\"prev_action\": {\"action_name\": \"utter_request_vaccine_name\"}, \"slots\": {\"vaccine_name\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_vaccine_price\"}}, {\"prev_action\": {\"action_name\": \"utter_request_location\"}, \"slots\": {\"vaccine_name\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_vaccine_price\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"symptom\": [1.0]}, \"user\": {\"intent\": \"ask_side_effects\"}}]": "action_get_side_effects_by_symptom",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"symptom\": [1.0]}, \"user\": {\"intent\": \"ask_side_effects\"}}, {\"prev_action\": {\"action_name\": \"action_get_side_effects_by_symptom\"}, \"slots\": {\"symptom\": [1.0], \"vaccine_name\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_side_effects\"}}]": "utter_request_vaccine_name",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"slots\": {\"symptom\": [1.0]}, \"user\": {\"intent\": \"ask_side_effects\"}}, {\"prev_action\": {\"action_name\": \"action_get_side_effects_by_symptom\"}, \"slots\": {\"symptom\": [1.0], \"vaccine_name\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_side_effects\"}}, {\"prev_action\": {\"action_name\": \"utter_request_vaccine_name\"}, \"slots\": {\"symptom\": [1.0], \"vaccine_name\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_side_effects\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_vaccination_schedule_by_age\"}}]": "action_get_vaccination_schedule_by_age",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_vaccination_schedule_by_age\"}}, {\"prev_action\": {\"action_name\": \"action_get_vaccination_schedule_by_age\"}, \"slots\": {\"age\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_vaccination_schedule_by_age\"}}]": "utter_request_age",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_vaccination_schedule_by_age\"}}, {\"prev_action\": {\"action_name\": \"action_get_vaccination_schedule_by_age\"}, \"slots\": {\"age\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_vaccination_schedule_by_age\"}}, {\"prev_action\": {\"action_name\": \"utter_request_age\"}, \"slots\": {\"age\": \"should_not_be_set\"}, \"user\": {\"intent\": \"ask_vaccination_schedule_by_age\"}}]": "action_listen"
+    },
+    "rule_only_slots": [
+      "vaccine_name",
+      "age"
+    ],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {},
+    "rules_not_in_stories": [
+      "predicting default action with intent back",
+      "predicting default action with intent session_start",
+      "predicting default action with intent restart"
+    ]
+  }
+}

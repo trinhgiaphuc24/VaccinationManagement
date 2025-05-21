@@ -1,0 +1,44 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-age",
+      "2": "I-age",
+      "3": "L-age",
+      "4": "U-age",
+      "5": "B-health_center",
+      "6": "I-health_center",
+      "7": "L-health_center",
+      "8": "U-health_center",
+      "9": "B-symptom",
+      "10": "I-symptom",
+      "11": "L-symptom",
+      "12": "U-symptom",
+      "13": "B-vaccine_name",
+      "14": "I-vaccine_name",
+      "15": "L-vaccine_name",
+      "16": "U-vaccine_name",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-age": 1,
+      "I-age": 2,
+      "L-age": 3,
+      "U-age": 4,
+      "B-health_center": 5,
+      "I-health_center": 6,
+      "L-health_center": 7,
+      "U-health_center": 8,
+      "B-symptom": 9,
+      "I-symptom": 10,
+      "L-symptom": 11,
+      "U-symptom": 12,
+      "B-vaccine_name": 13,
+      "I-vaccine_name": 14,
+      "L-vaccine_name": 15,
+      "U-vaccine_name": 16,
+      "O": 0
+    },
+    "num_tags": 17
+  }
+]

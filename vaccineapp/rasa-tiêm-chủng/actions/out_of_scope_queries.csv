@@ -1,0 +1,5 @@
+user_input,intent,entities,timestamp
+Có vắc-xin cho viêm gan C không?,ask_vaccine_for_new_disease,"[{'entity': 'disease', 'start': 15, 'end': 25, 'confidence_entity': 0.9938697814941406, 'value': 'viêm gan C', 'extractor': 'DIETClassifier', 'processors': ['EntitySynonymMapper']}]",
+Có vắc-xin cho viêm gan B không?,ask_vaccine_for_new_disease,"[{'entity': 'disease', 'start': 15, 'end': 25, 'confidence_entity': 0.7951686382293701, 'value': 'viêm gan B', 'extractor': 'DIETClassifier'}]",
+
+Vaccine cho viêm gan B,ask_vaccine_for_new_disease,"[{'entity': 'disease', 'start': 12, 'end': 22, 'confidence_entity': 0.9483551383018494, 'value': 'viêm gan B', 'extractor': 'DIETClassifier'}]",

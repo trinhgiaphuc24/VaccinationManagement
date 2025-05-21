@@ -15,6 +15,10 @@
         "side_effects": "Tiêu chảy nhẹ, quấy khóc",
         "age_range": "6 tuần - 24 tuần"
     },
+    "Rotavin": {
+        "side_effects": "Tiêu chảy nhẹ, quấy khóc",
+        "age_range": "6 tuần - 24 tuần"
+    },
     "Synflorix": {
         "side_effects": "Sốt nhẹ, sưng đau tại chỗ tiêm",
         "age_range": "6 tuần - 5 tuổi"
@@ -27,17 +31,133 @@
         "side_effects": "Đau tại chỗ tiêm, mệt mỏi",
         "age_range": "Trên 2 tuổi"
     },
-    "BCG": {
-        "side_effects": "Sưng tại chỗ tiêm, nổi hạch",
-        "age_range": "Sơ sinh - 1 tháng"
+    "Gardasil A": {
+        "side_effects": "Đau tại chỗ tiêm, nhức đầu",
+        "age_range": "9-45 tuổi"
+    },
+    "Gardasil B": {
+        "side_effects": "Đau tại chỗ tiêm, nhức đầu",
+        "age_range": "9-45 tuổi"
     },
     "Vaxigrip Tetra": {
         "side_effects": "Sốt nhẹ, đau cơ, mệt mỏi",
         "age_range": "Trên 6 tháng"
     },
-    "Gardasil A": {
-        "side_effects": "Đau tại chỗ tiêm, nhức đầu",
-        "age_range": "9-45 tuổi"
+    "Varivax": {
+        "side_effects": "Sốt nhẹ, phát ban nhẹ, sưng tại chỗ tiêm",
+        "age_range": "Trên 12 tháng"
+    },
+    "Boostrix": {
+        "side_effects": "Đau tại chỗ tiêm, mệt mỏi, nhức đầu",
+        "age_range": "Trên 4 tuổi"
+    },
+    "Varilrix": {
+        "side_effects": "Sốt nhẹ, phát ban nhẹ, sưng tại chỗ tiêm",
+        "age_range": "Trên 12 tháng"
+    },
+    "Influvac Tetra": {
+        "side_effects": "Sốt nhẹ, đau cơ, mệt mỏi",
+        "age_range": "Trên 6 tháng"
+    },
+    "GC Flu Quadrivalent": {
+        "side_effects": "Sốt nhẹ, đau cơ, mệt mỏi",
+        "age_range": "Trên 6 tháng"
+    },
+    "Ivacflu-S": {
+        "side_effects": "Sốt nhẹ, đau cơ, mệt mỏi",
+        "age_range": "Trên 6 tháng"
+    },
+    "BCG": {
+        "side_effects": "Sưng tại chỗ tiêm, nổi hạch",
+        "age_range": "Sơ sinh - 1 tháng"
+    },
+    "Gene Hbvax A": {
+        "side_effects": "Sưng tại chỗ tiêm, đau nhẹ",
+        "age_range": "Sơ sinh và người lớn"
+    },
+    "Gene Hbvax B": {
+        "side_effects": "Sưng tại chỗ tiêm, đau nhẹ",
+        "age_range": "Sơ sinh và người lớn"
+    },
+    "Heberbiovac A": {
+        "side_effects": "Sưng tại chỗ tiêm, đau nhẹ",
+        "age_range": "Sơ sinh và người lớn"
+    },
+    "Heberbiovac B": {
+        "side_effects": "Sưng tại chỗ tiêm, đau nhẹ",
+        "age_range": "Sơ sinh và người lớn"
+    },
+    "MVVac A": {
+        "side_effects": "Sốt nhẹ, phát ban, sưng tại chỗ tiêm",
+        "age_range": "Trên 12 tháng"
+    },
+    "MVVac B": {
+        "side_effects": "Sốt nhẹ, phát ban, sưng tại chỗ tiêm",
+        "age_range": "Trên 12 tháng"
+    },
+    "MMR II": {
+        "side_effects": "Sốt nhẹ, phát ban, sưng tại chỗ tiêm",
+        "age_range": "Trên 12 tháng"
+    },
+    "Priorix": {
+        "side_effects": "Sốt nhẹ, phát ban, sưng tại chỗ tiêm",
+        "age_range": "Trên 12 tháng"
+    },
+    "Imojev": {
+        "side_effects": "Sốt nhẹ, đau tại chỗ tiêm",
+        "age_range": "Trên 9 tháng"
+    },
+    "Jeev": {
+        "side_effects": "Sốt nhẹ, đau tại chỗ tiêm",
+        "age_range": "Trên 9 tháng"
+    },
+    "Jevax": {
+        "side_effects": "Sốt nhẹ, đau tại chỗ tiêm",
+        "age_range": "Trên 9 tháng"
+    },
+    "Verorab A": {
+        "side_effects": "Đau tại chỗ tiêm, mệt mỏi",
+        "age_range": "Tất cả độ tuổi"
+    },
+    "Verorab B": {
+        "side_effects": "Đau tại chỗ tiêm, mệt mỏi",
+        "age_range": "Tất cả độ tuổi"
+    },
+    "Abhayrab A": {
+        "side_effects": "Đau tại chỗ tiêm, mệt mỏi",
+        "age_range": "Tất cả độ tuổi"
+    },
+    "Abhayrab B": {
+        "side_effects": "Đau tại chỗ tiêm, mệt mỏi",
+        "age_range": "Tất cả độ tuổi"
+    },
+    "Adacel": {
+        "side_effects": "Đau tại chỗ tiêm, mệt mỏi, nhức đầu",
+        "age_range": "Trên 4 tuổi"
+    },
+    "Tetraxim": {
+        "side_effects": "Sốt nhẹ, sưng đau tại chỗ tiêm",
+        "age_range": "2 tháng - 13 tuổi"
+    },
+    "Uốn ván, bạch hầu hấp phụ A": {
+        "side_effects": "Đau tại chỗ tiêm, sốt nhẹ",
+        "age_range": "Trên 7 tuổi"
+    },
+    "Uốn ván, bạch hầu hấp phụ B": {
+        "side_effects": "Đau tại chỗ tiêm, sốt nhẹ",
+        "age_range": "Trên 7 tuổi"
+    },
+    "Twinrix": {
+        "side_effects": "Đau tại chỗ tiêm, mệt mỏi",
+        "age_range": "Trên 1 tuổi"
+    },
+    "Havax": {
+        "side_effects": "Đau tại chỗ tiêm, sốt nhẹ",
+        "age_range": "Trên 1 tuổi"
+    },
+    "Avaxim": {
+        "side_effects": "Đau tại chỗ tiêm, sốt nhẹ",
+        "age_range": "Trên 1 tuổi"
     },
     "default": {
         "side_effects": "Sốt nhẹ, sưng đau tại chỗ tiêm, mệt mỏi",

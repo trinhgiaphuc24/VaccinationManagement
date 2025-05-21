@@ -1,0 +1,15 @@
+{
+  "0": "bot_challenge",
+  "1": "chào_hỏi",
+  "2": "goodbye",
+  "3": "hỏi_cần_chuẩn_bị_trước_tiêm",
+  "4": "hỏi_cần_theo_dõi_sau_tiêm",
+  "5": "hỏi_giá_vaccine",
+  "6": "hỏi_lịch_tiêm_theo_độ_tuổi",
+  "7": "hỏi_phản_ứng_phụ",
+  "8": "hỏi_thông_tin_vaccine",
+  "9": "hỏi_địa_điểm_tiêm",
+  "10": "hỏi_độ_tuổi_tiêm",
+  "11": "out_of_scope",
+  "12": "đánh_giá_chatbot"
+}

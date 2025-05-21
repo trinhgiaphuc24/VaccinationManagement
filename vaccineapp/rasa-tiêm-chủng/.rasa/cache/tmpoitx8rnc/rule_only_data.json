@@ -1,0 +1,10 @@
+{
+  "rule_only_slots": [
+    "symptom"
+  ],
+  "rule_only_loops": [
+    "schedule_form",
+    "price_form",
+    "vaccine_form"
+  ]
+}

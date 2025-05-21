@@ -1,0 +1,165 @@
+version: "3.1"
+
+rules:
+  - rule: Handle greet
+    steps:
+    - intent: greet
+    - action: action_greet
+    - action: utter_greet
+    - action: action_listen
+
+  - rule: Handle goodbye
+    steps:
+    - intent: goodbye
+    - action: action_goodbye
+    - action: utter_goodbye
+    - action: action_listen
+
+  - rule: Handle bot challenge
+    steps:
+    - intent: bot_challenge
+    - action: action_bot_challenge
+    - action: utter_bot_challenge
+    - action: action_listen
+
+  - rule: Handle evaluate chatbot
+    steps:
+    - intent: evaluate_chatbot
+    - action: action_evaluate_chatbot
+    - action: action_listen
+
+  - rule: Handle out of scope
+    steps:
+    - intent: out_of_scope
+    - action: action_out_of_scope
+    - action: utter_out_of_scope
+    - action: action_listen
+
+  - rule: Handle nlu fallback
+    steps:
+    - intent: nlu_fallback
+    - action: action_default_fallback
+    - action: utter_default_fallback
+    - action: action_listen
+
+  - rule: Handle ask_vaccine_price
+    steps:
+    - intent: ask_vaccine_price
+    - action: price_form
+    - active_loop: price_form
+    - slot_was_set:
+        - vaccine_name: null
+
+  - rule: Submit price_form
+    condition:
+    - active_loop: price_form
+    steps:
+    - action: price_form
+    - active_loop: null
+    - slot_was_set:
+        - vaccine_name: vaccine_name
+    - action: action_get_vaccine_price
+    - action: action_listen
+
+  - rule: Handle ask_vaccine_info
+    steps:
+    - intent: ask_vaccine_info
+    - action: vaccine_form
+    - active_loop: vaccine_form
+    - slot_was_set:
+        - vaccine_name: null
+
+  - rule: Submit vaccine_form
+    condition:
+    - active_loop: vaccine_form
+    steps:
+    - action: vaccine_form
+    - active_loop: null
+    - slot_was_set:
+        - vaccine_name: vaccine_name
+    - action: action_get_vaccine_info
+    - action: action_listen
+
+  - rule: Handle ask_vaccination_age
+    steps:
+    - intent: ask_vaccination_age
+    - action: action_get_vaccination_age
+    - action: action_listen
+
+  - rule: Handle ask_side_effects
+    steps:
+    - intent: ask_side_effects
+    - action: side_effects_form
+    - active_loop: side_effects_form
+    - slot_was_set:
+        - vaccine_name: null
+        - symptom: null
+
+  - rule: Submit side_effects_form
+    condition:
+    - active_loop: side_effects_form
+    steps:
+    - action: side_effects_form
+    - active_loop: null
+    - slot_was_set:
+        - vaccine_name: vaccine_name
+        - symptom: symptom
+    - action: action_get_side_effects
+    - action: action_listen
+
+  - rule: Handle ask_side_effects_by_symptom
+    steps:
+    - intent: ask_side_effects_by_symptom
+    - action: action_get_side_effects_by_symptom
+    - action: action_listen
+
+  - rule: Handle ask_vaccination_schedule_by_age
+    steps:
+    - intent: ask_vaccination_schedule_by_age
+    - action: schedule_form
+    - active_loop: schedule_form
+    - slot_was_set:
+        - age: null
+
+  - rule: Submit schedule_form
+    condition:
+    - active_loop: schedule_form
+    steps:
+    - action: schedule_form
+    - active_loop: null
+    - slot_was_set:
+        - age: age
+    - action: action_get_vaccination_schedule_by_age
+    - action: action_listen
+
+  - rule: Handle ask_pre_vaccination_preparation
+    steps:
+    - intent: ask_pre_vaccination_preparation
+    - action: action_show_pre_vaccination_preparation
+    - action: action_listen
+
+  - rule: Handle ask_post_vaccination_monitoring
+    steps:
+    - intent: ask_post_vaccination_monitoring
+    - action: action_show_post_vaccination_monitoring
+    - action: action_listen
+
+  - rule: Handle ask_vaccination_location
+    steps:
+    - intent: ask_vaccination_location
+    - action: action_get_vaccination_location
+    - action: action_listen
+
+  - rule: Handle ask vaccine for new disease
+    steps:
+    - intent: ask_vaccine_for_new_disease
+    - action: action_get_vaccine_for_disease
+    - action: utter_new_disease_response
+    - action: action_listen
+
+  - rule: Handle ask vaccine for special condition
+    steps:
+    - intent: ask_vaccine_for_special_condition
+    - action: action_get_vaccine_for_condition
+    - action: utter_special_condition_response
+    - action: action_listen

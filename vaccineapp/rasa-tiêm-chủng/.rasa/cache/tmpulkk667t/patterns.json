@@ -1,0 +1,18 @@
+[
+  {
+    "name": "age",
+    "pattern": "(?:trẻ\\s*sơ\\s*sinh|[0-9]+\\s*(?:tháng|tuổi)|người\\s*lớn|trẻ\\s*[0-9]+\\s*(?:tháng|tuổi))"
+  },
+  {
+    "name": "health_center",
+    "pattern": "(?:VNVC\\s*Tân\\s*Thuận|Quận\\s*7|Bệnh\\s*viện\\s*Nhi\\s*Đồng|VNVC|TP\\s*HCM)"
+  },
+  {
+    "name": "symptom",
+    "pattern": "(?:sốt|sưng|quấy\\s*khóc|mệt\\s*mỏi|đau|chán\\s*ăn|sốt\\s*nhẹ|đau\\s*cơ|nhức\\s*đầu|nổi\\s*hạch)"
+  },
+  {
+    "name": "vaccine_name",
+    "pattern": "(?:Infanrix\\s*Hexa|Hexaxim|Rotateq|Rotarix|Synflorix|Prevenar\\s*13|Pneumovax\\s*23|Gardasil\\s*[AB]|Vaxigrip\\s*Tetra|Varivax|Boostrix|Varilrix|Influvac\\s*Tetra|GC\\s*Flu\\s*Quadrivalent|Ivacflu-S|6\\s*trong\\s*1|vaccine\\s*cúm|vaccine\\s*thủy\\s*đậu|vaccine\\s*HPV|vaccine\\s*phế\\s*cầu|phế\\s*cầu\\s*người\\s*lớn|BCG)"
+  }
+]

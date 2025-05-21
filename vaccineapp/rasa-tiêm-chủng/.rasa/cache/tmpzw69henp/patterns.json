@@ -1,0 +1,70 @@
+[
+  {
+    "name": "age",
+    "pattern": "(?:người|nguoi)\\s*(?:lớn|lon)"
+  },
+  {
+    "name": "age",
+    "pattern": "(?:trẻ|be|bé)\\s*(?:sơ sinh|so sinh)"
+  },
+  {
+    "name": "age",
+    "pattern": "\\d+\\s*(?:tháng|tuổi|t)"
+  },
+  {
+    "name": "age",
+    "pattern": "dưới\\s*\\d+\\s*(?:tuổi|t)"
+  },
+  {
+    "name": "age",
+    "pattern": "trên\\s*\\d+\\s*(?:tuổi|t)"
+  },
+  {
+    "name": "health_center",
+    "pattern": "(?:Hồ Chí Minh|HCM|Ho Chi Minh)"
+  },
+  {
+    "name": "health_center",
+    "pattern": "Quận\\s*\\d+"
+  },
+  {
+    "name": "health_center",
+    "pattern": "VNVC\\s*[A-Za-z\\s]+"
+  },
+  {
+    "name": "symptom",
+    "pattern": "(?:khó|kho)\\s*(?:thở|tho)"
+  },
+  {
+    "name": "symptom",
+    "pattern": "(?:sưng|sung)\\s*(?:đau|dau)"
+  },
+  {
+    "name": "symptom",
+    "pattern": "(?:sốt|sot)"
+  },
+  {
+    "name": "vaccine_name",
+    "pattern": "[0-9]\\s*(?:trong|in)\\s*[0-9]"
+  },
+  {
+    "name": "vaccine_name",
+    "pattern": "[A-Za-z0-9\\s]+(?:\\s[A-Za-z0-9]+)?"
+  },
+  {
+    "name": "vaccine_name",
+    "pattern": "(\\bInfanrix\\ Hexa\\b|\\bHexaxim\\b|\\bRotateq\\b|\\bRotarix\\b|\\bRotavin\\b|\\bSynflorix\\b|\\bPrevenar\\ 13\\b|\\bPneumovax\\ 23\\b|\\bBCG\\b|\\bGene\\ Hbvax\\ A\\b|\\bHeberbiovac\\ A\\b|\\bGene\\ Hbvax\\ B\\b|\\bHeberbiovac\\ B\\b|\\bMVVac\\ A\\b|\\bMVVac\\ B\\b|\\bMMR\\ II\\b|\\bPriorix\\b|\\bVarivax\\b|\\bVarilrix\\b|\\bVaxigrip\\ Tetra\\b|\\bInfluvac\\ Tetra\\b|\\bGC\\ Flu\\ Quadrivalent\\b|\\bIvacflu\\-S\\b|\\bGardasil\\ A\\b|\\bGardasil\\ B\\b|\\bImojev\\b|\\bJeev\\b|\\bJevax\\b|\\bVerorab\\ A\\b|\\bVerorab\\ B\\b|\\bAbhayrab\\ A\\b|\\bAbhayrab\\ B\\b|\\bAdacel\\b|\\bBoostrix\\b|\\bTetraxim\\b|\\bUốn\\ ván,\\ bạch\\ hầu\\ hấp\\ phụ\\ A\\b|\\bUốn\\ ván,\\ bạch\\ hầu\\ hấp\\ phụ\\ B\\b|\\bTwinrix\\b|\\bHavax\\b|\\bAvaxim\\b|\\b6\\ trong\\ 1\\b|\\bsởi\\ quai\\ bị\\ rubella\\b|\\bthủy\\ đậu\\b|\\bcúm\\ mùa\\b|\\b5\\ trong\\ 1\\b|\\bvaccine\\ HPV\\b|\\bInfanrix\\ Hexa\\ 6\\ trong\\ 1\\b|\\bInfranix\\ Hexa\\b|\\bHexasim\\b|\\bRotatek\\b|\\bRotarix\\ vaccine\\b|\\bSynfloric\\b|\\bPrevenar\\b|\\bPneumovax\\b|\\bVaxigrip\\b|\\bInfluvac\\b|\\bGardasil\\b|\\bVarivak\\b|\\bVarilrik\\b|\\b6in1\\b|\\b5in1\\b|\\bsoi\\ quai\\ bi\\ rubella\\b|\\bthuy\\ dau\\b|\\bcum\\ mua\\b)"
+  },
+  {
+    "name": "health_center",
+    "pattern": "(\\bVNVC\\ Tân\\ Thuận\\b|\\bVNVC\\ Kha\\ Vạn\\ Cân\\b|\\bVNVC\\ Celadon\\b|\\bVNVC\\ Nguyễn\\ Thị\\ Tú\\b|\\bVNVC\\ Ba\\ Tháng\\ Hai\\b|\\bVNVC\\ Sunrise\\ City\\ Quận\\ 7\\b|\\bVNVC\\ Tân\\ Phú\\ 2\\b|\\bVNVC\\ Huỳnh\\ Tấn\\ Phát\\b|\\bVNVC\\ Quận\\ 8\\b|\\bVNVC\\ Củ\\ Chi\\ 2\\b|\\bTrung\\ tâm\\ y\\ tế\\ quận\\ 1\\b|\\bBệnh\\ viện\\ Nhi\\ Đồng\\ 1\\b|\\bTrạm\\ y\\ tế\\ phường\\ Bến\\ Nghé\\b|\\bBệnh\\ viện\\ công\\b|\\bTrạm\\ y\\ tế\\ địa\\ phương\\b|\\bQuận\\ 1\\b|\\bQuận\\ 7\\b|\\bHồ\\ Chí\\ Minh\\b|\\bVNVC\\ Tan\\ Thuan\\b|\\bVNVC\\ Kha\\ Van\\ Can\\b|\\bVNVC\\ Celadon\\ Tân\\ Bình\\b|\\bTrung\\ tam\\ y\\ te\\ quan\\ 1\\b|\\bBenh\\ vien\\ Nhi\\ Dong\\ 1\\b|\\bTram\\ y\\ te\\ Ben\\ Nghe\\b|\\bQuan\\ 1\\b|\\bQuan\\ 7\\b|\\bHCM\\b|\\bHo\\ Chi\\ Minh\\b)"
+  },
+  {
+    "name": "age",
+    "pattern": "(\\btrẻ\\ sơ\\ sinh\\b|\\b1\\ tháng\\ tuổi\\b|\\b2\\ tháng\\ tuổi\\b|\\b3\\ tháng\\ tuổi\\b|\\b4\\ tháng\\ tuổi\\b|\\b5\\ tháng\\ tuổi\\b|\\b6\\ tháng\\ tuổi\\b|\\b9\\ tháng\\ tuổi\\b|\\b1\\ tuổi\\b|\\b2\\ tuổi\\b|\\b5\\ tuổi\\b|\\b10\\ tuổi\\b|\\bngười\\ lớn\\b|\\btrên\\ 60\\ tuổi\\b|\\bdưới\\ 1\\ tuổi\\b|\\btre\\ so\\ sinh\\b|\\b1\\ thang\\ tuoi\\b|\\b2\\ thang\\b|\\b3\\ thang\\b|\\b6\\ thang\\ tuoi\\b|\\b1\\ tuoi\\b|\\b2\\ tuoi\\b|\\bnguoi\\ lon\\b|\\btren\\ 60\\ tuoi\\b|\\bduoi\\ 1\\ tuoi\\b)"
+  },
+  {
+    "name": "symptom",
+    "pattern": "(\\bsốt\\b|\\bsưng\\ đau\\ tại\\ chỗ\\ tiêm\\b|\\bphát\\ ban\\b|\\bmệt\\ mỏi\\b|\\bquấy\\ khóc\\b|\\bbỏ\\ ăn\\b|\\bkhó\\ thở\\b|\\bsot\\b|\\bsung\\ dau\\ tai\\ cho\\ tiem\\b|\\bphat\\ ban\\b|\\bmet\\ moi\\b|\\bquay\\ khoc\\b|\\bbo\\ an\\b|\\bkho\\ tho\\b)"
+  }
+]

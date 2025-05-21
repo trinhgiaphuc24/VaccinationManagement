@@ -1,0 +1,82 @@
+version: "3.1"
+
+stories:
+  - story: Greet and ask vaccine info
+    steps:
+    - intent: greet
+    - action: action_greet
+    - action: utter_greet
+    - intent: ask_vaccine_info
+      entities:
+      - vaccine_name: Infanrix Hexa
+    - action: vaccine_form
+    - active_loop: vaccine_form
+    - slot_was_set:
+        - vaccine_name: Infanrix Hexa
+    - active_loop: null
+    - action: action_get_vaccine_info
+
+  - story: Ask vaccination age then vaccine info
+    steps:
+    - intent: ask_vaccination_age
+      entities:
+      - vaccine_name: Infanrix Hexa
+    - action: action_get_vaccination_age
+    - intent: ask_vaccine_info
+      entities:
+      - vaccine_name: Infanrix Hexa
+    - action: vaccine_form
+    - active_loop: vaccine_form
+    - slot_was_set:
+        - vaccine_name: Infanrix Hexa
+    - active_loop: null
+    - action: action_get_vaccine_info
+
+  - story: Ask side effects
+    steps:
+    - intent: ask_side_effects
+      entities:
+      - vaccine_name: Infanrix Hexa
+    - action: side_effects_form
+    - active_loop: side_effects_form
+    - slot_was_set:
+        - vaccine_name: Infanrix Hexa
+        - symptom: sốt
+    - active_loop: null
+    - action: action_get_side_effects
+
+  - story: Ask vaccination schedule by age
+    steps:
+    - intent: ask_vaccination_schedule_by_age
+      entities:
+      - age: trẻ sơ sinh
+    - action: schedule_form
+    - active_loop: schedule_form
+    - slot_was_set:
+        - age: trẻ sơ sinh
+    - active_loop: null
+    - action: action_get_vaccination_schedule_by_age
+
+  - story: Ask vaccine for new disease then location
+    steps:
+    - intent: ask_vaccine_for_new_disease
+      entities:
+      - disease: viêm gan C
+    - slot_was_set:
+        - disease: viêm gan C
+    - action: action_get_vaccine_for_disease
+    - action: utter_new_disease_response
+    - intent: ask_vaccination_location
+    - action: action_get_vaccination_location
+
+  - story: Ask vaccine for special condition then location
+    steps:
+    - intent: ask_vaccine_for_special_condition
+      entities:
+      - condition: dị ứng penicillin
+    - slot_was_set:
+        - condition: dị ứng penicillin
+    - action: action_get_vaccine_for_condition
+    - action: utter_special_condition_response
+    - intent: ask_vaccination_location
+    - action: action_get_vaccination_location

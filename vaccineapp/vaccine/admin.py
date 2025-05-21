@@ -9,7 +9,7 @@ from django.utils import timezone
 import calendar
 
 from vaccine.models import User, Information, Vaccine, HealthCenter, Time, Appointment, VaccineType, AppointmentDetail, \
-    CommunicationVaccination
+    CommunicationVaccination, CountryProduce
 
 
 class MyVaccineAdmin(admin.ModelAdmin):
@@ -25,6 +25,22 @@ class MyVaccineAdmin(admin.ModelAdmin):
 
 class MyCommunicationAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'active', 'date', 'time']
+    search_fields = ['name']
+    list_filter = ['id']
+    list_editable = ['name']
+    list_per_page = 10
+
+
+class MyVaccineTypeAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'active']
+    search_fields = ['name']
+    list_filter = ['id']
+    list_editable = ['name']
+    list_per_page = 10
+
+
+class MyCountryProduceAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'active']
     search_fields = ['name']
     list_filter = ['id']
     list_editable = ['name']
@@ -236,3 +252,5 @@ admin_site.register(User, MyUserAdmin)
 admin_site.register(HealthCenter, MyHealthCenterAdmin)
 admin_site.register(Time, MyTimeAdmin)
 admin_site.register(CommunicationVaccination, MyCommunicationAdmin)
+admin_site.register(VaccineType, MyVaccineTypeAdmin)
+admin_site.register(CountryProduce, MyCountryProduceAdmin)

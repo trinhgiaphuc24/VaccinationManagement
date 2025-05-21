@@ -1,0 +1,31 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJwtzEEKwzAMBMCv+AEhtNd8xRhhnC2IpnKxlPRg/PcI6pu0mlXsYwn923BRLsZVttD/A0n+YAtzOVgN4laPaupoZ0VWB/G5PpIfTkXzHGJsDCdxkrQEFi+bP9M3XbkUFtCrNhL8aKox0g1P0zRk": "action_get_vaccine_for_disease",
+    "eJy1jsEKAjEMRH+lH7CIXvdXSgmljhJcU2nieij77wa2Hrx58TaZvBkm9m0K/dGwUi7GVebQd0GS75jDOBZWgzirSzV16MyKrA7E0+GY/PFUNPchxsZwJA4kTYHFw+ZleqM1l8ICutRGghcNavttxxX21fBJ/3NYegPTpG3j": "utter_new_disease_response",
+    "eJzFjk0KwkAMha8yByii215lKGEYnxKsmTJJ66L07gY6LrpzI+7y873HF9etC+tUsVDKxkX6sO4DSXqiD20ZWQ3irI7F1KErK5I6EC+n8+CPWVH9DjE2hiOxIUMXWDxsXqYPWlLOLKBbqSR4UaO27zzusEPDJ/0/sdkMhwBV6FTkx1LDGy7ephI=": "action_listen",
+    "eJzFkT0KwzAMha/iA4TSrrlKMMK4ahFN5WAp6WB894rEHUKXdsqmn+89PdBQaufKlHGBEJUS965sBXB4Yu9aM5IosrEyJhWDriQYxIDhcjp7W8yC2ebISkpoyNAQ3zliE6uZyQOWECMxwi1lYHxBo+pvOe6oO4eP+rhgsyruBJBRpsSHhvr3a98nw2aQ4lrU6t/+3dAG": "action_get_vaccination_location",
+    "eJzFkU0KwkAMha8yByii215lGMIwRgnWTJmkdVF6d4MdF9WNBaG7/Hzv5UH81BccISalzK2blgI43rF1telIFHlunHRZxaAzCUYxwJ8Ox2CLQbDYHFlJCQ3xFQmNIzaxmpncYIwpESNccgHGB1RqNosfclxRVw5v9X7BBlVcCaCg9Jl3DbX1a98n42KQ06vY/J0P+T8ShCfTIQAc": "action_listen",
+    "eJwtjEsKwzAMRK/iA4TQbHMVY4TriFTUVUqkBIrx3Tv97DTznia2PoT23PmkXFw2nUP7HaT5wXP4hyrmrHCtbm4faQWM03hJKA/jHR2riwsDR+A0BFE8OUbsTmcuRTR/16zceDkq0/VFMHtPb2n9Mp4=": "schedule_form",
+    "eJy1jkEOwjAMBL+SB1SIXvuVKLJCMMUidarYrYSi/r0uIK6cuHl3x6v1betcmyuuEJNS4cG19wEcJxzcR2QSRTZWclE5oNFC35/OwcxFsJqHrKSEFnuLQ+eI7UmtRB6wxpSI46tN0h2vS0a4PMHI7ceGL34rdfrbhrADByxjfw==": "action_get_vaccination_schedule_by_age",
+    "eJzFjkEOwjAMBL+SB1QIrv1KFFkhmGKROih2K6Gof6+BiiOcEDfv7ni1vi2da7eKM8SkVLh37XUAxxF7t4lMosjGSi4qD2iw0B92+2DmJFjNQ1ZSQou9xaFzxPakViJXmGNKxPHZJumCpykjHO9g5PJlwxs/lzr+acMmBtSPLb8aF1Y1N559": "action_listen",
+    "eJw9jFEKhDAMRK/SA4jor1cpJZRshLA1lSb6U3r3Dbj4N8N7M7GPKfSz0Q0ZjatsoT8BJB+0hX8prEbirpZq6hJW+fAziOu8JEeXUnNCYg7IpfhKaQosfmB+qF+4MyILwV4b6EnIucDrjpF+hlo4tg==": "action_get_vaccine_for_condition",
+    "eJy9jkEKwzAMBL/iB4TSXvMVY4RR1SLqysFSczH5ewUJKb3llJvEzg4b+zKEPjWaIaNxlTH09QDJbxrD9hRWI3FWSzV1CKvceS3E2+WaPPooNU9IzANyKO5QGgKLC8yF+oI5I7IQPGoDnQg5F9jZ5diiJ9mf59c/Z2T6Aj+vd3A=": "utter_special_condition_response",
+    "eJzNjkEKwjAQRa+SAxTRba9SwhDiV4JxEjLTbkLv7kClIrhwJe5m+O9/3tTXwfXasFCImgqPrm8HcbhjdM8nJ1GwsZKLikGx8Dlthel0OHqLZkGzBKwWwKBph/zgEtuA2qDcaAkxJgZdSiOpiClk2tn1O6Mr9G3n1f8HyVkVH2rUILWw4EeS/gGL97Zx": "action_listen",
+    "eJzNkUEKAjEMRa/SAwyi27nKUEKoUYo1LU1mNmXubqAyIrrQ3ewS/vs/HzK1dXCtVFoAg8bMo2t9AMY7je65pChKbKykrGJQyHyO3TCdDkdv0ixUTSFWE8igaYP84CJbgFqg3GDBECITXHIFKRQiJtjY9bdGV9K3nJd/DyVnVfpig0pSMgvtouT/v/08jT0iB+wX/QNRcOFO": "action_get_vaccination_location",
+    "eJzNkUsKwzAMRK/iA4TSbnMVY4Rx1WLqysZSsgm5ewUOKf0s2tJFdhIz8zQgO5WKI/ggMVNvpjYA+Sv2ZllSZEGaO8MpC6spZDrGFrCH3d6pNDBWVZBEBVSTXU2uM5EUIArkC4w+hEgIp1yBC4boE6zeWVEfNDqjPHDu+S2UHETwTQwqcsnEuImS3//29bRviBz8T797iv+ng7sB524STQ==": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taS2NhYA6dwbhQ==": "action_greet",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taSWODMganEZEQsAdEg04Q==": "utter_greet",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taSWODMgaskzorSkJLWIgAmxAFd1TfM=": "action_listen",
+    "eJylj0EKwzAMBL+iB4SSXv0VY4wxahFJ5WIpuRj/vYIktPRUmpuWHWaRb32A9qy4xpSVCjto2xE5PdDBHmYSRTZ2EazGEFtUB/eKqP03x8b+p1hUsZ4yfD8ic1ExaE05E+NO+etlDO8F05MSGuc/uTDAsZ1kikdFfCu9hxe2PIAb": "vaccine_form",
+    "eJy1j9EKwjAMRX8lHzBEX/srpZRSMgnbUmmyvYz9u4GtKL4oim+5yeHeG7/eKi4xZaXCDtZ9iJwmdHCIkUSRtw5mwWoMsUl1cK2Iutn+A4+d/c5iVsX6k8PrIzIWFYOWlDMxHpS/nM7hkWD2pITG+WcudNCykwyxnYj78q5GY/tSp3+2CHdzkbB/": "action_get_vaccine_info",
+    "eJzFkU0KAjEMha+SAwyi216llFJKRoIzqTSZ2Qze3cC0qBtdiLjLz5f3HsRv14prTFmpsINtLyKnGR205lwR9TbAIlgNIVZkdbCPbf5OYlHF+pVCayYSOzJWpqJi0JpyJsZG+dPhGB4OJk9KaJx/5sIA3TvJJfYV8Vg+xejsWOr8vxT9I6ivZz8MFO4VZczH": "action_listen",
+    "eJxNjEEKgDAMBL/SB4jo1a+UUkIJEtRUTOyl9O8G7cHbLjOMr21w9bywREhKmRdXvxEZDlxcPzuJIpsre1YxqUBKxNgtP49TMHoLXgaRlZTQPP/3wuCILaOWlS1+CN4+rNhaeADHzDUQ": "action_get_vaccination_age",
+    "eJy1jkEKhEAMBL8yDxBxr35lGIYwNBLUuJisl8G/b1g9CHvx4i2hqpuOdW9Cfa/YMhXjRfpQjyMLzejD+UysBnFXp8XUpY1KYcFpxVfbJacfxeoQYmwM9+LVS01g8RrzWh3zgejXTwP2e0sG2F/y2VnpC9VUbZo=": "action_listen",
+    "eJzNkDEKwzAMRa/iA4TSrrmKMUaY3yCSyiVSsxjfvaLJUOjSpdBN4j19PoqtD6HdV2yZinGVMbR9yEI3jOFYFlaDuKtLNXVpo1JYcFjxcjonpw/F6hBibAz34ruXhsDiMeaxOucd0SufJvTvmkywj8s/qPW7ByGzXGvv6QnmK5/C": "vaccine_form",
+    "eJzNkEEKwzAMBL/iB4TSXvMVY4wwmyCayMVWczH5e0WTQqGH9hLoTWJHyyDf1s61W8ESKSln6V3bhig0o3f7MnFViLF1yloNWiglFuyUv5zOwdJ7RbEQoqwM4/w7FzrHYjVqtfUat4ie/TRi/c1khH5c/oHWcQ9CZBnyN40XO+QyH2kRHozm0Wo=": "action_get_vaccine_info",
+    "eJzNkUEKgzAQRa+SA0hpt14lhDCEUYbqpGSmbsS7d6gpCC7sRtpdwn//80j8/Cg4RUhKmVs3r4fIMGLr6mUgUeSlcTJkFYMmSIkYK+Vvl2uw9ClYLERWUkLj/JYLjSO2GbVZucc1gvc+9LhY/wuTHnXX/AOt8x4II3GXjzQ+bJfL+DuL3R/V2olC4QUZywZR": "action_listen",
+    "eJxNzEEKgDAMBMCv9AEievUrpZRSVwjWKCZ6Kf27AT1422WH9bV1rh4n7piy0s6Tq2+InDZM7iuFRMFmpewqhu6UMzE+5cd+CLZegtNGsJISzPm/C50jthu1W1mj0IyIZUFWaS08KbIz2Q==": "action_get_side_effects",
+    "eJy1jsEKgzAQRH8lHyBir/5KCCGkE1lqV3G3XkL+3QU9tDcvvc0wb4bxtXWurhv2mLLSwqOrp4ic3hjdZWYSBRsr86Ji0J5yJsZF+Uc/BEs/gs1CsJISjPPfXOgcsc2ozcorCj0RUQqySrt3Y4L+1v54KBzv0mn1": "action_listen"
+  }
+}

@@ -1,0 +1,239 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - xin chào
+    - chào bạn
+    - hi
+    - hello
+    - chào buổi sáng
+
+- intent: goodbye
+  examples: |
+    - tạm biệt
+    - bye
+    - hẹn gặp lại
+    - chào nhé
+
+- intent: bot_challenge
+  examples: |
+    - bạn là ai
+    - bạn là bot à
+    - đây là bot đúng không
+    - ai đang trả lời tôi vậy
+
+- intent: ask_vaccine_info
+  examples: |
+    - thông tin về vaccine [Infanrix Hexa](vaccine_name)
+    - [Hexaxim](vaccine_name) là gì
+    - cho tôi biết về [Rotateq](vaccine_name)
+    - [Vaxigrip Tetra](vaccine_name) có tác dụng gì
+    - vaccine [Gardasil A](vaccine_name) dùng để làm gì
+    - mô tả về [6 trong 1](vaccine_name)
+    - [vaccine cúm](vaccine_name) là gì
+    - vaccine [Prevenar 13](vaccine_name) là gì
+    - [Synflorix](vaccine_name) có tác dụng gì
+    - [Pneumovax 23](vaccine_name) dùng để làm gì
+    - [BCG](vaccine_name) là gì
+    - thông tin về [Varivax](vaccine_name)
+    - [Boostrix](vaccine_name) dùng để làm gì
+    - [MMR II](vaccine_name) có tác dụng gì
+
+- intent: ask_vaccine_price
+  examples: |
+    - giá vaccine [Infanrix Hexa](vaccine_name) tại [VNVC Tân Thuận](health_center)
+    - [Hexaxim](vaccine_name) bao nhiêu tiền
+    - chi phí tiêm [Rotateq](vaccine_name) ở [Quận 7](health_center)
+    - giá [Vaxigrip Tetra](vaccine_name) là bao nhiêu
+    - vaccine [Gardasil A](vaccine_name) giá thế nào tại [Bệnh viện Nhi Đồng](health_center)
+    - giá [Prevenar 13](vaccine_name) tại [VNVC Tân Thuận](health_center)
+    - giá [BCG](vaccine_name) tại [VNVC Kha Vạn Cân](health_center)
+    - [Varivax](vaccine_name) bao nhiêu tiền tại [VNVC Celadon](health_center)
+    - giá vaccine [Hexaxim](vaccine_name)
+    - [Synflorix](vaccine_name) giá bao nhiêu
+    - chi phí [MMR II](vaccine_name)
+    - [Boostrix](vaccine_name) bao nhiêu tiền
+    - giá [Rotarix](vaccine_name)
+
+- intent: ask_side_effects
+  examples: |
+    - tác dụng phụ của [Infanrix Hexa](vaccine_name)
+    - [Hexaxim](vaccine_name) có gây [sốt](symptom) không
+    - phản ứng phụ khi tiêm [Rotateq](vaccine_name)
+    - [Vaxigrip Tetra](vaccine_name) gây [sưng](symptom) à
+    - vaccine [Gardasil A](vaccine_name) có tác dụng phụ gì
+    - [Prevenar 13](vaccine_name) gây [sốt nhẹ](symptom) không
+    - [Synflorix](vaccine_name) có tác dụng phụ gì
+    - [BCG](vaccine_name) có gây [nổi hạch](symptom) không
+    - phản ứng phụ của [Varivax](vaccine_name)
+
+- intent: ask_side_effects_by_symptom
+  examples: |
+    - [Infanrix Hexa](vaccine_name) có gây [sốt](symptom) không
+    - [Hexaxim](vaccine_name) có gây [sưng](symptom) không
+    - Vaccine [Vaxigrip Tetra](vaccine_name) có gây [nhức đầu](symptom) không
+    - [Prevenar 13](vaccine_name) có gây [nổi hạch](symptom) không
+    - [BCG](vaccine_name) có gây [mệt mỏi](symptom) không
+    - [Varivax](vaccine_name) có gây [đau cơ](symptom) không
+
+- intent: ask_vaccination_age
+  examples: |
+    - vaccine [Infanrix Hexa](vaccine_name) tiêm cho độ tuổi nào
+    - [Hexaxim](vaccine_name) dùng cho trẻ bao nhiêu tuổi
+    - [Rotateq](vaccine_name) dành cho ai
+    - [Vaxigrip Tetra](vaccine_name) tiêm ở tuổi nào
+    - [Gardasil A](vaccine_name) tiêm cho độ tuổi nào
+    - [Prevenar 13](vaccine_name) cho [trẻ sơ sinh](age) được không
+    - [Pneumovax 23](vaccine_name) dành cho [người lớn](age) à
+    - ai có thể tiêm [Synflorix](vaccine_name)
+    - [trẻ 6 tháng](age) có tiêm được [Rotarix](vaccine_name) không
+    - [Varivax](vaccine_name) dành cho trẻ [2 tuổi](age) không
+    - vaccine [Infanrix Hexa](vaccine_name) cho trẻ [4 tuổi](age) được không
+    - [Hexaxim](vaccine_name) tiêm cho trẻ mấy tháng
+    - vaccine [6 trong 1](vaccine_name) dùng cho độ tuổi nào
+    - [vaccine cúm](vaccine_name) tiêm cho ai
+    - [vaccine thủy đậu](vaccine_name) dành cho trẻ bao nhiêu tuổi
+    - [Infanrix Hexa](vaccine_name) có tiêm được cho [trẻ 2 tháng](age) không
+    - vaccine [Boostrix](vaccine_name) dành cho độ tuổi nào
+    - [Varilrix](vaccine_name) tiêm ở tuổi nào
+    - [trẻ 12 tháng](age) tiêm được [Prevenar 13](vaccine_name) không
+    - [BCG](vaccine_name) tiêm cho [trẻ sơ sinh](age) được không
+    - [MMR II](vaccine_name) dành cho trẻ [12 tháng](age) không
+
+- intent: ask_vaccination_location
+  examples: |
+    - tiêm [Infanrix Hexa](vaccine_name) ở đâu
+    - nơi tiêm [Hexaxim](vaccine_name) tại [Quận 7](health_center)
+    - [VNVC Tân Thuận](health_center) có vaccine [Rotateq](vaccine_name) không
+    - địa điểm tiêm [Vaxigrip Tetra](vaccine_name)
+    - [Bệnh viện Nhi Đồng](health_center) tiêm [Gardasil A](vaccine_name) à
+    - [Prevenar 13](vaccine_name) tiêm ở đâu
+    - [VNVC Kha Vạn Cân](health_center) có [BCG](vaccine_name) không
+
+- intent: evaluate_chatbot
+  examples: |
+    - bạn rất hữu ích
+    - chatbot này tốt lắm
+    - tôi không hài lòng với câu trả lời
+    - bot trả lời chưa rõ ràng
+    - tuyệt vời, cảm ơn bạn
+
+- intent: ask_vaccination_schedule_by_age
+  examples: |
+    - lịch tiêm cho [trẻ sơ sinh](age)
+    - lịch tiêm [trẻ sơ_sinh](age)
+    - lịch tiêm trẻ sơsinh
+    - lịch tiêm cho [trẻ sơ sinh](age) nào
+    - lịch tiêm chủng [trẻ sơ sinh](age)
+    - vaccine cho [trẻ sơ sinh](age)
+    - lịch tiêm [tre so sinh](age)
+    - lịch tiêm cho [trẻ mới sinh](age)
+    - trẻ [2 tháng](age) cần tiêm gì
+    - vaccine cho [người lớn](age)
+    - lịch tiêm cho trẻ [6 tháng](age)
+    - trẻ [12 tháng](age) tiêm vaccine nào
+    - [trẻ sơ sinh](age) tiêm gì
+    - [trẻ sơsinh](age) cần vaccine nào
+    - lịch tiêm cho [trẻ 2 tháng](age)
+
+- intent: ask_pre_vaccination_preparation
+  examples: |
+    - chuẩn bị gì trước khi tiêm [Infanrix Hexa](vaccine_name)
+    - trước khi tiêm [Hexaxim](vaccine_name) cần làm gì
+    - cần chuẩn bị gì cho trẻ [2 tháng](age) trước khi tiêm
+    - chuẩn bị tiêm [Vaxigrip Tetra](vaccine_name)
+    - chuẩn bị trước khi tiêm [Prevenar 13](vaccine_name)
+    - chuẩn bị tiêm [BCG](vaccine_name)
+
+- intent: ask_post_vaccination_monitoring
+  examples: |
+    - theo dõi gì sau khi tiêm [Infanrix Hexa](vaccine_name)
+    - sau tiêm [Hexaxim](vaccine_name) cần chú ý gì
+    - trẻ [2 tháng](age) sau tiêm cần theo dõi thế nào
+    - theo dõi [sốt](symptom) sau tiêm [Vaxigrip Tetra](vaccine_name)
+    - theo dõi sau tiêm [Prevenar 13](vaccine_name)
+    - theo dõi [nổi hạch](symptom) sau tiêm [BCG](vaccine_name)
+
+- intent: out_of_scope
+  examples: |
+    - thời tiết hôm nay thế nào
+    - bạn biết nấu ăn không
+    - tôi muốn đặt vé máy bay
+    - hôm nay có tin gì hot không
+
+- intent: nlu_fallback
+  examples: |
+    - cái gì thế này
+    - tôi không hiểu
+    - huh
+    - bạn nói gì vậy
+
+- intent: ask_vaccine_for_new_disease
+  examples: |
+    - vaccine cho [viêm gan C](disease) có không
+    - có vaccine nào phòng [viêm gan C](disease) không
+    - vaccine mới cho [bệnh lạ](disease)
+    - vaccine phòng [Omicron](disease) mới
+    - có vaccine cho [Zika](disease) không
+    - vaccine nào cho [dengue](disease)
+    - vaccine cho [sốt xuất huyết](disease) có chưa
+    - có vaccine phòng [HIV](disease) không
+    - vaccine cho [bệnh Ebola](disease) có không
+    - vaccine phòng [viêm phổi do virus](disease) có không
+    - có vaccine nào cho [bệnh Lyme](disease) không
+    - vaccine mới cho [viêm gan D](disease) có không
+    - vaccine phòng [sars-cov-2](disease) mới nhất
+    - vaccine cho [sốt rét](disease) có không
+    - có vaccine phòng [bệnh lao](disease) không
+    - vaccine nào cho [viêm màng não](disease)
+
+- intent: ask_vaccine_for_special_condition
+  examples: |
+    - vaccine nào an toàn cho người [dị ứng penicillin](condition)
+    - vaccine cho [người suy giảm miễn dịch](condition)
+    - vaccine cho [phụ nữ mang thai](condition)
+    - vaccine cho người [dị ứng thuốc](condition)
+    - vaccine nào cho [trẻ dị ứng sữa](condition)
+    - vaccine cho người [bệnh tiểu đường](condition) có an toàn không
+    - vaccine nào phù hợp với [trẻ tự kỷ](condition)
+    - vaccine cho người [dị ứng hải sản](condition)
+    - vaccine an toàn cho [người cao huyết áp](condition)
+    - vaccine cho [trẻ sinh non](condition) có khác không
+    - vaccine nào cho người [bệnh tim](condition)
+    - vaccine cho [người dị ứng latex](condition) có không
+    - vaccine cho người [bệnh gan](condition) có an toàn không
+    - vaccine nào cho [trẻ bị hen suyễn](condition)
+    - vaccine cho người [dị ứng trứng](condition) có không
+    - vaccine nào an toàn cho [người bị lupus](condition)
+
+- regex: vaccine_name
+  examples: |
+    - (?:Infanrix\s*Hexa|Hexaxim|Rotateq|Rotarix|Rotavin|Synflorix|Prevenar\s*13|Pneumovax\s*23|Gardasil\s*[AB]|Vaxigrip\s*Tetra|Varivax|Boostrix|Varilrix|Influvac\s*Tetra|GC\s*Flu\s*Quadrivalent|Ivacflu-S|6\s*trong\s*1|vaccine\s*cúm|vaccine\s*thủy\s*đậu|vaccine\s*HPV|vaccine\s*phế\s*cầu|phế\s*cầu\s*người\s*lớn|BCG|Gene\s*Hbvax\s*[AB]|Heberbiovac\s*[AB]|MVVac\s*[AB]|MMR\s*II|Priorix|Imojev|Jeev|Jevax|Verorab\s*[AB]|Abhayrab\s*[AB]|Adacel|Tetraxim|Uốn\s*ván,\s*bạch\s*hầu\s*hấp\s*phụ\s*[AB]|Twinrix|Havax|Avaxim)
+
+- regex: age
+  examples: |
+    - (?:trẻ\s*sơ\s*sinh|[0-9]+\s*(?:tháng|tuổi)|người\s*lớn|trẻ\s*[0-9]+\s*(?:tháng|tuổi))
+
+- regex: health_center
+  examples: |
+    - (?:VNVC\s*Tân\s*Thuận|VNVC\s*Kha\s*Vạn\s*Cân|VNVC\s*Celadon|VNVC\s*Nguyễn\s*Thị\s*Tú|VNVC\s*Ba\s*Tháng\s*Hai|VNVC\s*Sunrise\s*City\s*Quận\s*7|VNVC\s*Tân\s*Phú\s*2|VNVC\s*Huỳnh\s*Tấn\s*Phát|VNVC\s*Quận\s*8|VNVC\s*Củ\s*Chi\s*2|Quận\s*7|Bệnh\s*viện\s*Nhi\s*Đồng|VNVC|TP\s*HCM)
+
+- regex: symptom
+  examples: |
+    - (?:sốt|sưng|quấy\s*khóc|mệt\s*mỏi|đau|chán\s*ăn|sốt\s*nhẹ|đau\s*cơ|nhức\s*đầu|nổi\s*hạch)
+
+- regex: disease
+  examples: |
+    - (?:cúm|viêm\s*phổi|viêm\s*gan\s*[A-Z]|sởi|quai\s*bị|bệnh\s*lạ|Omicron|Zika|dengue|sốt\s*xuất\s*huyết|HIV|Ebola|sars-cov-2|Lyme|sốt\s*rét|lao|viêm\s*màng\s*não)
+
+- regex: condition
+  examples: |
+    - (?:dị\s*ứng\s*(?:penicillin|thuốc|sữa|hải\s*sản|latex|trứng)|suy\s*giảm\s*miễn\s*dịch|phụ\s*nữ\s*mang\s*thai|bệnh\s*(?:tiểu\s*đường|tim|gan)|trẻ\s*(?:tự\s*kỷ|sinh\s*non)|cao\s*huyết\s*áp|hen\s*suyễn|lupus)
+
+- synonym: trẻ sơ sinh
+  examples: |
+    - trẻ sơ_sinh
+    - tre so sinh
+    - trẻ sơsinh
+    - trẻ mới sinh

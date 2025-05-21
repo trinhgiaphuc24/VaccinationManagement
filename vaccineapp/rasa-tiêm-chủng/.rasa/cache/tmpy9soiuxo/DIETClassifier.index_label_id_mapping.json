@@ -1,0 +1,19 @@
+{
+  "0": "ask_post_vaccination_monitoring",
+  "1": "ask_pre_vaccination_preparation",
+  "2": "ask_side_effects",
+  "3": "ask_side_effects_by_symptom",
+  "4": "ask_vaccination_age",
+  "5": "ask_vaccination_location",
+  "6": "ask_vaccination_schedule_by_age",
+  "7": "ask_vaccine_for_new_disease",
+  "8": "ask_vaccine_for_special_condition",
+  "9": "ask_vaccine_info",
+  "10": "ask_vaccine_price",
+  "11": "bot_challenge",
+  "12": "evaluate_chatbot",
+  "13": "goodbye",
+  "14": "greet",
+  "15": "nlu_fallback",
+  "16": "out_of_scope"
+}

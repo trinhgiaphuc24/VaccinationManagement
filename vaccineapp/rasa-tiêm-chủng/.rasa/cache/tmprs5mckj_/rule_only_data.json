@@ -1,0 +1,7 @@
+{
+  "rule_only_slots": [
+    "vaccine_name",
+    "age"
+  ],
+  "rule_only_loops": []
+}

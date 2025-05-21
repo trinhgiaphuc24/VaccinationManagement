@@ -1,0 +1,26 @@
+[
+  {
+    "name": "age",
+    "pattern": "(?:trẻ\\s*sơ\\s*sinh|[0-9]+\\s*(?:tháng|tuổi)|người\\s*lớn|trẻ\\s*[0-9]+\\s*(?:tháng|tuổi))"
+  },
+  {
+    "name": "condition",
+    "pattern": "(?:dị\\s*ứng\\s*(?:penicillin|thuốc|sữa|hải\\s*sản|latex|trứng)|suy\\s*giảm\\s*miễn\\s*dịch|phụ\\s*nữ\\s*mang\\s*thai|bệnh\\s*(?:tiểu\\s*đường|tim|gan)|trẻ\\s*(?:tự\\s*kỷ|sinh\\s*non)|cao\\s*huyết\\s*áp|hen\\s*suyễn|lupus)"
+  },
+  {
+    "name": "disease",
+    "pattern": "(?:cúm|viêm\\s*phổi|viêm\\s*gan\\s*[A-Z]|sởi|quai\\s*bị|bệnh\\s*lạ|Omicron|Zika|dengue|sốt\\s*xuất\\s*huyết|HIV|Ebola|sars-cov-2|Lyme|sốt\\s*rét|lao|viêm\\s*màng\\s*não)"
+  },
+  {
+    "name": "health_center",
+    "pattern": "(?:VNVC\\s*Tân\\s*Thuận|VNVC\\s*Kha\\s*Vạn\\s*Cân|VNVC\\s*Celadon|VNVC\\s*Nguyễn\\s*Thị\\s*Tú|VNVC\\s*Ba\\s*Tháng\\s*Hai|VNVC\\s*Sunrise\\s*City\\s*Quận\\s*7|VNVC\\s*Tân\\s*Phú\\s*2|VNVC\\s*Huỳnh\\s*Tấn\\s*Phát|VNVC\\s*Quận\\s*8|VNVC\\s*Củ\\s*Chi\\s*2|Quận\\s*7|Bệnh\\s*viện\\s*Nhi\\s*Đồng|VNVC|TP\\s*HCM)"
+  },
+  {
+    "name": "symptom",
+    "pattern": "(?:sốt|sưng|quấy\\s*khóc|mệt\\s*mỏi|đau|chán\\s*ăn|sốt\\s*nhẹ|đau\\s*cơ|nhức\\s*đầu|nổi\\s*hạch)"
+  },
+  {
+    "name": "vaccine_name",
+    "pattern": "(?:Infanrix\\s*Hexa|Hexaxim|Rotateq|Rotarix|Rotavin|Synflorix|Prevenar\\s*13|Pneumovax\\s*23|Gardasil\\s*[AB]|Vaxigrip\\s*Tetra|Varivax|Boostrix|Varilrix|Influvac\\s*Tetra|GC\\s*Flu\\s*Quadrivalent|Ivacflu-S|6\\s*trong\\s*1|vaccine\\s*cúm|vaccine\\s*thủy\\s*đậu|vaccine\\s*HPV|vaccine\\s*phế\\s*cầu|phế\\s*cầu\\s*người\\s*lớn|BCG|Gene\\s*Hbvax\\s*[AB]|Heberbiovac\\s*[AB]|MVVac\\s*[AB]|MMR\\s*II|Priorix|Imojev|Jeev|Jevax|Verorab\\s*[AB]|Abhayrab\\s*[AB]|Adacel|Tetraxim|Uốn\\s*ván,\\s*bạch\\s*hầu\\s*hấp\\s*phụ\\s*[AB]|Twinrix|Havax|Avaxim)"
+  }
+]

@@ -1,0 +1,157 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - bot_challenge
+  - ask_vaccine_price
+  - ask_vaccine_info
+  - ask_vaccination_age
+  - ask_side_effects
+  - ask_side_effects_by_symptom
+  - ask_vaccination_schedule_by_age
+  - ask_pre_vaccination_preparation
+  - ask_post_vaccination_monitoring
+  - ask_vaccination_location
+  - evaluate_chatbot
+  - out_of_scope
+  - nlu_fallback
+  - ask_vaccine_for_new_disease
+  - ask_vaccine_for_special_condition
+
+entities:
+  - vaccine_name
+  - health_center
+  - symptom
+  - age
+  - disease
+  - condition
+
+slots:
+  vaccine_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: vaccine_name
+      - type: from_text
+        conditions:
+          - active_loop: price_form
+            requested_slot: vaccine_name
+          - active_loop: vaccine_form
+            requested_slot: vaccine_name
+          - active_loop: side_effects_form
+            requested_slot: vaccine_name
+  health_center:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: health_center
+      - type: from_text
+        intent: ask_vaccination_location
+  symptom:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: symptom
+      - type: from_text
+        conditions:
+          - active_loop: side_effects_form
+            requested_slot: symptom
+  age:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: age
+      - type: from_text
+        conditions:
+          - active_loop: schedule_form
+            requested_slot: age
+  disease:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: disease
+  condition:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: condition
+
+actions:
+  - validate_price_form
+  - action_get_vaccine_price
+  - action_get_vaccine_info
+  - action_get_vaccination_age
+  - action_get_side_effects
+  - action_get_side_effects_by_symptom
+  - action_get_vaccination_schedule_by_age
+  - action_show_pre_vaccination_preparation
+  - action_show_post_vaccination_monitoring
+  - action_get_vaccination_location
+  - action_evaluate_chatbot
+  - action_bot_challenge
+  - action_default_fallback
+  - action_out_of_scope
+  - action_get_vaccine_for_disease
+  - action_get_vaccine_for_condition
+  - action_analyze_out_of_scope
+  - action_annotate_query
+
+forms:
+  price_form:
+    required_slots:
+      - vaccine_name
+  vaccine_form:
+    required_slots:
+      - vaccine_name
+  side_effects_form:
+    required_slots:
+      - vaccine_name
+      - symptom
+  schedule_form:
+    required_slots:
+      - age
+
+responses:
+  utter_greet:
+    - text: "Xin chào! Tôi là bot hỗ trợ thông tin tiêm chủng. Bạn muốn biết về giá vaccine, thông tin vaccine, hay lịch tiêm? Ví dụ: 'Giá vaccine Hexaxim'."
+  utter_goodbye:
+    - text: "Tạm biệt! Nếu cần hỗ trợ thêm, cứ gọi tôi nhé! 😊"
+  utter_bot_challenge:
+    - text: "Tôi là bot tiêm chủng, được tạo để cung cấp thông tin về vaccine, giá cả, và lịch tiêm. Hôm nay tôi có thể giúp gì cho bạn?"
+  utter_out_of_scope:
+    - text: "Xin lỗi, tôi chỉ hỗ trợ thông tin về vaccine và tiêm chủng. Bạn muốn hỏi về giá vaccine, lịch tiêm, hay thông tin vaccine không?"
+  utter_default_fallback:
+    - text: "Xin lỗi, tôi không hiểu yêu cầu của bạn. Bạn muốn hỏi về giá vaccine, thông tin vaccine, hay lịch tiêm chủng? Ví dụ: 'Giá vaccine Infanrix Hexa' hoặc 'Lịch tiêm cho trẻ 2 tháng'."
+  utter_ask_more:
+    - text: "Bạn có muốn biết thêm thông tin gì không? Ví dụ: giá vaccine, lịch tiêm, hay tác dụng phụ?"
+  utter_ask_price_form_vaccine_name:
+    - text: "Bạn muốn biết giá vaccine nào? Ví dụ: Infanrix Hexa."
+  utter_ask_vaccine_form_vaccine_name:
+    - text: "Bạn muốn biết thông tin về vaccine nào? Ví dụ: Infanrix Hexa."
+  utter_ask_side_effects_form_vaccine_name:
+    - text: "Bạn muốn biết tác dụng phụ của vaccine nào? Ví dụ: Infanrix Hexa."
+  utter_ask_side_effects_form_symptom:
+    - text: "Bạn quan tâm đến triệu chứng nào? Ví dụ: sốt, sưng."
+  utter_ask_schedule_form_age:
+    - text: "Bạn muốn biết lịch tiêm cho độ tuổi nào? Ví dụ: trẻ sơ sinh, 2 tháng."
+  utter_request_symptom:
+    - text: "Vui lòng cung cấp triệu chứng bạn muốn kiểm tra. Ví dụ: sốt, sưng."
+  utter_request_vaccine_name:
+    - text: "Vui lòng cung cấp tên vaccine. Ví dụ: Infanrix Hexa."
+  utter_request_location:
+    - text: "Vui lòng cung cấp tên cơ sở y tế. Ví dụ: VNVC Tân Thuận."
+  utter_new_disease_response:
+    - text: "🔍 Hiện tại, chưa có vaccine phòng {disease}. Bạn nên tham khảo ý kiến bác sĩ hoặc các nguồn y tế uy tín."
+    - text: "🔍 Không có thông tin về vaccine cho {disease}. Bạn muốn hỏi về vaccine khác không?"
+    - text: "🔍 Chưa có vaccine cho {disease} được ghi nhận. Hãy kiểm tra với bác sĩ để biết thêm chi tiết."
+  utter_special_condition_response:
+    - text: "🔍 Với {condition}, bạn nên hỏi bác sĩ để chọn vaccine an toàn. Tôi có thể giúp bạn với thông tin vaccine khác!"
+    - text: "🔍 Vaccine cho {condition} cần được bác sĩ đánh giá. Bạn muốn biết thêm về vaccine nào?"
+    - text: "🔍 Để đảm bảo an toàn cho {condition}, hãy tham khảo ý kiến bác sĩ trước khi tiêm vaccine."

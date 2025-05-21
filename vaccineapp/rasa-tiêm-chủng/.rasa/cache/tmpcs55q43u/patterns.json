@@ -1,0 +1,42 @@
+[
+  {
+    "name": "age",
+    "pattern": "[0-9]+(?:\\s*(?:tháng|tuổi))?\\s*(?:tuổi)?"
+  },
+  {
+    "name": "age",
+    "pattern": "người\\s*lớn"
+  },
+  {
+    "name": "age",
+    "pattern": "trẻ\\s*sơ\\s*sinh"
+  },
+  {
+    "name": "vaccine_name",
+    "pattern": "(?:Infanrix\\s*Hexa|Hexaxim|Rotateq|Rotarix|Synflorix|Prevenar\\s*13|Pneumovax\\s*23|Gardasil\\s*A|Vaxigrip\\s*Tetra)"
+  },
+  {
+    "name": "vaccine_name",
+    "pattern": "(?:Vac|Vax|Vacxin|Vacin)[A-Za-z\\s]+"
+  },
+  {
+    "name": "vaccine_name",
+    "pattern": "[0-9]\\s*(?:trong|in)\\s*[0-9]"
+  },
+  {
+    "name": "vaccine_name",
+    "pattern": "(\\bInfanrix\\ Hexa\\b|\\bHexaxim\\b|\\bRotateq\\b|\\bRotarix\\b|\\bSynflorix\\b|\\bPrevenar\\ 13\\b|\\bPneumovax\\ 23\\b|\\bGardasil\\ A\\b|\\bVaxigrip\\ Tetra\\b|\\b6\\ trong\\ 1\\b|\\b5\\ trong\\ 1\\b|\\bvaccine\\ cúm\\b|\\bvaccine\\ thủy\\ đậu\\b|\\bvaccine\\ HPV\\b)"
+  },
+  {
+    "name": "health_center",
+    "pattern": "(\\bVNVC\\ Tân\\ Thuận\\b|\\bVNVC\\ Kha\\ Vạn\\ Cân\\b|\\bVNVC\\ Celadon\\b|\\bQuận\\ 7\\b|\\bHồ\\ Chí\\ Minh\\b|\\bBệnh\\ viện\\ Nhi\\ Đồng\\b|\\bTrung\\ tâm\\ Y\\ tế\\ Quận\\ 1\\b)"
+  },
+  {
+    "name": "age",
+    "pattern": "(\\btrẻ\\ sơ\\ sinh\\b|\\b2\\ tháng\\b|\\b6\\ tháng\\b|\\b2\\ tuổi\\b|\\b9\\ tuổi\\b|\\b30\\ tuổi\\b|\\bngười\\ lớn\\b)"
+  },
+  {
+    "name": "symptom",
+    "pattern": "(\\bsốt\\b|\\bsưng\\b|\\bđau\\ tại\\ chỗ\\ tiêm\\b|\\bquấy\\ khóc\\b|\\bmệt\\ mỏi\\b|\\btiêu\\ chảy\\ nhẹ\\b|\\bnổi\\ hạch\\b|\\bnhức\\ đầu\\b|\\bđau\\ cơ\\b)"
+  }
+]

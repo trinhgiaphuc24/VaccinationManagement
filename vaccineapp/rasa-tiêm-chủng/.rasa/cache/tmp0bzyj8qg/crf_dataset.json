@@ -1,0 +1,6710 @@
+[
+  [
+    {
+      "text": "xin",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "chào",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "chào",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "hi",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "hello",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "chào",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "bạn",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "xin",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "chào",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "bot",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "chào",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "buổi",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "sáng",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "hi",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "there",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "tạm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "biệt",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bye",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "goodbye",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "hẹn",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gặp",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "lại",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bye",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "bye",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "gặp",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "lại",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "sau",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "chào",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tạm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "biệt",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "nghỉ",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "nhé",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bạn",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "là",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "ai",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bạn",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "là",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "bot",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "à",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "đây",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "là",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "bot",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bot",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "này",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "làm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bot",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "này",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "là",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "ai",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tạo",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "ra",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "bạn",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bạn",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "làm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "được",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bạn",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "là",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "chatbot",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "à",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "thông",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tin",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "về",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "vaccine",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "là",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "vaccine",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Infanrix",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Hexa",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "có",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tác",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "dụng",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "Hexaxim",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "U-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "phòng",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "bệnh",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "vaccine",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "6",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "trong",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "I-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "1",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "khác",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "5",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "trong",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "I-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "1",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "Vaccine",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Infanrix",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Hexa",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "có",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tác",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "dụng",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "Tôi",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "muốn",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "biết",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "về",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Hexaxim",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "U-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "Rotarix",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "U-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "phòng",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "bệnh",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "Thông",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tin",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "về",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "vaccine",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "6",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "trong",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "I-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "1",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "Prevenar",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "13",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "là",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "Vaxigrip",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Tetra",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "có",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tác",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "dụng",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "giá",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "vaccine",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Infanrix",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Hexa",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "bao",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "nhiêu",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "Hexaxim",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "U-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "ở",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "VNVC",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Tân",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "I-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Thuận",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "giá",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "bao",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "nhiêu",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "vaccine",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Rotateq",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "U-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "giá",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "thế",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "nào",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "giá",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "6",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "trong",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "I-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "1",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "ở",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Quận",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "7",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "Synflorix",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "U-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "ở",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "VNVC",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Kha",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "I-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Vạn",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "I-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Cân",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "bao",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "nhiêu",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "giá",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Pneumovax",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "23",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "ở",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Bệnh",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "viện",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "I-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Nhi",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "I-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Đồng",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "vaccine",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Infanrix",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Hexa",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "có",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tác",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "dụng",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "phụ",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "Hexaxim",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "U-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gây",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "sốt",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": true
+      },
+      "dense_features": [],
+      "entity_tag": "U-symptom",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "không",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "phản",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "ứng",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "phụ",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "của",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Rotateq",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "U-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "Synflorix",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "U-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "có",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gây",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "sưng",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": true
+      },
+      "dense_features": [],
+      "entity_tag": "U-symptom",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "không",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "Gardasil",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "A",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gây",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "đau",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": true
+      },
+      "dense_features": [],
+      "entity_tag": "B-symptom",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "cơ",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": true
+      },
+      "dense_features": [],
+      "entity_tag": "L-symptom",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "không",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "tác",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "dụng",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "phụ",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "của",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Vaxigrip",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Tetra",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "vaccine",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Infanrix",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Hexa",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "cho",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "độ",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tuổi",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "nào",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "Rotateq",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "U-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "dành",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "cho",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "ai",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "Gardasil",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "A",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "ở",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tuổi",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "nào",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "Prevenar",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "13",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "cho",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "trẻ",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "sơ",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "I-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "sinh",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "được",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "không",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "Pneumovax",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "23",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "dành",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "cho",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "người",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "lớn",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "à",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "vaccine",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "ở",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "đâu",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "VNVC",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Tân",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "I-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Thuận",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "có",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "vaccine",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Infanrix",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Hexa",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "không",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "trung",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tâm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "ở",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Quận",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "7",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "địa",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "điểm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Hexaxim",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "U-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "VNVC",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Celadon",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "có",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Synflorix",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "U-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "không",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Vaxigrip",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Tetra",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "ở",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Hồ",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Chí",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "I-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Minh",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": true,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-health_center",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bot",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "này",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "hữu",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "ích",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bạn",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "làm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tốt",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "lắm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bot",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tệ",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "quá",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "không",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "hài",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "lòng",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "với",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "bot",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bot",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "rất",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tuyệt",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bot",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "trả",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "lời",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "chưa",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "đúng",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bạn",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "giúp",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "được",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "nhiều",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bot",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "cần",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "cải",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "thiện",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "tuyệt",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "vời",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bot",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "trả",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "lời",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "sai",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "rồi",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "lịch",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "cho",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "trẻ",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "2",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tháng",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "trẻ",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "sơ",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "I-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "sinh",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "cần",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "vaccine",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "cho",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "người",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "30",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tuổi",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "lịch",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "ở",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "9",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tuổi",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "trẻ",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "6",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tháng",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "2",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tuổi",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "cần",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "vaccine",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "nào",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "cần",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "chuẩn",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "bị",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "trước",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "khi",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "vaccine",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "trước",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "khi",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Infanrix",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Hexa",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "cần",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "làm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "chuẩn",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "bị",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "trước",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "cho",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "trẻ",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "sơ",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "I-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "sinh",
+      "pos_tag": null,
+      "pattern": {
+        "age": true,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-age",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "trước",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "khi",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Rotateq",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "U-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "cần",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "lưu",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "ý",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "chuẩn",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "bị",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Vaxigrip",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Tetra",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "sau",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "khi",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "vaccine",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "cần",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "theo",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "dõi",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "theo",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "dõi",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "sau",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Hexaxim",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "U-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "thế",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "nào",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "sau",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Rotateq",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "U-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "có",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "sốt",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": true
+      },
+      "dense_features": [],
+      "entity_tag": "U-symptom",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "không",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "theo",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "dõi",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "sưng",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": true
+      },
+      "dense_features": [],
+      "entity_tag": "U-symptom",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "sau",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Synflorix",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "U-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "sau",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiêm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "Gardasil",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "B-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "A",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": true,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "L-vaccine_name",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "cần",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "làm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "thời",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "tiết",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "hôm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "nay",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "thế",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "nào",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bạn",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "biết",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "nấu",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "ăn",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "không",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "tôi",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "muốn",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "đặt",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "vé",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "máy",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "bay",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "hôm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "nay",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "có",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "mưa",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "không",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bạn",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "thích",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "màu",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "giá",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "vàng",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "hôm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "nay",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "bao",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "nhiêu",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "abc",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "xyz",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "tôi",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "không",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "hiểu",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "cái",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "vậy",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "hjkl",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bot",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "ơi",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "làm",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "câu",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "này",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "nghĩa",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "là",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "zzz",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "gì",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "thế",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "không",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "rõ",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ],
+  [
+    {
+      "text": "bla",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    },
+    {
+      "text": "bla",
+      "pos_tag": null,
+      "pattern": {
+        "age": false,
+        "vaccine_name": false,
+        "health_center": false,
+        "symptom": false
+      },
+      "dense_features": [],
+      "entity_tag": "O",
+      "entity_role_tag": "O",
+      "entity_group_tag": "O"
+    }
+  ]
+]

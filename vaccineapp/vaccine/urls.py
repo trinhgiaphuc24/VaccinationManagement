@@ -3,8 +3,7 @@ from . import views
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from .views import send_email, TotalVaccinatedView, CompletionRateView, PopularVaccinesView, \
-    AttendantCommunicationViewSet
+from .views import send_email, TotalVaccinatedView, CompletionRateView, PopularVaccinesView, AttendantCommunicationViewSet
 
 # from .views import certificate_view
 
@@ -28,6 +27,7 @@ urlpatterns = [
     path('statistics/total-vaccinated/', TotalVaccinatedView.as_view(), name='total_vaccinated'),
     path('statistics/completion-rate/', CompletionRateView.as_view(), name='completion_rate'),
     path('statistics/popular-vaccines/', PopularVaccinesView.as_view(), name='popular_vaccines'),
+    path('chat/', views.ChatView.as_view(), name='chat'),
     # path('appointments/<int:appointment_id>/certificate/', certificate_view, name='generate_certificate'),
     # path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

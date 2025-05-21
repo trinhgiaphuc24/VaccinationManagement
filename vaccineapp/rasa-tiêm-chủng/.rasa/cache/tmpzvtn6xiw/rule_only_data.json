@@ -1,0 +1,8 @@
+{
+  "rule_only_slots": [
+    "feedback_type"
+  ],
+  "rule_only_loops": [
+    "price_form"
+  ]
+}

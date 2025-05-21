@@ -1,0 +1,15 @@
+{
+  "rule_only_slots": [
+    "symptom",
+    "feedback_type",
+    "age",
+    "vaccine_name",
+    "health_center"
+  ],
+  "rule_only_loops": [
+    "schedule_form",
+    "price_form",
+    "vaccine_form",
+    "side_effects_form"
+  ]
+}

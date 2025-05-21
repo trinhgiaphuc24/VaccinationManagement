@@ -1,28 +1,16 @@
-from threading import activeCount
+import uuid
+
 from django.core.mail import send_mail
 from django.db import transaction
-from django.http import JsonResponse
+from django.utils.decorators import method_decorator
+from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 import json
-from reportlab.pdfgen import canvas
-from django.http import HttpResponse
-from reportlab.lib.pagesizes import A4
-from io import BytesIO
-import pdfplumber
 from django.http import JsonResponse
-from rest_framework.decorators import api_view
-import os
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
 from django.db.models import Count
-from .models import Appointment, AppointmentDetail, Vaccine, AttendantCommunication
-from datetime import datetime
-import calendar
-from rest_framework import viewsets, generics, permissions, parsers, status
 from rest_framework.filters import OrderingFilter
 from rest_framework.views import APIView
-from vaccine.models import Vaccine, VaccineType, CommunicationVaccination, User, RoleEnum, CountryProduce, HealthCenter, AppointmentDetail, Information, Appointment, New, Time
+from vaccine.models import *
 from vaccine import serializers, paginators, perms
 from rest_framework.response import Response
 from rest_framework.decorators import action
@@ -32,6 +20,11 @@ from vaccine.serializers import VaccineTypeSerializer, UserRegisterSerializer, I
     CommunicationVaccinationSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import viewsets, generics, permissions, parsers, status
+import requests
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 
 class UserViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.UpdateAPIView):
@@ -90,6 +83,7 @@ class UserProfileViewSet(viewsets.ViewSet):
 
 class VaccineViewSet(viewsets.ViewSet, generics.ListAPIView):
     queryset = Vaccine.objects.filter(active=True).select_related('vaccine_type', 'country_produce')
+    # permission_classes = [permissions.IsAuthenticated]
     serializer_class = serializers.VaccineSerializer
     pagination_class = paginators.VaccinePagination
     filter_backends = [OrderingFilter]  # Thêm OrderingFilter
@@ -116,17 +110,21 @@ class VaccineViewSet(viewsets.ViewSet, generics.ListAPIView):
 
 class VaccineTypeViewSet(viewsets.ViewSet, generics.ListAPIView):
     queryset = VaccineType.objects.filter(active=True)
+    # permission_classes = [permissions.IsAuthenticated]
     serializer_class = VaccineTypeSerializer
+
 
 
 class HealthCenterViewSet(viewsets.ViewSet, generics.ListAPIView):
     queryset = HealthCenter.objects.filter(active=True)
+    # permission_classes = [permissions.IsAuthenticated]
     serializer_class = serializers.HealthCenterSerializer
     pagination_class = paginators.HealthCenterPagination
 
 
 class TimeViewSet(viewsets.ViewSet, generics.ListAPIView):
     queryset = Time.objects.filter(active=True)
+    # permission_classes = [permissions.IsAuthenticated]
     serializer_class = serializers.TimeSerializer
     pagination_class = paginators.TimePagination
 
@@ -353,6 +351,7 @@ class PopularVaccinesView(APIView):
 class CommunicationVaccinationViewSet(viewsets.ViewSet,generics.ListAPIView,generics.RetrieveAPIView,generics.CreateAPIView,generics.UpdateAPIView):
     queryset = CommunicationVaccination.objects.filter(active=True)
     serializer_class = CommunicationVaccinationSerializer
+    permission_classes = [permissions.IsAuthenticated]
     filter_backends = [OrderingFilter]
     ordering_fields = ['id', 'name']
     ordering = ['id']
@@ -589,3 +588,81 @@ class AttendantCommunicationViewSet(viewsets.ViewSet, generics.ListAPIView, gene
                     {"error": f"Bạn chưa đăng ký chiến dịch này với vai trò {registration_type}."},
                     status=status.HTTP_400_BAD_REQUEST
                 )
+
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class ChatView(View):
+    def post(self, request):
+        try:
+            # Phân tích payload JSON
+            if request.content_type == 'application/json':
+                data = json.loads(request.body)
+                user_message = data.get('message')
+                session_id = data.get('user_id', str(uuid.uuid4()))
+                conversation_history = data.get('conversation_history')
+            else:
+                user_message = request.POST.get('message')
+                session_id = request.POST.get('session_id', str(uuid.uuid4()))
+                conversation_history = None
+
+            logger.info(
+                f"Nhận yêu cầu POST: message={user_message}, session_id={session_id}, conversation_history={conversation_history}")
+
+            if not user_message:
+                logger.warning("Không có message trong yêu cầu POST")
+                return JsonResponse({'error': 'Yêu cầu phải có message'}, status=400)
+
+            # Thử kết nối đến Rasa với xử lý lỗi tốt hơn
+            try:
+                # Gửi yêu cầu đến server Rasa
+                rasa_url = 'http://192.168.1.12:5005/webhooks/rest/webhook'
+                payload = {
+                    'sender': session_id,
+                    'message': user_message
+                }
+                if conversation_history:
+                    payload['metadata'] = {'conversation_history': conversation_history}
+
+                logger.debug(f"Gửi yêu cầu đến Rasa: {payload}")
+                response = requests.post(rasa_url, json=payload, timeout=5)
+                response.raise_for_status()
+                response_data = response.json()
+
+                # Định dạng phản hồi cho frontend
+                bot_responses = []
+                for item in response_data:
+                    if 'text' in item:
+                        bot_response = {'text': item['text']}
+                        if 'metadata' in item:
+                            bot_response['metadata'] = item['metadata']
+                        bot_responses.append(bot_response)
+
+                if not bot_responses:
+                    logger.warning("Không có phản hồi từ server Rasa")
+                    bot_responses = [{'text': 'Xin lỗi, tôi không hiểu. Vui lòng thử lại.'}]
+
+                logger.info(f"Phản hồi bot: {bot_responses}")
+                return JsonResponse({'responses': bot_responses})
+
+            except requests.exceptions.ConnectionError as e:
+                logger.error(f"Lỗi kết nối đến Rasa: {str(e)}")
+                # Phản hồi dự phòng khi không thể kết nối đến Rasa
+                return JsonResponse({'responses': [{
+'text': 'Xin lỗi, dịch vụ chatbot hiện không khả dụng. Vui lòng liên hệ với chúng tôi qua số điện thoại hoặc email.'}]})
+            except requests.exceptions.HTTPError as e:
+                logger.error(f"Lỗi HTTP từ Rasa: {str(e)}")
+                return JsonResponse({'responses': [
+                    {'text': 'Xin lỗi, hệ thống đang gặp sự cố. Vui lòng thử lại sau hoặc liên hệ đường dây hỗ trợ.'}]})
+            except requests.exceptions.Timeout:
+                logger.error("Kết nối đến Rasa hết thời gian chờ")
+                return JsonResponse(
+                    {'responses': [{'text': 'Xin lỗi, hệ thống đang phản hồi chậm. Vui lòng thử lại sau.'}]})
+
+        except json.JSONDecodeError:
+            logger.error("Payload JSON không hợp lệ", exc_info=True)
+            return JsonResponse({'error': 'Định dạng JSON không hợp lệ'}, status=400)
+        except Exception as e:
+            logger.error(f"Lỗi bất ngờ: {str(e)}", exc_info=True)
+            return JsonResponse(
+                {'responses': [{'text': 'Xin lỗi, đã xảy ra lỗi không mong muốn. Vui lòng thử lại sau.'}]}, status=200)

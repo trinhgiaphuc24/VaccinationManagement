@@ -15,7 +15,7 @@ from pyvi import ViTokenizer
 
 logger = logging.getLogger(__name__)
 
-DJANGO_API_BASE_URL = "http://192.168.1.12:8000/"
+DJANGO_API_BASE_URL = "http://192.168.1.13:8000/"
 
 # Load vaccine_data.json for side effects and age ranges
 def load_vaccine_data(file_path: str = "vaccine_data.json") -> Dict:

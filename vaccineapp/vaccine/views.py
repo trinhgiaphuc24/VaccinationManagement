@@ -10,6 +10,8 @@ from django.http import JsonResponse
 from django.db.models import Count
 from rest_framework.filters import OrderingFilter
 from rest_framework.views import APIView
+
+from settings import IP_URL_VIEW
 from vaccine.models import *
 from vaccine import serializers, paginators, perms
 from rest_framework.response import Response
@@ -83,7 +85,7 @@ class UserProfileViewSet(viewsets.ViewSet):
 
 class VaccineViewSet(viewsets.ViewSet, generics.ListAPIView):
     queryset = Vaccine.objects.filter(active=True).select_related('vaccine_type', 'country_produce')
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     serializer_class = serializers.VaccineSerializer
     pagination_class = paginators.VaccinePagination
     filter_backends = [OrderingFilter]  # Thêm OrderingFilter
@@ -110,21 +112,21 @@ class VaccineViewSet(viewsets.ViewSet, generics.ListAPIView):
 
 class VaccineTypeViewSet(viewsets.ViewSet, generics.ListAPIView):
     queryset = VaccineType.objects.filter(active=True)
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     serializer_class = VaccineTypeSerializer
 
 
 
 class HealthCenterViewSet(viewsets.ViewSet, generics.ListAPIView):
     queryset = HealthCenter.objects.filter(active=True)
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     serializer_class = serializers.HealthCenterSerializer
     pagination_class = paginators.HealthCenterPagination
 
 
 class TimeViewSet(viewsets.ViewSet, generics.ListAPIView):
     queryset = Time.objects.filter(active=True)
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     serializer_class = serializers.TimeSerializer
     pagination_class = paginators.TimePagination
 
@@ -616,7 +618,7 @@ class ChatView(View):
             # Thử kết nối đến Rasa với xử lý lỗi tốt hơn
             try:
                 # Gửi yêu cầu đến server Rasa
-                rasa_url = 'http://192.168.1.12:5005/webhooks/rest/webhook'
+                rasa_url = IP_URL_VIEW
                 payload = {
                     'sender': session_id,
                     'message': user_message

@@ -30,18 +30,23 @@
     <input type="number" name="year" id="year" value="{{ year }}" min="2000" max="2100">
 
     <!-- Chỉ hiển thị combobox chọn tháng khi time_filter là 'month' -->
-    {% if time_filter == 'month' %}
-    <label for="period" id="period_label">Tháng:</label>
-    <select name="period" id="period">
-        {% for i in '123456789101112' %}
-        {% if period == i %}
-            <option value="{{ i }}" selected>Tháng {{ i }}</option>
+    <label for="period" id="period_label" style="{% if time_filter != 'month' %}display: none;{% else %}display: inline-block;{% endif %}">
+        Tháng:
+    </label>
+    <select name="period" id="period" style="{% if time_filter != 'month' %}display: none;{% else %}display: inline-block;{% endif %}">
+        {% if time_filter == 'month' %}
+            {% for i in months %}
+            {% if period == i|stringformat:"s" %}
+                <option value="{{ i }}" selected>Tháng {{ i }}</option>
+            {% else %}
+                <option value="{{ i }}">Tháng {{ i }}</option>
+            {% endif %}
+            {% endfor %}
         {% else %}
-            <option value="{{ i }}">Tháng {{ i }}</option>
+            <!-- Mặc định để trống khi không phải 'month' -->
+            <option value="1" selected>Tháng 1</option>
         {% endif %}
-        {% endfor %}
     </select>
-    {% endif %}
 
     <button type="submit">Lọc</button>
 </form>
@@ -211,7 +216,7 @@
         });
     }
 
-    // Logic ẩn/hiện biểu đồ
+    // Logic   Logic ẩn/hiện biểu đồ
     const vaccinatedChartContainer = document.getElementById('vaccinatedChartContainer');
     const completionChartContainer = document.getElementById('completionChartContainer');
     const vaccineChartContainer = document.getElementById('vaccineChartContainer');
@@ -251,38 +256,35 @@
     const periodSelect = document.getElementById('period');
 
     timeFilter.addEventListener('change', function() {
-        if (this.value === 'year' || this.value === 'quarter') {
-            // Ẩn combobox khi chọn "year" hoặc "quarter"
-            if (periodLabel && periodSelect) {
-                periodLabel.style.display = 'none';
-                periodSelect.style.display = 'none';
-            }
+        if (this.value !== 'month') {
+            // Ẩn combobox khi không phải là "month"
+            periodLabel.style.display = 'none';
+            periodSelect.style.display = 'none';
         } else {
-            // Hiện combobox khi chọn "month"
-            if (periodLabel && periodSelect) {
-                periodLabel.style.display = 'inline-block';
-                periodSelect.style.display = 'inline-block';
-                periodLabel.textContent = 'Tháng:';
-                periodSelect.innerHTML = '';
-                for (let i = 1; i <= 12; i++) {
-                    const selected = i == {{ period }} ? 'selected' : '';
-                    periodSelect.innerHTML += `<option value="${i}" ${selected}>Tháng ${i}</option>`;
-                }
+            // Hiện combobox chọn tháng
+            periodLabel.style.display = 'inline-block';
+            periodSelect.style.display = 'inline-block';
+            periodLabel.textContent = 'Tháng:';
+            periodSelect.innerHTML = '';
+            for (let i = 1; i <= 12; i++) {
+                const selected = i == {{ period }} ? 'selected' : '';
+                periodSelect.innerHTML += `<option value="${i}" ${selected}>Tháng ${i}</option>`;
             }
         }
     });
 
     // Khởi tạo trạng thái ban đầu
-    if (timeFilter.value === 'year' || timeFilter.value === 'quarter') {
-        if (periodLabel && periodSelect) {
-            periodLabel.style.display = 'none';
-            periodSelect.style.display = 'none';
-        }
+    if (timeFilter.value !== 'month') {
+        periodLabel.style.display = 'none';
+        periodSelect.style.display = 'none';
     } else {
-        if (periodLabel && periodSelect) {
-            periodLabel.style.display = 'inline-block';
-            periodSelect.style.display = 'inline-block';
-            periodLabel.textContent = 'Tháng:';
+        periodLabel.style.display = 'inline-block';
+        periodSelect.style.display = 'inline-block';
+        periodLabel.textContent = 'Tháng:';
+        periodSelect.innerHTML = '';
+        for (let i = 1; i <= 12; i++) {
+            const selected = i == {{ period }} ? 'selected' : '';
+            periodSelect.innerHTML += `<option value="${i}" ${selected}>Tháng ${i}</option>`;
         }
     }
 </script>

@@ -29,14 +29,22 @@ logger = logging.getLogger(__name__)
 
 
 
-class UserViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.UpdateAPIView):
+class UserViewSet(viewsets.ViewSet, generics.CreateAPIView):
     queryset = User.objects.filter(is_active=True)
     serializer_class = serializers.UserSerializer
     parser_classes = [parsers.MultiPartParser]
 
-    @action(methods=['get'], url_path='current-user', detail=False, permission_classes=[permissions.IsAuthenticated])
-    def get_current_user(self, request):
-        return Response(serializers.UserSerializer(request.user).data)
+    @action(methods=['GET', 'PUT'], url_path='current-user', detail=False, permission_classes=[permissions.IsAuthenticated])
+    def current_user(self, request):
+        user = request.user
+        if request.method == 'GET':
+            return Response(serializers.UserSerializer(user).data)
+        elif request.method == 'PUT':
+            serializer = self.get_serializer(user, data=request.data, partial=True)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class RegisterViewSet(viewsets.ViewSet):
     def get_permissions(self):
@@ -83,7 +91,7 @@ class UserProfileViewSet(viewsets.ViewSet):
         return Response(data)
 
 
-class VaccineViewSet(viewsets.ViewSet, generics.ListAPIView):
+class VaccineViewSet(viewsets.ViewSet, generics.ListAPIView, generics.RetrieveAPIView):
     queryset = Vaccine.objects.filter(active=True).select_related('vaccine_type', 'country_produce')
     permission_classes = [IsAuthenticated]
     serializer_class = serializers.VaccineSerializer
@@ -108,6 +116,11 @@ class VaccineViewSet(viewsets.ViewSet, generics.ListAPIView):
             queryset = queryset.filter(country_produce_id=country_produce_id)
 
         return queryset
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()  # Lấy đối tượng dựa trên pk từ URL
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
 
 
 class VaccineTypeViewSet(viewsets.ViewSet, generics.ListAPIView):

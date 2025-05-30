@@ -40,11 +40,11 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         user = User.objects.create(**validated_data)
         return user
 
-    def update(self, instance, validated_data):
-        validated_data.pop('userRole', None)
-        if 'password' in validated_data:
-            validated_data['password'] = make_password(validated_data['password'])
-        return super().update(instance, validated_data)
+    # def update(self, instance, validated_data):
+    #     validated_data.pop('userRole', None)
+    #     if 'password' in validated_data:
+    #         validated_data['password'] = make_password(validated_data['password'])
+    #     return super().update(instance, validated_data)
 
 class VaccineTypeSerializer(serializers.ModelSerializer):
     class Meta:

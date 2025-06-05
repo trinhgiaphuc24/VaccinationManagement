@@ -5,7 +5,6 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from .views import send_email, TotalVaccinatedView, CompletionRateView, PopularVaccinesView, AttendantCommunicationViewSet
 
-# from .views import certificate_view
 
 router = DefaultRouter()
 router.register('vaccines',views.VaccineViewSet, basename='vaccine')
@@ -28,6 +27,4 @@ urlpatterns = [
     path('statistics/completion-rate/', CompletionRateView.as_view(), name='completion_rate'),
     path('statistics/popular-vaccines/', PopularVaccinesView.as_view(), name='popular_vaccines'),
     path('chat/', views.ChatView.as_view(), name='chat'),
-    # path('appointments/<int:appointment_id>/certificate/', certificate_view, name='generate_certificate'),
-    # path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

@@ -59,23 +59,6 @@ class RegisterViewSet(viewsets.ViewSet):
             return Response({"message": "User registered successfully"}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def retrieve(self, request, pk=None):
-        user = request.user
-        if user.id != int(pk):
-            return Response({"error": "You can only view your own profile"}, status=status.HTTP_403_FORBIDDEN)
-        serializer = UserRegisterSerializer(user)
-        return Response(serializer.data)
-
-    def update(self, request, pk=None):
-        user = request.user
-        if user.id != int(pk):
-            return Response({"error": "You can only update your own profile"}, status=status.HTTP_403_FORBIDDEN)
-        serializer = UserRegisterSerializer(user, data=request.data, partial=True)
-        if serializer.is_valid():
-            serializer.save()
-            return Response({"message": "Profile updated successfully"}, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 class UserProfileViewSet(viewsets.ViewSet):
     permission_classes = [IsAuthenticated]
@@ -96,9 +79,9 @@ class VaccineViewSet(viewsets.ViewSet, generics.ListAPIView, generics.RetrieveAP
     permission_classes = [IsAuthenticated]
     serializer_class = serializers.VaccineSerializer
     pagination_class = paginators.VaccinePagination
-    filter_backends = [OrderingFilter]  # Thêm OrderingFilter
-    ordering_fields = ['id', 'price', 'name', 'vaccine_type__name', 'country_produce__name']  # Các trường cho phép sắp xếp
-    ordering = ['id']  # Mặc định sắp xếp theo id
+    filter_backends = [OrderingFilter]
+    ordering_fields = ['id', 'price', 'name', 'vaccine_type__name', 'country_produce__name']
+    ordering = ['id']
 
     def get_queryset(self):
         queryset = self.queryset
@@ -118,7 +101,7 @@ class VaccineViewSet(viewsets.ViewSet, generics.ListAPIView, generics.RetrieveAP
         return queryset
 
     def retrieve(self, request, *args, **kwargs):
-        instance = self.get_object()  # Lấy đối tượng dựa trên pk từ URL
+        instance = self.get_object()
         serializer = self.get_serializer(instance)
         return Response(serializer.data)
 
@@ -127,7 +110,6 @@ class VaccineTypeViewSet(viewsets.ViewSet, generics.ListAPIView):
     queryset = VaccineType.objects.filter(active=True)
     permission_classes = [IsAuthenticated]
     serializer_class = VaccineTypeSerializer
-
 
 
 class HealthCenterViewSet(viewsets.ViewSet, generics.ListAPIView):
@@ -145,58 +127,43 @@ class TimeViewSet(viewsets.ViewSet, generics.ListAPIView):
 
 
 class InformationViewSet(viewsets.ViewSet, generics.ListAPIView,generics.RetrieveAPIView,generics.CreateAPIView,generics.UpdateAPIView):
-    # queryset = Information.objects.all()
     serializer_class = InformationSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        # Chỉ trả về các bản ghi Information của user hiện tại
         return Information.objects.filter(user=self.request.user)
 
     def perform_create(self, serializer):
-        # Gán user hiện tại cho bản ghi mới
         serializer.save(user=self.request.user)
 
     def perform_update(self, serializer):
-        # Đảm bảo user hiện tại chỉ có thể cập nhật bản ghi của chính họ
         serializer.save(user=self.request.user)
-
-    # def destroy(self, request, *args, **kwargs):
-    #     # Xóa bản ghi
-    #     instance = self.get_object()
-    #     self.perform_destroy(instance)
-    #     return Response({"message": "Thông tin đã được xóa thành công"}, status=status.HTTP_204_NO_CONTENT)
 
     def perform_destroy(self, instance):
         instance.delete()
 
 
-class AppointmentViewSet(viewsets.ViewSet,generics.ListAPIView,generics.RetrieveAPIView,generics.CreateAPIView,generics.UpdateAPIView,generics.DestroyAPIView):
+class AppointmentViewSet(viewsets.ViewSet,generics.ListAPIView,generics.RetrieveAPIView,generics.CreateAPIView,generics.UpdateAPIView):
     queryset = Appointment.objects.select_related('information', 'health_centre', 'time').prefetch_related('appointment_details__vaccine')
     permission_classes = [permissions.IsAuthenticated]
 
     def get_serializer_class(self):
-        # Sử dụng AppointmentReadSerializer cho các hành động đọc
         if self.action in ['list', 'retrieve', 'get_appointment_details']:
             return AppointmentReadSerializer
-        # Sử dụng AppointmentSerializer cho các hành động ghi (như create, update)
         return AppointmentSerializer
 
     def get_queryset(self):
-        # logger.debug(f"Current user: {self.request.user.id}, Role: {self.request.user.userRole}")
         queryset = Appointment.objects.select_related('information', 'health_centre', 'time').prefetch_related('appointment_details__vaccine')
         if self.request.user.userRole == "staff":
             return queryset
         return queryset.filter(information__user=self.request.user)
-        # print("Current user:", self.request.user.id)
-        # return self.queryset.filter(information__user=self.request.user)
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
-        # Sử dụng AppointmentReadSerializer để trả về dữ liệu chi tiết sau khi tạo
+        # ppointmentReadSerializer trả về dữ liệu chi tiết sau khi tạo
         response_serializer = AppointmentReadSerializer(serializer.instance)
         return Response(response_serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
@@ -265,104 +232,6 @@ def send_email(request):
     return JsonResponse({'error': 'Invalid method'}, status=405)
 
 
-class TotalVaccinatedView(APIView):
-    permission_classes = [IsAuthenticated]
-
-    def get(self, request):
-        # Lấy tham số từ query
-        month = request.query_params.get('month')
-        quarter = request.query_params.get('quarter')
-        year = request.query_params.get('year')
-
-        # Bắt đầu với queryset cơ bản
-        appointments = Appointment.objects.filter(status='completed')
-
-        # Áp dụng bộ lọc
-        if year:
-            appointments = appointments.filter(date__year=year)
-        if month:
-            appointments = appointments.filter(date__month=month)
-        if quarter:
-            start_month = (int(quarter) - 1) * 3 + 1
-            end_month = start_month + 2
-            appointments = appointments.filter(date__month__gte=start_month, date__month__lte=end_month)
-
-        # Đếm tổng số người đã tiêm
-        total = appointments.count()
-
-        return Response({'total': total})
-
-
-class CompletionRateView(APIView):
-    permission_classes = [IsAuthenticated]
-
-    def get(self, request):
-        month = request.query_params.get('month')
-        quarter = request.query_params.get('quarter')
-        year = request.query_params.get('year')
-
-        # Lấy tất cả lịch hẹn
-        total_appointments = Appointment.objects.all()
-        completed_appointments = Appointment.objects.filter(status='completed')
-
-        # Áp dụng bộ lọc
-        if year:
-            total_appointments = total_appointments.filter(date__year=year)
-            completed_appointments = completed_appointments.filter(date__year=year)
-        if month:
-            total_appointments = total_appointments.filter(date__month=month)
-            completed_appointments = completed_appointments.filter(date__month=month)
-        if quarter:
-            start_month = (int(quarter) - 1) * 3 + 1
-            end_month = start_month + 2
-            total_appointments = total_appointments.filter(date__month__gte=start_month, date__month__lte=end_month)
-            completed_appointments = completed_appointments.filter(date__month__gte=start_month,
-                                                                   date__month__lte=end_month)
-
-        # Tính tỷ lệ hoàn thành
-        total_count = total_appointments.count()
-        completed_count = completed_appointments.count()
-        rate = (completed_count / total_count * 100) if total_count > 0 else 0
-
-        return Response({'rate': rate})
-
-
-class PopularVaccinesView(APIView):
-    permission_classes = [IsAuthenticated]
-
-    def get(self, request):
-        month = request.query_params.get('month')
-        quarter = request.query_params.get('quarter')
-        year = request.query_params.get('year')
-
-        # Lấy tất cả AppointmentDetail và liên kết với Appointment để lọc theo thời gian
-        appointments = Appointment.objects.all()
-
-        # Áp dụng bộ lọc thời gian
-        if year:
-            appointments = appointments.filter(date__year=year)
-        if month:
-            appointments = appointments.filter(date__month=month)
-        if quarter:
-            start_month = (int(quarter) - 1) * 3 + 1
-            end_month = start_month + 2
-            appointments = appointments.filter(date__month__gte=start_month, date__month__lte=end_month)
-
-        # Lấy danh sách vắc-xin từ các AppointmentDetail liên quan
-        appointment_ids = appointments.values_list('id', flat=True)
-        vaccines = (
-            AppointmentDetail.objects.filter(appointment__id__in=appointment_ids)
-            .values('vaccine__name')
-            .annotate(count=Count('vaccine'))
-            .order_by('-count')
-        )
-
-        return Response([
-            {'vaccine_name': item['vaccine__name'], 'count': item['count']}
-            for item in vaccines
-        ])
-
-
 class CommunicationVaccinationViewSet(viewsets.ViewSet,generics.ListAPIView,generics.RetrieveAPIView,generics.CreateAPIView,generics.UpdateAPIView):
     queryset = CommunicationVaccination.objects.filter(active=True)
     serializer_class = CommunicationVaccinationSerializer
@@ -380,43 +249,23 @@ class CommunicationVaccinationViewSet(viewsets.ViewSet,generics.ListAPIView,gene
 
     @action(detail=True, methods=['patch'], permission_classes=[IsAuthenticated])
     def update_empty_patient(self, request, pk=None):
-        try:
-            communication = self.get_object()  # Lấy chiến dịch theo pk (ID)
+            communication = self.get_object()
             new_empty_patient = request.data.get('emptyPatient')
-
-            if new_empty_patient is None:
-                return Response(
-                    {"error": "emptyPatient is required."},
-                    status=status.HTTP_400_BAD_REQUEST
-                )
-
             communication.emptyPatient = new_empty_patient
             communication.save()
             return Response(
                 CommunicationVaccinationSerializer(communication).data,
                 status=status.HTTP_200_OK
             )
-        except Exception as e:
-            return Response(
-                {"error": str(e)},
-                status=status.HTTP_400_BAD_REQUEST
-            )
 
     @action(detail=True, methods=['patch'], url_path='update-empty-staff')
     def update_empty_staff(self, request, pk=None):
-        try:
             communication = self.get_object()
             empty_staff = request.data.get('emptyStaff')
-            if empty_staff is None:
-                return Response(
-                    {"error": "emptyStaff is required"},
-                    status=status.HTTP_400_BAD_REQUEST
-                )
             communication.emptyStaff = empty_staff
             communication.save()
             return Response({"message": "Updated emptyStaff successfully"}, status=status.HTTP_200_OK)
-        except Exception as e:
-            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 class AttendantCommunicationViewSet(viewsets.ViewSet, generics.ListAPIView, generics.CreateAPIView, generics.DestroyAPIView):
@@ -429,54 +278,9 @@ class AttendantCommunicationViewSet(viewsets.ViewSet, generics.ListAPIView, gene
         user = request.user
         communication_id = request.data.get('communication')
         quantity = request.data.get('quantity')
-        registration_type = request.data.get('registration_type', 'patient')  # Mặc định là patient
+        registration_type = request.data.get('registration_type', 'patient')
+        communication = CommunicationVaccination.objects.get(id=communication_id)
 
-        if not communication_id or not quantity:
-            return Response(
-                {"error": "Communication ID and quantity are required."},
-                status=status.HTTP_400_BAD_REQUEST
-            )
-
-        if registration_type not in ['patient', 'staff']:
-            return Response(
-                {"error": "Invalid registration type. Must be 'patient' or 'staff'."},
-                status=status.HTTP_400_BAD_REQUEST
-            )
-
-        try:
-            communication = CommunicationVaccination.objects.get(id=communication_id)
-        except CommunicationVaccination.DoesNotExist:
-            return Response(
-                {"error": "Communication not found."},
-                status=status.HTTP_404_NOT_FOUND
-            )
-
-        # Kiểm tra xem user đã đăng ký với loại này chưa
-        if AttendantCommunication.objects.filter(
-                user=user,
-                communication=communication,
-                registration_type=registration_type
-        ).exists():
-            return Response(
-                {"error": f"Bạn đã đăng ký chiến dịch này với vai trò {registration_type} rồi."},
-                status=status.HTTP_400_BAD_REQUEST
-            )
-
-        # Kiểm tra số lượng slot khả dụng
-        if registration_type == 'patient':
-            if communication.emptyPatient < int(quantity):
-                return Response(
-                    {"error": "Không đủ slot bệnh nhân để đăng ký."},
-                    status=status.HTTP_400_BAD_REQUEST
-                )
-        else:  # registration_type == 'staff'
-            if communication.emptyStaff < int(quantity):
-                return Response(
-                    {"error": "Không đủ slot nhân viên để đăng ký."},
-                    status=status.HTTP_400_BAD_REQUEST
-                )
-
-        # Tạo bản ghi đăng ký
         attendant = AttendantCommunication.objects.create(
             user=user,
             communication=communication,
@@ -484,36 +288,11 @@ class AttendantCommunicationViewSet(viewsets.ViewSet, generics.ListAPIView, gene
             registration_type=registration_type
         )
 
-        # Cập nhật số lượng slot
         if registration_type == 'patient':
             communication.emptyPatient -= int(quantity)
-        else:  # registration_type == 'staff'
+        else:
             communication.emptyStaff -= int(quantity)
         communication.save()
-
-        # Gửi email xác nhận
-        try:
-            role_text = "bệnh nhân" if registration_type == 'patient' else "nhân viên y tế"
-            email_subject = f"XÁC NHẬN ĐĂNG KÝ CHIẾN DỊCH TIÊM CHỦNG ({role_text})"
-            email_body = (
-                f"Chào {user.first_name} {user.last_name},\n\n"
-                f"Bạn đã đăng ký thành công chiến dịch tiêm chủng với vai trò {role_text}: {communication.name}\n"
-                f"Ngày diễn ra: {communication.date}\n"
-                f"Thời gian: {communication.time}\n"
-                f"Địa chỉ: {communication.address}\n"
-                f"Số lượng: {quantity}\n\n"
-                f"Thời gian đăng ký: {attendant.created_at.strftime('%Y-%m-%d %H:%M:%S')}\n"
-                f"Trân trọng,\nHệ thống tiêm chủng"
-            )
-            send_mail(
-                subject=email_subject,
-                message=email_body,
-                from_email="your-email@example.com",
-                recipient_list=[user.email],
-                fail_silently=False,
-            )
-        except Exception as e:
-            print(f"Error sending email: {str(e)}")
 
         return Response(
             AttendantCommunicationSerializer(attendant).data,
@@ -525,58 +304,27 @@ class AttendantCommunicationViewSet(viewsets.ViewSet, generics.ListAPIView, gene
         user = request.user
         registration_type = request.query_params.get('registration_type', 'patient')
 
-        if registration_type not in ['patient', 'staff']:
-            return Response(
-                {"error": "Invalid registration type. Must be 'patient' or 'staff'."},
-                status=status.HTTP_400_BAD_REQUEST
-            )
+        communication = CommunicationVaccination.objects.get(id=communication_id)
+        is_registered = AttendantCommunication.objects.filter(
+            user=user,
+            communication=communication,
+            registration_type=registration_type
+        ).exists()
+        return Response(
+            {"is_registered": is_registered},
+            status=status.HTTP_200_OK
+        )
 
-        try:
-            communication = CommunicationVaccination.objects.get(id=communication_id)
-            is_registered = AttendantCommunication.objects.filter(
-                user=user,
-                communication=communication,
-                registration_type=registration_type
-            ).exists()
-            return Response(
-                {"is_registered": is_registered},
-                status=status.HTTP_200_OK
-            )
-        except CommunicationVaccination.DoesNotExist:
-            return Response(
-                {"error": "Communication not found."},
-                status=status.HTTP_404_NOT_FOUND
-            )
 
     @action(detail=False, methods=['post'], url_path='cancel-registration')
     def cancel_registration(self, request):
         user = request.user
         communication_id = request.data.get('communication')
         registration_type = request.data.get('registration_type', 'patient')
-
-        if not communication_id:
-            return Response(
-                {"error": "Communication ID is required."},
-                status=status.HTTP_400_BAD_REQUEST
-            )
-
-        if registration_type not in ['patient', 'staff']:
-            return Response(
-                {"error": "Invalid registration type. Must be 'patient' or 'staff'."},
-                status=status.HTTP_400_BAD_REQUEST
-            )
-
-        try:
-            communication = CommunicationVaccination.objects.get(id=communication_id)
-        except CommunicationVaccination.DoesNotExist:
-            return Response(
-                {"error": "Communication not found."},
-                status=status.HTTP_404_NOT_FOUND
-            )
+        communication = CommunicationVaccination.objects.get(id=communication_id)
 
         with transaction.atomic():
             try:
-                # Lấy bản ghi đăng ký của user
                 attendant = AttendantCommunication.objects.get(
                     user=user,
                     communication=communication,
@@ -584,14 +332,12 @@ class AttendantCommunicationViewSet(viewsets.ViewSet, generics.ListAPIView, gene
                 )
                 quantity = attendant.quantity
 
-                # Cộng lại quantity vào emptyPatient hoặc emptyStaff
                 if registration_type == 'patient':
                     communication.emptyPatient += quantity
-                else:  # registration_type == 'staff'
+                else:
                     communication.emptyStaff += quantity
                 communication.save()
 
-                # Xóa bản ghi đăng ký
                 attendant.delete()
 
                 return Response(
@@ -605,12 +351,10 @@ class AttendantCommunicationViewSet(viewsets.ViewSet, generics.ListAPIView, gene
                 )
 
 
-
 @method_decorator(csrf_exempt, name='dispatch')
 class ChatView(View):
     def post(self, request):
         try:
-            # Phân tích payload JSON
             if request.content_type == 'application/json':
                 data = json.loads(request.body)
                 user_message = data.get('message')
@@ -628,9 +372,7 @@ class ChatView(View):
                 logger.warning("Không có message trong yêu cầu POST")
                 return JsonResponse({'error': 'Yêu cầu phải có message'}, status=400)
 
-            # Thử kết nối đến Rasa với xử lý lỗi tốt hơn
             try:
-                # Gửi yêu cầu đến server Rasa
                 rasa_url = IP_URL_VIEW
                 payload = {
                     'sender': session_id,
@@ -644,7 +386,6 @@ class ChatView(View):
                 response.raise_for_status()
                 response_data = response.json()
 
-                # Định dạng phản hồi cho frontend
                 bot_responses = []
                 for item in response_data:
                     if 'text' in item:
@@ -662,9 +403,7 @@ class ChatView(View):
 
             except requests.exceptions.ConnectionError as e:
                 logger.error(f"Lỗi kết nối đến Rasa: {str(e)}")
-                # Phản hồi dự phòng khi không thể kết nối đến Rasa
-                return JsonResponse({'responses': [{
-'text': 'Xin lỗi, dịch vụ chatbot hiện không khả dụng. Vui lòng liên hệ với chúng tôi qua số điện thoại hoặc email.'}]})
+                return JsonResponse({'responses': [{'text': 'Xin lỗi, dịch vụ chatbot hiện không khả dụng. Vui lòng liên hệ với chúng tôi qua số điện thoại hoặc email.'}]})
             except requests.exceptions.HTTPError as e:
                 logger.error(f"Lỗi HTTP từ Rasa: {str(e)}")
                 return JsonResponse({'responses': [
@@ -681,3 +420,91 @@ class ChatView(View):
             logger.error(f"Lỗi bất ngờ: {str(e)}", exc_info=True)
             return JsonResponse(
                 {'responses': [{'text': 'Xin lỗi, đã xảy ra lỗi không mong muốn. Vui lòng thử lại sau.'}]}, status=200)
+
+
+class TotalVaccinatedView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        month = request.query_params.get('month')
+        quarter = request.query_params.get('quarter')
+        year = request.query_params.get('year')
+
+        appointments = Appointment.objects.filter(status='completed')
+
+        if year:
+            appointments = appointments.filter(date__year=year)
+        if month:
+            appointments = appointments.filter(date__month=month)
+        if quarter:
+            start_month = (int(quarter) - 1) * 3 + 1
+            end_month = start_month + 2
+            appointments = appointments.filter(date__month__gte=start_month, date__month__lte=end_month)
+
+        total = appointments.count()
+
+        return Response({'total': total})
+
+
+class CompletionRateView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        month = request.query_params.get('month')
+        quarter = request.query_params.get('quarter')
+        year = request.query_params.get('year')
+
+        total_appointments = Appointment.objects.all()
+        completed_appointments = Appointment.objects.filter(status='completed')
+
+        if year:
+            total_appointments = total_appointments.filter(date__year=year)
+            completed_appointments = completed_appointments.filter(date__year=year)
+        if month:
+            total_appointments = total_appointments.filter(date__month=month)
+            completed_appointments = completed_appointments.filter(date__month=month)
+        if quarter:
+            start_month = (int(quarter) - 1) * 3 + 1
+            end_month = start_month + 2
+            total_appointments = total_appointments.filter(date__month__gte=start_month, date__month__lte=end_month)
+            completed_appointments = completed_appointments.filter(date__month__gte=start_month,
+                                                                   date__month__lte=end_month)
+
+        total_count = total_appointments.count()
+        completed_count = completed_appointments.count()
+        rate = (completed_count / total_count * 100) if total_count > 0 else 0
+
+        return Response({'rate': rate})
+
+
+class PopularVaccinesView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        month = request.query_params.get('month')
+        quarter = request.query_params.get('quarter')
+        year = request.query_params.get('year')
+
+        appointments = Appointment.objects.all()
+
+        if year:
+            appointments = appointments.filter(date__year=year)
+        if month:
+            appointments = appointments.filter(date__month=month)
+        if quarter:
+            start_month = (int(quarter) - 1) * 3 + 1
+            end_month = start_month + 2
+            appointments = appointments.filter(date__month__gte=start_month, date__month__lte=end_month)
+
+        appointment_ids = appointments.values_list('id', flat=True)
+        vaccines = (
+            AppointmentDetail.objects.filter(appointment__id__in=appointment_ids)
+            .values('vaccine__name')
+            .annotate(count=Count('vaccine'))
+            .order_by('-count')
+        )
+
+        return Response([
+            {'vaccine_name': item['vaccine__name'], 'count': item['count']}
+            for item in vaccines
+        ])

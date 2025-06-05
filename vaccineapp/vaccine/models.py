@@ -39,8 +39,7 @@ class User(AbstractUser):
     is_superuser = models.BooleanField(default=False)  # Super quyền
     createdAt = models.DateTimeField(auto_now_add=True, null=True)
     avatarUrl = CloudinaryField('avatar', null=True)
-    userRole = models.CharField(max_length=20, choices=RoleEnum.choices,
-                                default=RoleEnum.PATIENT)
+    userRole = models.CharField(max_length=20, choices=RoleEnum.choices,default=RoleEnum.PATIENT)
 
     def __str__(self):
         return self.username
@@ -81,13 +80,10 @@ class CountryProduce(BaseModel):
 class Vaccine(BaseModel):
     description = models.TextField()
     price = models.FloatField()
-    imgUrl = CloudinaryField('imgvaccine', null=True)
-    vaccine_type = models.ForeignKey(VaccineType, on_delete=models.CASCADE,null=True,
-    blank=True, related_name="vaccinetype")
+    imgUrl = CloudinaryField(null=True)
+    vaccine_type = models.ForeignKey(VaccineType, on_delete=models.PROTECT,null=True,blank=True, related_name="vaccinetype")
     createdAt = models.DateTimeField(auto_now_add=True, null=True)
-    country_produce = models.ForeignKey(CountryProduce, on_delete=models.SET_NULL,
-        null=True,
-        blank=True, related_name="countryproduce")
+    country_produce = models.ForeignKey(CountryProduce, on_delete=models.PROTECT,null=True,blank=True, related_name="countryproduce")
 
     def __str__(self):
         return self.name
@@ -111,9 +107,8 @@ class Appointment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     note = models.TextField(blank=True, null=True)
     information = models.ForeignKey(Information, on_delete=models.SET_NULL, related_name="appointments", null=True)
-    health_centre = models.ForeignKey(HealthCenter, on_delete=models.CASCADE, related_name="appointments")
-    # vaccines = models.ManyToManyField(Vaccine, related_name="appointments")
-    time = models.ForeignKey(Time, on_delete=models.CASCADE, related_name="appointments")
+    health_centre = models.ForeignKey(HealthCenter, on_delete=models.SET_NULL, related_name="appointments", null=True)
+    time = models.ForeignKey(Time, on_delete=models.SET_NULL, related_name="appointments", null=True)
 
     def __str__(self):
         return f"Appointment on {self.date} - {self.user.username}"
@@ -121,8 +116,7 @@ class Appointment(models.Model):
 
 class AppointmentDetail(models.Model):
     appointment = models.ForeignKey(Appointment, on_delete=models.CASCADE, related_name="appointment_details")
-    vaccine = models.ForeignKey(Vaccine, on_delete=models.CASCADE, related_name="appointment_details")
-    # quantity = models.IntegerField()
+    vaccine = models.ForeignKey(Vaccine, on_delete=models.SET_NULL, related_name="appointment_details", null=True)
 
     def __str__(self):
         return f"Detail for {self.appointment} - Vaccine: {self.vaccine.name}"
@@ -130,14 +124,14 @@ class AppointmentDetail(models.Model):
 
 class CommunicationVaccination(BaseModel):
     date = models.DateField()
-    time = models.CharField(max_length=255)
+    time = models.TimeField(null=True)
     address = models.TextField()
     description = models.TextField()
     slotPatient = models.IntegerField(null=True)
     slotStaff = models.IntegerField(null=True)
     emptyStaff = models.IntegerField(null=True)
     emptyPatient = models.IntegerField(null=True)
-    imgUrl = CloudinaryField('imgvaccine', null=True)
+    imgUrl = CloudinaryField(null=True)
 
     def __str__(self):
         return self.name

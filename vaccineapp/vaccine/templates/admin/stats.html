@@ -89,16 +89,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    // Dữ liệu từ backend
     const labels = {{ labels|safe }};
     const vaccinatedData = {{ vaccinated_data|safe }};
     const completionData = {{ completion_data|safe }};
     const vaccineStats = {{ vaccine_stats|safe }};
 
-    // Khởi tạo các biểu đồ
     let vaccinatedChartInstance, completionChartInstance, vaccineChartInstance;
 
-    // Biểu đồ số lượng hồ sơ đã tiêm
     const vaccinatedCtx = document.getElementById('vaccinatedChart');
     if (vaccinatedCtx) {
         vaccinatedChartInstance = new Chart(vaccinatedCtx, {
@@ -133,7 +130,6 @@
         });
     }
 
-    // Biểu đồ tỷ lệ hoàn thành lịch tiêm
     const completionRateCtx = document.getElementById('completionRateChart');
     if (completionRateCtx) {
         completionChartInstance = new Chart(completionRateCtx, {
@@ -169,7 +165,6 @@
         });
     }
 
-    // Biểu đồ số lượng vắc-xin theo loại
     const vaccineCtx = document.getElementById('vaccineChart');
     if (vaccineCtx) {
         const vaccineDatasets = Object.keys(vaccineStats).map((vaccineName, index) => {
@@ -216,7 +211,6 @@
         });
     }
 
-    // Logic   Logic ẩn/hiện biểu đồ
     const vaccinatedChartContainer = document.getElementById('vaccinatedChartContainer');
     const completionChartContainer = document.getElementById('completionChartContainer');
     const vaccineChartContainer = document.getElementById('vaccineChartContainer');
@@ -225,43 +219,38 @@
     const showCompletionChartBtn = document.getElementById('showCompletionChart');
     const showVaccineChartBtn = document.getElementById('showVaccineChart');
 
-    // Hiển thị biểu đồ đầu tiên mặc định
     vaccinatedChartContainer.style.display = 'block';
 
-    // Xử lý sự kiện click cho từng nút
     showVaccinatedChartBtn.addEventListener('click', () => {
         vaccinatedChartContainer.style.display = 'block';
         completionChartContainer.style.display = 'none';
         vaccineChartContainer.style.display = 'none';
-        vaccinatedChartInstance.resize(); // Cập nhật kích thước biểu đồ
+        vaccinatedChartInstance.resize();
     });
 
     showCompletionChartBtn.addEventListener('click', () => {
         vaccinatedChartContainer.style.display = 'none';
         completionChartContainer.style.display = 'block';
         vaccineChartContainer.style.display = 'none';
-        completionChartInstance.resize(); // Cập nhật kích thước biểu đồ
+        completionChartInstance.resize();
     });
 
     showVaccineChartBtn.addEventListener('click', () => {
         vaccinatedChartContainer.style.display = 'none';
         completionChartContainer.style.display = 'none';
         vaccineChartContainer.style.display = 'block';
-        vaccineChartInstance.resize(); // Cập nhật kích thước biểu đồ
+        vaccineChartInstance.resize();
     });
 
-    // Ẩn/hiện dropdown tháng dựa trên kiểu thống kê
     const timeFilter = document.getElementById('time_filter');
     const periodLabel = document.getElementById('period_label');
     const periodSelect = document.getElementById('period');
 
     timeFilter.addEventListener('change', function() {
         if (this.value !== 'month') {
-            // Ẩn combobox khi không phải là "month"
             periodLabel.style.display = 'none';
             periodSelect.style.display = 'none';
         } else {
-            // Hiện combobox chọn tháng
             periodLabel.style.display = 'inline-block';
             periodSelect.style.display = 'inline-block';
             periodLabel.textContent = 'Tháng:';
@@ -273,7 +262,6 @@
         }
     });
 
-    // Khởi tạo trạng thái ban đầu
     if (timeFilter.value !== 'month') {
         periodLabel.style.display = 'none';
         periodSelect.style.display = 'none';

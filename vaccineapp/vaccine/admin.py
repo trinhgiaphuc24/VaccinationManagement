@@ -19,11 +19,8 @@ class MyVaccineAdmin(admin.ModelAdmin):
     search_fields = ['name']
     list_filter = ['id', 'createdAt']
     list_editable = ['name']
-    readonly_fields = ['image_view']
     list_per_page = 10
-
-    def image_view(self, course):
-        return mark_safe(f"<img src='/static/{course.image.name}' width='200' />")
+    # readonly_fields = ['image_preview']
 
 
 class MyCommunicationAdmin(admin.ModelAdmin):
@@ -81,6 +78,11 @@ class MyUserAdmin(admin.ModelAdmin):
     list_editable = ['username']
     list_per_page = 10
 
+    def save_model(self, request, obj, form, change):
+        if 'password' in form.changed_data or not change:
+            obj.set_password(obj.password)
+        obj.save()
+
 
 class MyVaccineAdminSite(admin.AdminSite):
     site_header = 'Vaccine Management Admin'
@@ -89,52 +91,45 @@ class MyVaccineAdminSite(admin.AdminSite):
         return [path('cate-stats/', self.cate_stats_view, name='cate-stats')] + super().get_urls()
 
     def cate_stats_view(self, request):
-        # Kiểm tra xem người dùng đã đăng nhập và có quyền staff
         if not request.user.is_authenticated or not request.user.is_staff:
             return HttpResponseRedirect(reverse('admin:login') + '?next=' + request.path)
 
-        time_filter = request.GET.get('time_filter', 'month')  # Mặc định là tháng
+        time_filter = request.GET.get('time_filter', 'month')
         year = int(request.GET.get('year', datetime.now().year))
-        period = request.GET.get('period', '1')  # Giá trị mặc định là 1
+        period = request.GET.get('period', '1')
 
-        # Đảm bảo period hợp lệ cho 'month'
         if time_filter == 'month':
             period = int(period)
             if period < 1 or period > 12:
-                period = 1  # Đặt mặc định nếu period không hợp lệ
+                period = 1
         else:
-            period = 1  # Không cần period cho 'quarter' hoặc 'year'
+            period = 1
 
-        # Xác định khoảng thời gian
         if time_filter == 'year':
             start_date = timezone.make_aware(datetime(year, 1, 1))
             end_date = timezone.make_aware(datetime(year + 1, 1, 1))
             period_label = f"Năm {year}"
         elif time_filter == 'quarter':
-            # Hiển thị dữ liệu cho cả 4 quý, không cần period
-            start_date = timezone.make_aware(datetime(year, 1, 1))  # Bắt đầu từ đầu năm
-            end_date = timezone.make_aware(datetime(year + 1, 1, 1))  # Kết thúc vào cuối năm
+            start_date = timezone.make_aware(datetime(year, 1, 1))
+            end_date = timezone.make_aware(datetime(year + 1, 1, 1))
             period_label = f"Các Quý - {year}"
-        else:  # month
+        else:
             start_date = timezone.make_aware(datetime(year, int(period), 1))
             end_date = timezone.make_aware(
                 datetime(year, int(period), calendar.monthrange(year, int(period))[1])
             ) + timedelta(days=1)
             period_label = f"Tháng {period} - {year}"
 
-        # Dữ liệu cho biểu đồ
         vaccinated_data = []
         completion_data = []
         labels = []
-        vaccine_stats = {}  # {vaccine_type_name: [counts]}
+        vaccine_stats = {}
 
-        # Lấy danh sách các loại vắc-xin
         vaccine_types = VaccineType.objects.all()
         for vt in vaccine_types:
             vaccine_stats[vt.name] = []
 
         if time_filter == 'year':
-            # Thống kê theo 12 tháng trong năm
             labels = [f"Tháng {i}" for i in range(1, 13)]
             for month in range(1, 13):
                 month_start = timezone.make_aware(datetime(year, month, 1))
@@ -142,14 +137,12 @@ class MyVaccineAdminSite(admin.AdminSite):
                     datetime(year, month, calendar.monthrange(year, month)[1])
                 ) + timedelta(days=1)
 
-                # Số lượng hồ sơ đã tiêm
                 vaccinated_count = Appointment.objects.filter(
                     status='completed',
                     date__range=(month_start, month_end)
                 ).count()
                 vaccinated_data.append(vaccinated_count)
 
-                # Tỷ lệ hoàn thành lịch tiêm
                 total_apps = Appointment.objects.filter(
                     date__range=(month_start, month_end)
                 ).count()
@@ -160,7 +153,6 @@ class MyVaccineAdminSite(admin.AdminSite):
                 rate = (completed_apps / total_apps * 100) if total_apps > 0 else 0
                 completion_data.append(round(rate, 2))
 
-                # Thống kê số lượng vắc-xin theo loại
                 for vt in vaccine_types:
                     count = Appointment.objects.filter(
                         status='completed',
@@ -170,7 +162,6 @@ class MyVaccineAdminSite(admin.AdminSite):
                     vaccine_stats[vt.name].append(count)
 
         elif time_filter == 'quarter':
-            # Thống kê cho cả 4 quý trong năm
             labels = ['Quý 1', 'Quý 2', 'Quý 3', 'Quý 4']
             for quarter in range(1, 5):
                 start_month = (quarter - 1) * 3 + 1
@@ -180,14 +171,12 @@ class MyVaccineAdminSite(admin.AdminSite):
                     datetime(year, end_month, calendar.monthrange(year, end_month)[1])
                 ) + timedelta(days=1)
 
-                # Số lượng hồ sơ đã tiêm
                 vaccinated_count = Appointment.objects.filter(
                     status='completed',
                     date__range=(quarter_start, quarter_end)
                 ).count()
                 vaccinated_data.append(vaccinated_count)
 
-                # Tỷ lệ hoàn thành lịch tiêm
                 total_apps = Appointment.objects.filter(
                     date__range=(quarter_start, quarter_end)
                 ).count()
@@ -198,7 +187,6 @@ class MyVaccineAdminSite(admin.AdminSite):
                 rate = (completed_apps / total_apps * 100) if total_apps > 0 else 0
                 completion_data.append(round(rate, 2))
 
-                # Thống kê số lượng vắc-xin theo loại
                 for vt in vaccine_types:
                     count = Appointment.objects.filter(
                         status='completed',
@@ -207,22 +195,19 @@ class MyVaccineAdminSite(admin.AdminSite):
                     ).count()
                     vaccine_stats[vt.name].append(count)
 
-        else:  # month
-            # Thống kê theo từng ngày trong tháng
+        else:
             days_in_month = calendar.monthrange(year, int(period))[1]
             labels = [f"Ngày {i}" for i in range(1, days_in_month + 1)]
             for day in range(1, days_in_month + 1):
                 day_start = timezone.make_aware(datetime(year, int(period), day))
                 day_end = day_start + timedelta(days=1)
 
-                # Số lượng hồ sơ đã tiêm
                 vaccinated_count = Appointment.objects.filter(
                     status='completed',
                     date__range=(day_start, day_end)
                 ).count()
                 vaccinated_data.append(vaccinated_count)
 
-                # Tỷ lệ hoàn thành lịch tiêm
                 total_apps = Appointment.objects.filter(
                     date__range=(day_start, day_end)
                 ).count()
@@ -233,7 +218,6 @@ class MyVaccineAdminSite(admin.AdminSite):
                 rate = (completed_apps / total_apps * 100) if total_apps > 0 else 0
                 completion_data.append(round(rate, 2))
 
-                # Thống kê số lượng vắc-xin theo loại
                 for vt in vaccine_types:
                     count = Appointment.objects.filter(
                         status='completed',
@@ -242,8 +226,7 @@ class MyVaccineAdminSite(admin.AdminSite):
                     ).count()
                     vaccine_stats[vt.name].append(count)
 
-        # Thêm danh sách tháng
-        months = list(range(1, 13))  # Danh sách [1, 2, ..., 12]
+        months = list(range(1, 13))
 
         return TemplateResponse(request, 'admin/stats.html', {
             'vaccinated_data': vaccinated_data,
@@ -253,7 +236,7 @@ class MyVaccineAdminSite(admin.AdminSite):
             'period_label': period_label,
             'time_filter': time_filter,
             'year': year,
-            'period': str(period),  # Chuyển period thành chuỗi để so sánh trong template
+            'period': str(period),
             'months': months,
         })
 

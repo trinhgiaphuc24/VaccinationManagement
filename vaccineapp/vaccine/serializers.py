@@ -4,15 +4,12 @@ from vaccine.models import Vaccine, VaccineType, CommunicationVaccination, User,
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer, SerializerMethodField
 
+
+
 class UserSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'password', 'phone_number', 'first_name', 'last_name', 'userRole', 'avatarUrl']
-        extra_kwargs = {
-            'password': {
-                'write_only': True
-            }
-        }
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -59,9 +56,15 @@ class CountrySerializer(serializers.ModelSerializer):
 class VaccineSerializer(ModelSerializer):
     vaccine_type = VaccineTypeSerializer(read_only=True)
     country_produce = CountrySerializer(read_only=True)
+
     class Meta:
         model = Vaccine
         fields = ['id', 'name', 'price', 'country_produce', 'vaccine_type', 'imgUrl', 'description']
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data['imgUrl'] = instance.imgUrl.url if instance.imgUrl else None
+        return data
 
 class HealthCenterSerializer(serializers.ModelSerializer):
     class Meta:
@@ -83,13 +86,11 @@ class InformationSerializer(serializers.ModelSerializer):
         ]
 
     # def validate_phone_number(self, value):
-    #     # Kiểm tra định dạng số điện thoại (ví dụ: 10-15 chữ số)
     #     if not value.isdigit() or len(value) < 10 or len(value) > 11:
     #         raise serializers.ValidationError("Số điện thoại phải chứa từ 10 đến 11 chữ số.")
     #     return value
 
     # def validate_email(self, value):
-    #     # Kiểm tra email duy nhất (nếu có)
     #     if value and Information.objects.filter(email=value).exists():
     #         raise serializers.ValidationError("Email này đã được sử dụng.")
     #     return value
@@ -117,11 +118,11 @@ class AppointmentDetailSerializer(serializers.ModelSerializer):
         fields = ['id', 'vaccine']
 
 class AppointmentSerializer(serializers.ModelSerializer):
-    appointment_details = AppointmentDetailSerializer(many=True, required=False)  # Thêm required=False
-    information = serializers.PrimaryKeyRelatedField(queryset=Information.objects.all(), required=False)  # Thêm required=False
-    health_centre = serializers.PrimaryKeyRelatedField(queryset=HealthCenter.objects.all(), required=False)  # Thêm required=False
-    time = serializers.PrimaryKeyRelatedField(queryset=Time.objects.all(), required=False)  # Thêm required=False
-    date = serializers.DateField(required=False)  # Thêm required=False
+    appointment_details = AppointmentDetailSerializer(many=True, required=False)
+    information = serializers.PrimaryKeyRelatedField(queryset=Information.objects.all(), required=False)
+    health_centre = serializers.PrimaryKeyRelatedField(queryset=HealthCenter.objects.all(), required=False)
+    time = serializers.PrimaryKeyRelatedField(queryset=Time.objects.all(), required=False)
+    date = serializers.DateField(required=False)
 
     class Meta:
         model = Appointment
@@ -136,11 +137,27 @@ class AppointmentSerializer(serializers.ModelSerializer):
         return appointment
 
     def update(self, instance, validated_data):
-        # Chỉ cho phép cập nhật note và status
         instance.note = validated_data.get('note', instance.note)
         instance.status = validated_data.get('status', instance.status)
         instance.save()
         return instance
+
+
+class CommunicationVaccinationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CommunicationVaccination
+        fields = ['id', 'name', 'date', 'time','address', 'description', 'slotPatient', 'slotStaff', 'emptyStaff', 'emptyPatient', 'imgUrl']
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data['imgUrl'] = instance.imgUrl.url if instance.imgUrl else None
+        return data
+
+
+class AttendantCommunicationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AttendantCommunication
+        fields = ['id', 'user', 'communication', 'quantity', 'registration_type']
 
 class AppointmentDetailReadSerializer(serializers.ModelSerializer):
     vaccine = VaccineSerializer(read_only=True)
@@ -161,13 +178,3 @@ class AppointmentReadSerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'created_at']
 
 
-class CommunicationVaccinationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CommunicationVaccination
-        fields = ['id', 'name', 'date', 'time','address', 'description', 'slotPatient', 'slotStaff', 'emptyStaff', 'emptyPatient', 'imgUrl']
-
-
-class AttendantCommunicationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = AttendantCommunication
-        fields = ['id', 'user', 'communication', 'quantity', 'registration_type']

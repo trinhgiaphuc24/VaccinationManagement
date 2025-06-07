@@ -1,4 +1,5 @@
 import uuid
+from threading import activeCount
 
 from django.core.mail import send_mail
 from django.db import transaction
@@ -10,23 +11,20 @@ from django.http import JsonResponse
 from django.db.models import Count
 from rest_framework.filters import OrderingFilter
 from rest_framework.views import APIView
-
 from settings import IP_URL_VIEW
 from vaccine.models import *
 from vaccine import serializers, paginators, perms
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from django.db.models import Q
-from vaccine.serializers import VaccineTypeSerializer, UserRegisterSerializer, InformationSerializer, \
-    AppointmentSerializer, AppointmentReadSerializer, AppointmentDetailReadSerializer, AttendantCommunicationSerializer, \
-    CommunicationVaccinationSerializer
+from vaccine.serializers import VaccineTypeSerializer, UserRegisterSerializer, InformationSerializer, AppointmentSerializer, AppointmentReadSerializer, AppointmentDetailReadSerializer, AttendantCommunicationSerializer, CommunicationVaccinationSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import viewsets, generics, permissions, parsers, status
 import requests
 import logging
+from datetime import datetime
 
 logger = logging.getLogger(__name__)
-
 
 
 class UserViewSet(viewsets.ViewSet, generics.CreateAPIView):
@@ -127,11 +125,20 @@ class TimeViewSet(viewsets.ViewSet, generics.ListAPIView):
 
 
 class InformationViewSet(viewsets.ViewSet, generics.ListAPIView,generics.RetrieveAPIView,generics.CreateAPIView,generics.UpdateAPIView):
+    queryset = Information.objects.filter()
     serializer_class = InformationSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Information.objects.filter(user=self.request.user)
+        queryset = self.queryset.filter(user=self.request.user)
+        q = self.request.query_params.get('q')
+        if q:
+            queryset = queryset.filter(
+                Q(first_name__icontains=q) |
+                Q(last_name__icontains=q) |
+                Q(phone_number__icontains=q)
+            )
+        return queryset
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
@@ -146,17 +153,35 @@ class InformationViewSet(viewsets.ViewSet, generics.ListAPIView,generics.Retriev
 class AppointmentViewSet(viewsets.ViewSet,generics.ListAPIView,generics.RetrieveAPIView,generics.CreateAPIView,generics.UpdateAPIView):
     queryset = Appointment.objects.select_related('information', 'health_centre', 'time').prefetch_related('appointment_details__vaccine')
     permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [OrderingFilter]
+    ordering_fields = ['id', 'created_at', 'status', 'health_centre__name']
+    ordering = ['created_at']
 
-    def get_serializer_class(self):
-        if self.action in ['list', 'retrieve', 'get_appointment_details']:
-            return AppointmentReadSerializer
-        return AppointmentSerializer
+
 
     def get_queryset(self):
         queryset = Appointment.objects.select_related('information', 'health_centre', 'time').prefetch_related('appointment_details__vaccine')
         if self.request.user.userRole == "staff":
             return queryset
-        return queryset.filter(information__user=self.request.user)
+
+        q = self.request.query_params.get('q')
+        if q:
+            queryset = queryset.filter(
+                Q(information__first_name__icontains=q) |
+                Q(information__last_name__icontains=q) |
+                Q(information__phone_number__icontains=q) |
+                Q(id__icontains=q)
+            )
+        date = self.request.query_params.get('date')
+        if date:
+            parsed_date = datetime.strptime(date, '%Y-%m-%d').date()
+            queryset = queryset.filter(created_at__date=parsed_date)
+        status = self.request.query_params.get('status')
+        if status:
+            queryset = queryset.filter(status=status)
+
+        return queryset
+
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -167,8 +192,6 @@ class AppointmentViewSet(viewsets.ViewSet,generics.ListAPIView,generics.Retrieve
         response_serializer = AppointmentReadSerializer(serializer.instance)
         return Response(response_serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
-    def perform_create(self, serializer):
-        serializer.save()
 
     def update(self, request, *args, **kwargs):
         instance = self.get_object()
@@ -191,20 +214,17 @@ class AppointmentViewSet(viewsets.ViewSet,generics.ListAPIView,generics.Retrieve
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-    def retrieve(self, request, *args, **kwargs):
-        instance = self.get_object()
-        instance.refresh_from_db()
-        serializer = self.get_serializer(instance)
-        return Response(serializer.data)
-
     @action(detail=True, methods=['get'], url_path='details')
     def get_appointment_details(self, request, pk=None):
         appointment = self.get_object()
-        print("Appointment found:", appointment.id)
         details = AppointmentDetail.objects.filter(appointment=appointment).select_related('vaccine')
-        print("Details found:", list(details.values()))
         serializer = AppointmentDetailReadSerializer(details, many=True)
         return Response(serializer.data)
+
+    def get_serializer_class(self):
+        if self.action in ['list', 'retrieve', 'get_appointment_details']:
+            return AppointmentReadSerializer
+        return AppointmentSerializer
 
 
 @csrf_exempt
@@ -244,7 +264,7 @@ class CommunicationVaccinationViewSet(viewsets.ViewSet,generics.ListAPIView,gene
         queryset = self.queryset
         q = self.request.query_params.get('q')
         if q:
-            queryset = queryset.filter(Q(name__icontains=q) | Q(description__icontains=q))
+            queryset = queryset.filter(Q(name__icontains=q) | Q(address__icontains=q))
         return queryset
 
     @action(detail=True, methods=['patch'], permission_classes=[IsAuthenticated])

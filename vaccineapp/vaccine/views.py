@@ -1,6 +1,5 @@
 import uuid
 from threading import activeCount
-
 from django.core.mail import send_mail
 from django.db import transaction
 from django.utils.decorators import method_decorator
@@ -61,7 +60,8 @@ class RegisterViewSet(viewsets.ViewSet):
 class UserProfileViewSet(viewsets.ViewSet):
     permission_classes = [IsAuthenticated]
 
-    def list(self, request, *args, **kwargs):
+    @action(methods=['get'], detail=False, url_path='profile')
+    def get_user_profile(self, request):
         user = request.user
         data = {
             "first_name": user.first_name,
@@ -98,10 +98,13 @@ class VaccineViewSet(viewsets.ViewSet, generics.ListAPIView, generics.RetrieveAP
 
         return queryset
 
-    def retrieve(self, request, *args, **kwargs):
-        instance = self.get_object()
-        serializer = self.get_serializer(instance)
-        return Response(serializer.data)
+    @action(detail=False, methods=['get'], url_path='list')
+    def list_vaccines(self, request):
+        queryset = self.get_queryset()
+        paginator = self.pagination_class()
+        page = paginator.paginate_queryset(queryset, request)
+        serializer = self.serializer_class(page, many=True)
+        return paginator.get_paginated_response(serializer.data)
 
 
 class VaccineTypeViewSet(viewsets.ViewSet, generics.ListAPIView):
@@ -124,8 +127,8 @@ class TimeViewSet(viewsets.ViewSet, generics.ListAPIView):
     pagination_class = paginators.TimePagination
 
 
-class InformationViewSet(viewsets.ViewSet, generics.ListAPIView,generics.RetrieveAPIView,generics.CreateAPIView,generics.UpdateAPIView):
-    queryset = Information.objects.filter()
+class InformationViewSet(viewsets.ViewSet,generics.ListAPIView,generics.RetrieveAPIView,generics.CreateAPIView,generics.UpdateAPIView):
+    queryset = Information.objects.all()
     serializer_class = InformationSerializer
     permission_classes = [IsAuthenticated]
 
@@ -140,14 +143,24 @@ class InformationViewSet(viewsets.ViewSet, generics.ListAPIView,generics.Retriev
             )
         return queryset
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+    @action(methods=['post'], detail=False, url_path='create-info')
+    def create_info(self, request):
+        data = request.data.copy()
+        data['user'] = request.user.id
+        serializer = self.serializer_class(data=data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    def perform_update(self, serializer):
-        serializer.save(user=self.request.user)
-
-    def perform_destroy(self, instance):
-        instance.delete()
+    @action(methods=['patch'], detail=True, url_path='update-info')
+    def update_info(self, request, pk=None):
+        instance = self.get_object()
+        data = request.data.copy()
+        data['user'] = request.user.id
+        serializer = self.serializer_class(instance, data=data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class AppointmentViewSet(viewsets.ViewSet,generics.ListAPIView,generics.RetrieveAPIView,generics.CreateAPIView,generics.UpdateAPIView):
@@ -156,8 +169,6 @@ class AppointmentViewSet(viewsets.ViewSet,generics.ListAPIView,generics.Retrieve
     filter_backends = [OrderingFilter]
     ordering_fields = ['id', 'created_at', 'status', 'health_centre__name']
     ordering = ['created_at']
-
-
 
     def get_queryset(self):
         queryset = Appointment.objects.select_related('information', 'health_centre', 'time').prefetch_related('appointment_details__vaccine')
@@ -180,41 +191,31 @@ class AppointmentViewSet(viewsets.ViewSet,generics.ListAPIView,generics.Retrieve
         if status:
             queryset = queryset.filter(status=status)
 
-        return queryset
+        return queryset.filter(information__user=self.request.user)
 
-
-    def create(self, request, *args, **kwargs):
+    @action(methods=['post'], detail=False, url_path='create-appointment')
+    def create_appointment(self, request):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        headers = self.get_success_headers(serializer.data)
-        # ppointmentReadSerializer trả về dữ liệu chi tiết sau khi tạo
+        serializer.save()
         response_serializer = AppointmentReadSerializer(serializer.instance)
-        return Response(response_serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+        return Response(response_serializer.data, status=status.HTTP_201_CREATED)
 
-
-    def update(self, request, *args, **kwargs):
+    @action(methods=['patch'], detail=True, url_path='update-appointment')
+    def update_appointment(self, request, pk=None):
         instance = self.get_object()
         serializer = self.get_serializer(instance, data=request.data, partial=True)
-        serializer.is_valid(raise_exception=True)
-
-        try:
-            with transaction.atomic():
-                serializer.save()
-                instance.refresh_from_db()
-
-        except Exception as e:
-            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
-
+        serializer.save()
         response_serializer = AppointmentReadSerializer(instance)
         return Response(response_serializer.data)
 
-    def list(self, request, *args, **kwargs):
-        queryset = self.get_queryset()
+    @action(methods=['get'], detail=False, url_path='active-appointments')
+    def list_active_appointments(self, request):
+        queryset = self.get_queryset().filter(status='active')
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-    @action(detail=True, methods=['get'], url_path='details')
+    @action(methods=['get'], detail=True, url_path='details')
     def get_appointment_details(self, request, pk=None):
         appointment = self.get_object()
         details = AppointmentDetail.objects.filter(appointment=appointment).select_related('vaccine')
@@ -267,7 +268,7 @@ class CommunicationVaccinationViewSet(viewsets.ViewSet,generics.ListAPIView,gene
             queryset = queryset.filter(Q(name__icontains=q) | Q(address__icontains=q))
         return queryset
 
-    @action(detail=True, methods=['patch'], permission_classes=[IsAuthenticated])
+    @action(methods=['patch'], detail=True, permission_classes=[IsAuthenticated])
     def update_empty_patient(self, request, pk=None):
             communication = self.get_object()
             new_empty_patient = request.data.get('emptyPatient')
@@ -278,7 +279,7 @@ class CommunicationVaccinationViewSet(viewsets.ViewSet,generics.ListAPIView,gene
                 status=status.HTTP_200_OK
             )
 
-    @action(detail=True, methods=['patch'], url_path='update-empty-staff')
+    @action(methods=['patch'], detail=True, url_path='update-empty-staff')
     def update_empty_staff(self, request, pk=None):
             communication = self.get_object()
             empty_staff = request.data.get('emptyStaff')
@@ -293,7 +294,7 @@ class AttendantCommunicationViewSet(viewsets.ViewSet, generics.ListAPIView, gene
     serializer_class = AttendantCommunicationSerializer
     permission_classes = [IsAuthenticated]
 
-    @action(detail=False, methods=['post'])
+    @action(methods=['post'], detail=False)
     def register(self, request):
         user = request.user
         communication_id = request.data.get('communication')
@@ -319,7 +320,7 @@ class AttendantCommunicationViewSet(viewsets.ViewSet, generics.ListAPIView, gene
             status=status.HTTP_201_CREATED
         )
 
-    @action(detail=False, methods=['get'], url_path='check-registration/(?P<communication_id>\d+)')
+    @action(methods=['get'], detail=False, url_path='check-registration/(?P<communication_id>\d+)')
     def check_registration(self, request, communication_id=None):
         user = request.user
         registration_type = request.query_params.get('registration_type', 'patient')
@@ -336,7 +337,7 @@ class AttendantCommunicationViewSet(viewsets.ViewSet, generics.ListAPIView, gene
         )
 
 
-    @action(detail=False, methods=['post'], url_path='cancel-registration')
+    @action(methods=['post'], detail=False, url_path='cancel-registration')
     def cancel_registration(self, request):
         user = request.user
         communication_id = request.data.get('communication')
@@ -442,81 +443,47 @@ class ChatView(View):
                 {'responses': [{'text': 'Xin lỗi, đã xảy ra lỗi không mong muốn. Vui lòng thử lại sau.'}]}, status=200)
 
 
-class TotalVaccinatedView(APIView):
+class StatisticsViewSet(viewsets.ViewSet):
     permission_classes = [IsAuthenticated]
 
-    def get(self, request):
+    def filter_appointments(self, request, queryset):
         month = request.query_params.get('month')
         quarter = request.query_params.get('quarter')
         year = request.query_params.get('year')
 
-        appointments = Appointment.objects.filter(status='completed')
-
         if year:
-            appointments = appointments.filter(date__year=year)
+            queryset = queryset.filter(date__year=year)
         if month:
-            appointments = appointments.filter(date__month=month)
+            queryset = queryset.filter(date__month=month)
         if quarter:
             start_month = (int(quarter) - 1) * 3 + 1
             end_month = start_month + 2
-            appointments = appointments.filter(date__month__gte=start_month, date__month__lte=end_month)
+            queryset = queryset.filter(date__month__gte=start_month, date__month__lte=end_month)
 
+        return queryset
+
+    @action(detail=False, methods=['get'], url_path='total-vaccinated')
+    def total_vaccinated(self, request):
+        appointments = self.filter_appointments(request, Appointment.objects.filter(status='completed'))
         total = appointments.count()
-
         return Response({'total': total})
 
-
-class CompletionRateView(APIView):
-    permission_classes = [IsAuthenticated]
-
-    def get(self, request):
-        month = request.query_params.get('month')
-        quarter = request.query_params.get('quarter')
-        year = request.query_params.get('year')
-
-        total_appointments = Appointment.objects.all()
-        completed_appointments = Appointment.objects.filter(status='completed')
-
-        if year:
-            total_appointments = total_appointments.filter(date__year=year)
-            completed_appointments = completed_appointments.filter(date__year=year)
-        if month:
-            total_appointments = total_appointments.filter(date__month=month)
-            completed_appointments = completed_appointments.filter(date__month=month)
-        if quarter:
-            start_month = (int(quarter) - 1) * 3 + 1
-            end_month = start_month + 2
-            total_appointments = total_appointments.filter(date__month__gte=start_month, date__month__lte=end_month)
-            completed_appointments = completed_appointments.filter(date__month__gte=start_month,
-                                                                   date__month__lte=end_month)
+    @action(detail=False, methods=['get'], url_path='completion-rate')
+    def completion_rate(self, request):
+        total_appointments = self.filter_appointments(request, Appointment.objects.all())
+        completed_appointments = self.filter_appointments(request, Appointment.objects.filter(status='completed'))
 
         total_count = total_appointments.count()
         completed_count = completed_appointments.count()
-        rate = (completed_count / total_count * 100) if total_count > 0 else 0
 
+        rate = (completed_count / total_count * 100) if total_count > 0 else 0
         return Response({'rate': rate})
 
-
-class PopularVaccinesView(APIView):
-    permission_classes = [IsAuthenticated]
-
-    def get(self, request):
-        month = request.query_params.get('month')
-        quarter = request.query_params.get('quarter')
-        year = request.query_params.get('year')
-
-        appointments = Appointment.objects.all()
-
-        if year:
-            appointments = appointments.filter(date__year=year)
-        if month:
-            appointments = appointments.filter(date__month=month)
-        if quarter:
-            start_month = (int(quarter) - 1) * 3 + 1
-            end_month = start_month + 2
-            appointments = appointments.filter(date__month__gte=start_month, date__month__lte=end_month)
-
+    @action(detail=False, methods=['get'], url_path='popular-vaccines')
+    def popular_vaccines(self, request):
+        appointments = self.filter_appointments(request, Appointment.objects.all())
         appointment_ids = appointments.values_list('id', flat=True)
+
         vaccines = (
             AppointmentDetail.objects.filter(appointment__id__in=appointment_ids)
             .values('vaccine__name')

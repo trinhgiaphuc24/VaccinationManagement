@@ -5,7 +5,6 @@ from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer, SerializerMethodField
 
 
-
 class UserSerializer(ModelSerializer):
     class Meta:
         model = User
@@ -36,12 +35,6 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         validated_data['userRole'] = RoleEnum.PATIENT
         user = User.objects.create(**validated_data)
         return user
-
-    # def update(self, instance, validated_data):
-    #     validated_data.pop('userRole', None)
-    #     if 'password' in validated_data:
-    #         validated_data['password'] = make_password(validated_data['password'])
-    #     return super().update(instance, validated_data)
 
 class VaccineTypeSerializer(serializers.ModelSerializer):
     class Meta:
@@ -81,34 +74,13 @@ class InformationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Information
-        fields = [
-            "id", "first_name", "last_name", "phone_number", "date_of_birth", "sex", "address", "email", "user",
-        ]
-
-    # def validate_phone_number(self, value):
-    #     if not value.isdigit() or len(value) < 10 or len(value) > 11:
-    #         raise serializers.ValidationError("Số điện thoại phải chứa từ 10 đến 11 chữ số.")
-    #     return value
-
-    # def validate_email(self, value):
-    #     if value and Information.objects.filter(email=value).exists():
-    #         raise serializers.ValidationError("Email này đã được sử dụng.")
-    #     return value
+        fields = ["id", "first_name", "last_name", "phone_number", "date_of_birth", "sex", "address", "email", "user"]
+        read_only_fields = ['user']
 
     def create(self, validated_data):
-        return Information.objects.create(**validated_data)
+        validated_data['user'] = self.context['request'].user
+        return super().create(validated_data)
 
-    def update(self, instance, validated_data):
-        instance.first_name = validated_data.get("first_name", instance.first_name)
-        instance.last_name = validated_data.get("last_name", instance.last_name)
-        instance.phone_number = validated_data.get("phone_number", instance.phone_number)
-        instance.date_of_birth = validated_data.get("date_of_birth", instance.date_of_birth)
-        instance.sex = validated_data.get("sex", instance.sex)
-        instance.address = validated_data.get("address", instance.address)
-        instance.email = validated_data.get("email", instance.email)
-        instance.user = validated_data.get("user", instance.user)
-        instance.save()
-        return instance
 
 class AppointmentDetailSerializer(serializers.ModelSerializer):
     vaccine = serializers.PrimaryKeyRelatedField(queryset=Vaccine.objects.all())
@@ -135,12 +107,6 @@ class AppointmentSerializer(serializers.ModelSerializer):
         for detail_data in appointment_details_data:
             AppointmentDetail.objects.create(appointment=appointment, **detail_data)
         return appointment
-
-    def update(self, instance, validated_data):
-        instance.note = validated_data.get('note', instance.note)
-        instance.status = validated_data.get('status', instance.status)
-        instance.save()
-        return instance
 
 
 class CommunicationVaccinationSerializer(serializers.ModelSerializer):
@@ -176,5 +142,3 @@ class AppointmentReadSerializer(serializers.ModelSerializer):
         model = Appointment
         fields = ['id', 'date', 'status', 'created_at', 'note', 'information', 'health_centre', 'time', 'appointment_details']
         read_only_fields = ['id', 'created_at']
-
-

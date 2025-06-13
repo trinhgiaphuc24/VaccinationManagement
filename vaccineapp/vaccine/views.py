@@ -16,6 +16,8 @@ from vaccine import serializers, paginators, perms
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from django.db.models import Q
+
+from vaccine.perms import IsOwner, IsPatient, IsStaff
 from vaccine.serializers import VaccineTypeSerializer, UserRegisterSerializer, InformationSerializer, AppointmentSerializer, AppointmentReadSerializer, AppointmentDetailReadSerializer, AttendantCommunicationSerializer, CommunicationVaccinationSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import viewsets, generics, permissions, parsers, status
@@ -31,7 +33,7 @@ class UserViewSet(viewsets.ViewSet, generics.CreateAPIView):
     serializer_class = serializers.UserSerializer
     parser_classes = [parsers.MultiPartParser]
 
-    @action(methods=['GET', 'PUT'], url_path='current-user', detail=False, permission_classes=[permissions.IsAuthenticated])
+    @action(methods=['GET', 'PUT'], url_path='current-user', detail=False, permission_classes=[IsAuthenticated, IsOwner])
     def current_user(self, request):
         user = request.user
         if request.method == 'GET':
@@ -58,7 +60,7 @@ class RegisterViewSet(viewsets.ViewSet):
 
 
 class UserProfileViewSet(viewsets.ViewSet):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwner]
 
     @action(methods=['get'], detail=False, url_path='profile')
     def get_user_profile(self, request):
@@ -74,12 +76,10 @@ class UserProfileViewSet(viewsets.ViewSet):
 
 class VaccineViewSet(viewsets.ViewSet, generics.ListAPIView, generics.RetrieveAPIView):
     queryset = Vaccine.objects.filter(active=True).select_related('vaccine_type', 'country_produce')
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwner]
     serializer_class = serializers.VaccineSerializer
     pagination_class = paginators.VaccinePagination
-    filter_backends = [OrderingFilter]
-    ordering_fields = ['id', 'price', 'name', 'vaccine_type__name', 'country_produce__name']
-    ordering = ['id']
+    # filter_backends = [OrderingFilter]
 
     def get_queryset(self):
         queryset = self.queryset
@@ -92,37 +92,30 @@ class VaccineViewSet(viewsets.ViewSet, generics.ListAPIView, generics.RetrieveAP
         if vaccine_type_id:
             queryset = queryset.filter(vaccine_type_id=vaccine_type_id)
 
-        country_produce_id = self.request.query_params.get('country_produce_id')
-        if country_produce_id:
-            queryset = queryset.filter(country_produce_id=country_produce_id)
-
         return queryset
 
     @action(detail=False, methods=['get'], url_path='list')
-    def list_vaccines(self, request):
-        queryset = self.get_queryset()
-        paginator = self.pagination_class()
-        page = paginator.paginate_queryset(queryset, request)
-        serializer = self.serializer_class(page, many=True)
-        return paginator.get_paginated_response(serializer.data)
+    def get_list_vaccines(self, request):
+        vaccines = self.get_object().vaccine_set.filter(active=True)
+        return Response(serializers.VaccineSerializer(vaccines, many=True).data, status=status.HTTP_200_OK)
 
 
 class VaccineTypeViewSet(viewsets.ViewSet, generics.ListAPIView):
     queryset = VaccineType.objects.filter(active=True)
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwner]
     serializer_class = VaccineTypeSerializer
 
 
 class HealthCenterViewSet(viewsets.ViewSet, generics.ListAPIView):
     queryset = HealthCenter.objects.filter(active=True)
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwner]
     serializer_class = serializers.HealthCenterSerializer
     pagination_class = paginators.HealthCenterPagination
 
 
 class TimeViewSet(viewsets.ViewSet, generics.ListAPIView):
     queryset = Time.objects.filter(active=True)
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwner]
     serializer_class = serializers.TimeSerializer
     pagination_class = paginators.TimePagination
 
@@ -130,7 +123,7 @@ class TimeViewSet(viewsets.ViewSet, generics.ListAPIView):
 class InformationViewSet(viewsets.ViewSet,generics.ListAPIView,generics.RetrieveAPIView,generics.CreateAPIView,generics.UpdateAPIView):
     queryset = Information.objects.all()
     serializer_class = InformationSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwner]
 
     def get_queryset(self):
         queryset = self.queryset.filter(user=self.request.user)
@@ -143,7 +136,7 @@ class InformationViewSet(viewsets.ViewSet,generics.ListAPIView,generics.Retrieve
             )
         return queryset
 
-    @action(methods=['post'], detail=False, url_path='create-info')
+    @action(methods=['post'], detail=False, url_path='create-info', permission_classes= [IsPatient])
     def create_info(self, request):
         data = request.data.copy()
         data['user'] = request.user.id
@@ -152,7 +145,7 @@ class InformationViewSet(viewsets.ViewSet,generics.ListAPIView,generics.Retrieve
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    @action(methods=['patch'], detail=True, url_path='update-info')
+    @action(methods=['patch'], detail=True, url_path='update-info', permission_classes= [IsPatient])
     def update_info(self, request, pk=None):
         instance = self.get_object()
         data = request.data.copy()
@@ -162,13 +155,16 @@ class InformationViewSet(viewsets.ViewSet,generics.ListAPIView,generics.Retrieve
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+    @action(methods=['delete'], detail=True, url_path='delete-info', permission_classes= [IsPatient])
+    def delete_info(self, request, pk=None):
+        instance = self.get_object()
+        instance.delete()  # Xóa bản ghi
+        return Response({"message": "Thông tin đã được xóa thành công."}, status=status.HTTP_204_NO_CONTENT)
+
 
 class AppointmentViewSet(viewsets.ViewSet,generics.ListAPIView,generics.RetrieveAPIView,generics.CreateAPIView,generics.UpdateAPIView):
     queryset = Appointment.objects.select_related('information', 'health_centre', 'time').prefetch_related('appointment_details__vaccine')
-    permission_classes = [permissions.IsAuthenticated]
-    filter_backends = [OrderingFilter]
-    ordering_fields = ['id', 'created_at', 'status', 'health_centre__name']
-    ordering = ['created_at']
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         queryset = Appointment.objects.select_related('information', 'health_centre', 'time').prefetch_related('appointment_details__vaccine')
@@ -193,37 +189,29 @@ class AppointmentViewSet(viewsets.ViewSet,generics.ListAPIView,generics.Retrieve
 
         return queryset.filter(information__user=self.request.user)
 
-    @action(methods=['post'], detail=False, url_path='create-appointment')
+    @action(methods=['get'], detail=False, url_path='all', permission_classes=[IsOwner])
+    def list_appointments(self, request):
+        appointments = self.get_queryset()
+        return Response(AppointmentReadSerializer(appointments, many=True).data)
+
+    @action(methods=['post'], detail=False, url_path='create-appointment', permission_classes= [IsPatient, IsOwner])
     def create_appointment(self, request):
         serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        response_serializer = AppointmentReadSerializer(serializer.instance)
-        return Response(response_serializer.data, status=status.HTTP_201_CREATED)
+        return Response(AppointmentReadSerializer(serializer.save()).data, status=status.HTTP_201_CREATED)
 
-    @action(methods=['patch'], detail=True, url_path='update-appointment')
+    @action(methods=['patch'], detail=True, url_path='update-appointment', permission_classes= [IsStaff, IsOwner])
     def update_appointment(self, request, pk=None):
-        instance = self.get_object()
-        serializer = self.get_serializer(instance, data=request.data, partial=True)
-        serializer.save()
-        response_serializer = AppointmentReadSerializer(instance)
-        return Response(response_serializer.data)
-
-    @action(methods=['get'], detail=False, url_path='active-appointments')
-    def list_active_appointments(self, request):
-        queryset = self.get_queryset().filter(status='active')
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)
+        appointments = self.get_object().appointment_set.filter(active=True)
+        return Response(AppointmentSerializer(appointments, many=True).data)
 
     @action(methods=['get'], detail=True, url_path='details')
     def get_appointment_details(self, request, pk=None):
-        appointment = self.get_object()
-        details = AppointmentDetail.objects.filter(appointment=appointment).select_related('vaccine')
-        serializer = AppointmentDetailReadSerializer(details, many=True)
-        return Response(serializer.data)
+        details = AppointmentDetail.objects.filter(appointment=self.get_object()).select_related('vaccine')
+        return Response(AppointmentDetailReadSerializer(details, many=True).data)
+
 
     def get_serializer_class(self):
-        if self.action in ['list', 'retrieve', 'get_appointment_details']:
+        if self.action in ['list_appointments', 'get_appointment_details']:
             return AppointmentReadSerializer
         return AppointmentSerializer
 
@@ -256,10 +244,7 @@ def send_email(request):
 class CommunicationVaccinationViewSet(viewsets.ViewSet,generics.ListAPIView,generics.RetrieveAPIView,generics.CreateAPIView,generics.UpdateAPIView):
     queryset = CommunicationVaccination.objects.filter(active=True)
     serializer_class = CommunicationVaccinationSerializer
-    permission_classes = [permissions.IsAuthenticated]
-    filter_backends = [OrderingFilter]
-    ordering_fields = ['id', 'name']
-    ordering = ['id']
+    permission_classes = [IsAuthenticated, IsOwner]
 
     def get_queryset(self):
         queryset = self.queryset
@@ -268,7 +253,7 @@ class CommunicationVaccinationViewSet(viewsets.ViewSet,generics.ListAPIView,gene
             queryset = queryset.filter(Q(name__icontains=q) | Q(address__icontains=q))
         return queryset
 
-    @action(methods=['patch'], detail=True, permission_classes=[IsAuthenticated])
+    @action(methods=['patch'], detail=True, permission_classes=[IsPatient])
     def update_empty_patient(self, request, pk=None):
             communication = self.get_object()
             new_empty_patient = request.data.get('emptyPatient')
@@ -279,7 +264,7 @@ class CommunicationVaccinationViewSet(viewsets.ViewSet,generics.ListAPIView,gene
                 status=status.HTTP_200_OK
             )
 
-    @action(methods=['patch'], detail=True, url_path='update-empty-staff')
+    @action(methods=['patch'], detail=True, url_path='update-empty-staff', permission_classes= [IsStaff])
     def update_empty_staff(self, request, pk=None):
             communication = self.get_object()
             empty_staff = request.data.get('emptyStaff')
@@ -292,7 +277,7 @@ class CommunicationVaccinationViewSet(viewsets.ViewSet,generics.ListAPIView,gene
 class AttendantCommunicationViewSet(viewsets.ViewSet, generics.ListAPIView, generics.CreateAPIView, generics.DestroyAPIView):
     queryset = AttendantCommunication.objects.all()
     serializer_class = AttendantCommunicationSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwner]
 
     @action(methods=['post'], detail=False)
     def register(self, request):
@@ -444,7 +429,7 @@ class ChatView(View):
 
 
 class StatisticsViewSet(viewsets.ViewSet):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwner]
 
     def filter_appointments(self, request, queryset):
         month = request.query_params.get('month')
@@ -462,13 +447,13 @@ class StatisticsViewSet(viewsets.ViewSet):
 
         return queryset
 
-    @action(detail=False, methods=['get'], url_path='total-vaccinated')
+    @action(detail=False, methods=['get'], url_path='total-vaccinated', permission_classes= [IsPatient])
     def total_vaccinated(self, request):
         appointments = self.filter_appointments(request, Appointment.objects.filter(status='completed'))
         total = appointments.count()
         return Response({'total': total})
 
-    @action(detail=False, methods=['get'], url_path='completion-rate')
+    @action(detail=False, methods=['get'], url_path='completion-rate', permission_classes= [IsPatient])
     def completion_rate(self, request):
         total_appointments = self.filter_appointments(request, Appointment.objects.all())
         completed_appointments = self.filter_appointments(request, Appointment.objects.filter(status='completed'))
@@ -479,7 +464,7 @@ class StatisticsViewSet(viewsets.ViewSet):
         rate = (completed_count / total_count * 100) if total_count > 0 else 0
         return Response({'rate': rate})
 
-    @action(detail=False, methods=['get'], url_path='popular-vaccines')
+    @action(detail=False, methods=['get'], url_path='popular-vaccines', permission_classes= [IsPatient])
     def popular_vaccines(self, request):
         appointments = self.filter_appointments(request, Appointment.objects.all())
         appointment_ids = appointments.values_list('id', flat=True)

@@ -1,5 +1,5 @@
 action_endpoint:
-  url: "http://192.168.1.5:5055/webhook"  # Hoặc địa chỉ và cổng action server của bạn
+  url: "http://192.168.1.12:5055/webhook"  # Hoặc địa chỉ và cổng action server của bạn
 
 webhooks:
   rest:

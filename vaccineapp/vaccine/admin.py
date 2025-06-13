@@ -71,6 +71,22 @@ class MyTimeAdmin(admin.ModelAdmin):
     list_per_page = 10
 
 
+class MyAppointmentAdmin(admin.ModelAdmin):
+    list_display = ['id', 'date', 'status']
+    search_fields = ['date', 'status']
+    list_filter = ['id']
+    list_editable = ['date', 'status']
+    list_per_page = 10
+
+
+class MyAppointmentDetailAdmin(admin.ModelAdmin):
+    list_display = ['id', 'appointment', 'vaccine']
+    search_fields = ['appointment', 'vaccine']
+    list_filter = ['id']
+    list_editable = ['appointment', 'vaccine']
+    list_per_page = 10
+
+
 class MyUserAdmin(admin.ModelAdmin):
     list_display = ['id', 'username', 'userRole']
     search_fields = ['username']
@@ -244,8 +260,8 @@ admin_site = MyVaccineAdminSite(name='vaccine')
 
 admin_site.register(Vaccine, MyVaccineAdmin)
 admin_site.register(Information, MyInformationAdmin)
-# admin_site.register(Appointment)
-# admin_site.register(AppointmentDetail)
+admin_site.register(Appointment, MyAppointmentAdmin)
+admin_site.register(AppointmentDetail, MyAppointmentDetailAdmin)
 admin_site.register(User, MyUserAdmin)
 admin_site.register(HealthCenter, MyHealthCenterAdmin)
 admin_site.register(Time, MyTimeAdmin)

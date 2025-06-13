@@ -111,7 +111,7 @@ class Appointment(models.Model):
     time = models.ForeignKey(Time, on_delete=models.SET_NULL, related_name="appointments", null=True)
 
     def __str__(self):
-        return f"Appointment on {self.date} - {self.user.username}"
+        return f"Appointment for {self.information.user.username} on {self.date}"
 
 
 class AppointmentDetail(models.Model):
@@ -119,7 +119,7 @@ class AppointmentDetail(models.Model):
     vaccine = models.ForeignKey(Vaccine, on_delete=models.SET_NULL, related_name="appointment_details", null=True)
 
     def __str__(self):
-        return f"Detail for {self.appointment} - Vaccine: {self.vaccine.name}"
+        return f"{self.appointment} - Vaccine: {self.vaccine.name}"
 
 
 class CommunicationVaccination(BaseModel):
